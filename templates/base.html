@@ -85,10 +85,12 @@
 					{% else %}
 
 					<li class="nav-item  {% block profile_active %}{% endblock %} dropdown">
-						<button><a class="nav-link dropdown-toggle" href="" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-<!--						  <img src="{{ MEDIA_URL }}{{ user.avatar }}" style="top: 0;" alt="{{user.username}} Avatar" class="rounded-circle" width="64" height="64">-->
+<!--						<button>-->
+							<a class="nav-link dropdown-toggle" href="" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						  <img src="{{ MEDIA_URL }}{{ user.avatar }}" style="top: 0;" alt="{{user.username}} Avatar" class="rounded-circle" width="64" height="64">
                             Account
-						</a></button>
+							</a>
+<!--						</button>-->
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="/accounts/{{user.username}}">Profile</a>
 						  	<div class="dropdown-divider"></div>
