@@ -134,10 +134,10 @@
                             {% for comment in article.comments %}
                             <div class="row">
                                 <div class="col-md-12">
-									<div class="media mt-4">
+									<div class="media mt-4" style="z-index: -1">
 <!--										<img class="mr-3 rounded-circle" alt="Bootstrap Media Preview" src="https://i.imgur.com/xELPaag.jpg" />-->
 <!--                                        <a class="pr-3" href="#"><img class="rounded-circle" alt="Sholake Adeyemi" src="https://i.imgur.com/xELPaag.jpg" /></a>-->
-                                        <a class="pr-3" href="/accounts/{{comment.author}}/"><img class="rounded-circle" alt="{{comment.author.name}}" src="{{ MEDIA_URL }}{{ comment.author.avatar }}"/></a>
+                                        <a class="pr-3" href="/accounts/{{comment.author}}/" style="z-index: -1"><img  style="z-index: -1" class="rounded-circle" alt="{{comment.author.name}}" src="{{ MEDIA_URL }}{{ comment.author.avatar }}"/></a>
 
 										<div class="media-body">
 											<div class="row">
@@ -332,10 +332,9 @@
                                         {% for reply in comment.replies %}
                                         <div class="media mt-4 pt-0">
                                             <a class="d-none d-md-inline pr-3" href="/accounts/{{reply.author}}/"><img class="rounded-circle" alt="{{reply.author.name}}" src="{{ MEDIA_URL }}{{ reply.author.avatar }}" /></a>
-                                            <a class="d-block d-md-none pr-3" href="/accounts/{{reply.author}}/" style="position: absolute; left: 10%; z-index: 500;"><img class="rounded-circle" alt="{{reply.author.name}}" src="{{ MEDIA_URL }}{{ reply.author.avatar }}"/></a>
-                                            <a class="d-block d-md-none pr-3" href="/accounts/{{reply.author}}/" style="position: absolute; left: 100%; z-index: 500;"><img class="rounded-circle" alt="{{reply.author.name}}" src="{{ MEDIA_URL }}{{ reply.author.avatar }}"/></a>
+                                            <a class="d-block d-md-none pr-3" href="/accounts/{{reply.author}}/" style="position: absolute; left: 10%;"><img class="rounded-circle" alt="{{reply.author.name}}" src="{{ MEDIA_URL }}{{ reply.author.avatar }}"/></a>
                                             <a class="d-block d-md-none pr-3" href="/accounts/{{reply.author}}/" style="position: absolute; left: 50%;"><img class="rounded-circle" alt="{{reply.author.name}}" src="{{ MEDIA_URL }}{{ reply.author.avatar }}"/></a>
-                                            <a class="d-block d-md-none pr-3" href="/accounts/{{reply.author}}/" style="position: absolute;"><img class="rounded-circle" alt="{{reply.author.name}}" src="{{ MEDIA_URL }}{{ reply.author.avatar }}"/></a>
+                                            <a class="d-block d-md-none pr-3" href="/accounts/{{reply.author}}/" style="position: absolute; left: 30%;"><img class="rounded-circle" alt="{{reply.author.name}}" src="{{ MEDIA_URL }}{{ reply.author.avatar }}"/></a>
                                             <div class="media-body">
 
                                                 <div class="row">
