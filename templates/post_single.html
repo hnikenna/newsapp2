@@ -82,24 +82,26 @@
             <div class="row" id="articlevotes">
                 <div class="col">
                     <div class="d-none d-lg-block">
-                            <h2 id="yesvote">{{ article.yes_vote }}</h2>
+                            <h2>{{ article.yes_vote }}</h2>
                             <img src="{% static 'img/white_people.png' %}" width="20%" class="vote {{article.selectYV}}" data-slug="{{ article.slug }}" data-poll="yes">
                             <p><strong>Agree</strong></p>
                         </div>
                         <div class="d-block d-lg-none">
-                            <h4 id="yesvote">{{ article.yes_vote }}</h4>
+                            <h4>{{ article.yes_vote }}</h4>
+<!--                            <h4 id="yesvote">{{ article.yes_vote }}</h4>-->
                             <img src="{% static 'img/white_people.png' %}" width="100%" class="vote {{article.selectYV}}" data-slug="{{ article.slug }}" data-poll="yes">
                             <p><strong>Agree</strong></p>
                         </div>
                     </div>
                 <div class="col">
                         <div class="d-none d-lg-block">
-                            <h2 id="novote">{{ article.no_vote }}</h2>
+                            <h2>{{ article.no_vote }}</h2>
+<!--                            <h2 id="novote">{{ article.no_vote }}</h2>-->
                             <img src="{% static 'img/black_people.png' %}" width="20%" class="vote {{article.selectNV}}" data-slug="{{ article.slug }}" data-poll="no">
                             <p><strong>Disagree</strong></p>
                         </div>
                         <div class="d-block d-lg-none">
-                            <h4 id="novote">{{ article.no_vote }}</h4>
+                            <h4>{{ article.no_vote }}</h4>
                             <img src="{% static 'img/black_people.png' %}" width="100%" class="vote {{article.selectNV}}" data-slug="{{ article.slug }}" data-poll="no">
                             <p><strong>Disagree</strong></p>
                         </div>
