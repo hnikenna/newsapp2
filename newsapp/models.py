@@ -75,6 +75,7 @@ class Reply(models.Model):
     @property
     def awards(self):
         # awards = self.award.all()
+        self.get_anon_id()
         awards = AwardItem.objects.filter(owner=self.author, parent_id=self.anon_id)
         return awards
 
@@ -139,6 +140,7 @@ class Comment(models.Model):
 
     @property
     def awards(self):
+        self.get_anon_id()
         awards = AwardItem.objects.filter(owner=self.author, parent_id=self.anon_id)
         return awards
 
