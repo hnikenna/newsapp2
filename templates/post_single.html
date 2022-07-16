@@ -86,9 +86,16 @@
                         <p><strong>Agree</strong></p>
                 </div>
                 <div class="col">
-                        <h2 id="novote"><strong>{{ article.no_vote }}</strong></h2>
-                        <img src="{% static 'img/black_people.png' %}" width="20%" class="vote {{article.selectNV}}" data-slug="{{ article.slug }}" data-poll="no">
-                        <p><strong>Disagree</strong></p>
+                        <div class="d-none d-lg-block">
+                            <h2 id="novote">{{ article.no_vote }}</h2>
+                            <img src="{% static 'img/black_people.png' %}" width="20%" class="vote {{article.selectNV}}" data-slug="{{ article.slug }}" data-poll="no">
+                            <p><strong>Disagree</strong></p>
+                        </div>
+                        <div class="d-block d-lg-none">
+                            <h4 id="novote">{{ article.no_vote }}</h4>
+                            <img src="{% static 'img/black_people.png' %}" width="100%" class="vote {{article.selectNV}}" data-slug="{{ article.slug }}" data-poll="no">
+                            <p><strong>Disagree</strong></p>
+                        </div>
                 </div>
         </div>
 <!--        <hr/>-->
