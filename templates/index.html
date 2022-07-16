@@ -24,19 +24,18 @@
 				background-attachment: fixed;
 			">
 <!--				<div class="filterBack"></div>-->
-					<div class="abs text-center">
+					<div class="abs text-center d-flex" style="align-items: center;">
 						<div class="container">
 							<div class="row" style="color: #E8ECE8;">
 								<div class="col-3">
-									<h2 class="absTitle">{{ article.yes_vote }}</h2>
-									<img src="{% static 'img/white_people.png' %}" width="40%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="yes">
+									<h4 class="absTitle">{{ article.yes_vote }}</h4>
+									<img src="{% static 'img/white_people.png' %}" width="100%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="yes">
 									<p class="absText">Agree</p>
 								</div>
 								<div class="col-6">
 
-									<h2 class="absTitle">{{ article.get_title }}</h2>
-<!--									<h2 class="d-none d-lg-block absTitle">{{ article.get_title }}</h2>-->
-<!--									<h3 class="d-block d-lg-none absTitle">{{ article.get_short_title }}</h3>-->
+									<h2 class="d-none d-lg-block absTitle">{{ article.get_title }}</h2>
+									<h4 class="d-block d-lg-none absTitle">{{ article.get_title }}</h4>
 
 									<p class="d-none d-md-block absText">
 										<img src="{% static 'img/shape.png' %}"><br>
@@ -52,8 +51,8 @@
 									<a href="{{ article.get_absolute_url }}"><button class="btn btn-main zoom">View Post</button></a>
 								</div>
 								<div class="col-3">
-									<h2 class="absTitle">{{ article.no_vote }}</h2>
-									<img src="{% static 'img/black_people.png' %}" width="40%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
+									<h4 class="absTitle">{{ article.no_vote }}</h4>
+									<img src="{% static 'img/black_people.png' %}" width="100%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
 									<p class="absText">Disagree</p>
 								</div>
 							</div>
