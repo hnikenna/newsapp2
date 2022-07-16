@@ -34,8 +34,9 @@
 								</div>
 								<div class="col-6">
 
-									<h2 class="d-none d-lg-block absTitle">{{ article.get_title }}</h2>
-									<h3 class="d-block d-lg-none absTitle">{{ article.get_short_title }}</h3>
+									<h2 class="absTitle">{{ article.get_title }}</h2>
+<!--									<h2 class="d-none d-lg-block absTitle">{{ article.get_title }}</h2>-->
+<!--									<h3 class="d-block d-lg-none absTitle">{{ article.get_short_title }}</h3>-->
 
 									<p class="d-none d-md-block absText">
 										<img src="{% static 'img/shape.png' %}"><br>
@@ -43,9 +44,9 @@
 										{{ article.get_short_content }}
 									</p>
 									<p class="d-block d-md-none absText">
-										<img src="{% static 'img/shape.png' %}"><br>
+<!--										<img src="{% static 'img/shape.png' %}"><br>-->
 <!--									<p class="col-md-12">-->
-										{{ article.get_shorter_content }}
+<!--										{{ article.get_shorter_content }}-->
 									</p>
 
 									<a href="{{ article.get_absolute_url }}"><button class="btn btn-main zoom">View Post</button></a>
