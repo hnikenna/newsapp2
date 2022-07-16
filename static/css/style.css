@@ -15,7 +15,7 @@ body{
 }
 .fixedArea {
     position: fixed;
-    z-index: 99999;
+    z-index: 1000;
     background: #fff;
     border-bottom: 1px solid #ddd;
 }
@@ -1113,7 +1113,7 @@ a:hover {
   padding: 0;
   /*background: #555;
   color: #f1f1f1;*/
-  z-index: 9999999991;
+  z-index: 200;
 
 }
 
@@ -1143,7 +1143,7 @@ a:hover {
     top: 0;
     left: 0;
     display: none;
-    z-index: 9999999992;
+    z-index: 250;
     color: white;
     background-color: red;
     height: 50px;
