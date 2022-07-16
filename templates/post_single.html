@@ -330,11 +330,16 @@
 
 <!--                                        <div class="border-left pl-3">-->
 
+
+                                        </div>
+                                    </div>
                                         {% for reply in comment.replies %}
-                                        <div class="media mt-4 pt-0">
-                                            <a class="d-none d-md-inline pr-3" href="/accounts/{{reply.author}}/"><img class="rounded-circle" alt="{{reply.author.name}}" src="{{ MEDIA_URL }}{{ reply.author.avatar }}" /></a>
-                                            <a class="d-inline d-md-none pr-3 mb-0" href="/accounts/{{reply.author}}/"><img class="rounded-circle" alt="{{reply.author.name}}" src="{{ MEDIA_URL }}{{ reply.author.avatar }}" style="width: 50px; height: 50px;"/></a>
-                                            <div class="pt-0 media-body">
+<!--                                        <a class="media" href="/accounts/{{reply.author}}/"><img class="rounded-circle" alt="{{reply.author.name}}" src="{{ MEDIA_URL }}{{ reply.author.avatar }}" /></a>-->
+
+                                            <div class="media ml-md-5 mt-4 pt-0 border-left">
+                                                <a class="d-none d-md-inline ml-5 pr-3" href="/accounts/{{reply.author}}/"><img class="rounded-circle" alt="{{reply.author.name}}" src="{{ MEDIA_URL }}{{ reply.author.avatar }}" /></a>
+                                                <a class="d-inline d-md-none ml-2 pr-3 mb-0" href="/accounts/{{reply.author}}/"><img class="rounded-circle" alt="{{reply.author.name}}" src="{{ MEDIA_URL }}{{ reply.author.avatar }}" style="width: 50px; height: 50px;"/></a>
+                                                <div class="pt-0 media-body">
 
                                                 <div class="row">
                                                     <div class="col-12 d-inline-flex">
@@ -528,12 +533,7 @@
                                             </div>
                                         </div>
                                         {% endfor %}
-<!--                                        </div>-->
-
-										</div>
-									</div>
-
-								</div>
+                                </div>
                             </div>
                             {% endfor %}
 						</div>
