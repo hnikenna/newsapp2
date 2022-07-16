@@ -10,10 +10,11 @@
 <div class="text-center" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
   <img src="{{ MEDIA_URL }}{{ article.image }}" class="rounded header-image" alt="..." width="80%">
 <!--  <img src="{% static 'img/banner3.jpg' %}" class="rounded" alt="..." width="80%">-->
-        <h2 style="text-decoration: overline;">{{ article.title }}</h2>
+    <span class="d-none d-md-inline"><h2 style="text-decoration: overline;">{{ article.title }}</h2></span>
+    <span class="d-inline d-md-none"><h5 style="text-decoration: overline;">{{ article.title }}</h5></span>
         <div class="d-flex justify-content-between">
             <a href="#discussion"> Go to Discussion <span style="font-weight: 400; font-size: 20px;">&#8595</span> </a>
-            <p>{{ article.date }} - <span class="time">{{article.time_ago }}</span> <img src="{% static 'img/dot_button.png' %}" width="5%"> <a href="#"> {{ article.username }}</a></p>
+            <p>{{ article.date }} - <span class="time">{{article.time_ago }}</span><span class="d-none d-md-inline"><img src="{% static 'img/dot_button.png' %}" width="5%"><a href="#"> {{ article.username }}</a></span></p>
         </div>
 
 </div>
@@ -22,7 +23,8 @@
 <hr/>
 <div class="row">
         <div class="col-12 col-lg-9">
-                <h3><strong>{{ article.header_text }}</strong></h3>
+                <h3 class="d-none d-md-inline"><strong>{{ article.header_text }}</strong></h3>
+                <p class="d-inline d-md-none"><strong>{{ article.header_text }}</strong></p>
                 <div id="mid-content">
                     <div class="pcontent">
                         <p style="font-size: 100px;">
@@ -210,7 +212,7 @@
                                                                  data-article="{{ article.slug }}"
                                                             >{{ comment.no_vote }}
                                                             <a class="replybtn button" data-comment="{{comment.get_anon_id}}"><img src="{% static 'img/reply-message.png' %}" class="button"><span class="d-none d-md-inline">Reply</span></a>
-                                                            <a><img src="{% static 'img/send.png' %}" class="button"><span class="d-none d-md-inline">Share</span></a>
+                                                            <a href="javascript: dev()"><img src="{% static 'img/send.png' %}" class="button"><span class="d-none d-md-inline">Share</span></a>
                                                             {% if comment.author != request.user %}
                                                             <a class="awardBtn {{comment.get_anon_id}}"><img src="{% static 'img/badge.png' %}" class="button"><span class="d-none d-md-inline">Award</span></a>
                                                             <a class="reportbtn" data-id="{{comment.get_anon_id}}"><img src="{% static 'img/police.png' %}" class="button"><span class="d-none d-md-inline">Report</span></a>

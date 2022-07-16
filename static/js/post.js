@@ -12,7 +12,7 @@ var awardBtns = document.getElementsByClassName('awardBtn')
 var giftBtns = document.getElementsByClassName('gift')
 var buyGiftBtns = document.getElementsByClassName('buyGift')
 
-function dev(){alerT('', 'This page is under development. Please come back later.', '#261E7D');}
+function dev(){alerT('', 'Sorry this feature is currently under development.', '#261E7D');}
 
 function checkGuest(e, btn, msg = 'Sign in to use this feature', color = '#C9162D') {
     if (user == 'AnonymousUser') {
