@@ -28,9 +28,17 @@
 						<div class="container">
 							<div class="row" style="color: #E8ECE8;">
 								<div class="col-3">
-									<h4 class="absTitle">{{ article.yes_vote }}</h4>
-									<img src="{% static 'img/white_people.png' %}" width="100%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="yes">
-									<p class="absText">Agree</p>
+									<div class="d-none d-lg-block">
+										<h2 class="absTitle">{{ article.yes_vote }}</h2>
+										<img src="{% static 'img/white_people.png' %}" width="40%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="yes">
+										<p class="absText">Agree</p>
+									</div>
+									<div class="d-block d-lg-none">
+										<h4 class="absTitle">{{ article.yes_vote }}</h4>
+										<img src="{% static 'img/white_people.png' %}" width="100%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="yes">
+										<p class="absText">Agree</p>
+									</div>
+
 								</div>
 								<div class="col-6">
 
@@ -51,9 +59,18 @@
 									<a href="{{ article.get_absolute_url }}"><button class="btn btn-main zoom">View Post</button></a>
 								</div>
 								<div class="col-3">
-									<h4 class="absTitle">{{ article.no_vote }}</h4>
-									<img src="{% static 'img/black_people.png' %}" width="100%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
-									<p class="absText">Disagree</p>
+									<div class="d-none d-lg-block">
+										<h2 class="absTitle">{{ article.no_vote }}</h2>
+										<img src="{% static 'img/black_people.png' %}" width="40%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
+										<p class="absText">Disagree</p>
+									</div>
+									<div class="d-block d-lg-none">
+										<h4 class="absTitle">{{ article.no_vote }}</h4>
+										<img src="{% static 'img/black_people.png' %}" width="100%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
+										<p class="absText">Disagree</p>
+									</div>
+
+
 								</div>
 							</div>
 						</div>

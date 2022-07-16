@@ -2,8 +2,8 @@ body{
   color: #1a202c;
 /*    color: #F2F4AD;*/
     text-align: left;
-/*    background-color: #e2e8f0;*/
-    background: black url(../img/banner3.jpg)  no-repeat fixed center;
+    background-color: #F0F0F0;
+/*    background: black url(../img/banner3.jpg)  no-repeat fixed center;*/
 /*    background-color: #101D1E;*/
 }
 .main-body {
