@@ -332,7 +332,7 @@
                                         {% for reply in comment.replies %}
                                         <div class="media mt-4 pt-0">
                                             <a class="d-none d-md-inline pr-3" href="/accounts/{{reply.author}}/"><img class="rounded-circle" alt="{{reply.author.name}}" src="{{ MEDIA_URL }}{{ reply.author.avatar }}" /></a>
-                                            <a class="d-inline d-md-none pr-3" href="/accounts/{{reply.author}}/" style="position: absolute; left: 3%;"><img class="rounded-circle" alt="{{reply.author.name}}" src="{{ MEDIA_URL }}{{ reply.author.avatar }}" /></a>
+                                            <a class="d-block d-md-none pr-3" href="/accounts/{{reply.author}}/" style="position: absolute; left: 3%;"><img class="rounded-circle" alt="{{reply.author.name}}" src="{{ MEDIA_URL }}{{ reply.author.avatar }}" /></a>
                                             <div class="media-body">
 
                                                 <div class="row">
