@@ -229,7 +229,7 @@
                                                                 <div class="row">
                                                                         {% if user.awards|length < 1 %}
                                                                     <div class="col"  style="display: flex; justify-content: center; align-items: center;">
-                                                                        <div class="text-center">
+                                                                        <div class="text-center media-body">
                                                                             {% if not user.is_authenticated %}
                                                                             <h4 class="dropdown-item">Anonymous Gifting</h4>
                                                                             <img src="{% static 'img/guest-star.png' %}" width="100%"><br>
@@ -332,8 +332,8 @@
                                         {% for reply in comment.replies %}
                                         <div class="media mt-4 pt-0">
                                             <a class="d-none d-md-inline pr-3" href="/accounts/{{reply.author}}/"><img class="rounded-circle" alt="{{reply.author.name}}" src="{{ MEDIA_URL }}{{ reply.author.avatar }}" /></a>
-                                            <a class="d-block d-md-none pr-3 media" href="/accounts/{{reply.author}}/" style="position: absolute; left: 15%;"><img class="rounded-circle" alt="{{reply.author.name}}" src="{{ MEDIA_URL }}{{ reply.author.avatar }}"/></a>
-                                            <a class="d-block d-md-none pr-3 media" href="/accounts/{{reply.author}}/" style="position: absolute; left: 3%; z-index: 3;"><img class="rounded-circle" alt="{{reply.author.name}}" src="{{ MEDIA_URL }}{{ reply.author.avatar }}"/></a>
+                                            <a class="d-block d-md-none pr-3 media-body" href="/accounts/{{reply.author}}/" style="position: absolute; left: 15%;"><img class="rounded-circle" alt="{{reply.author.name}}" src="{{ MEDIA_URL }}{{ reply.author.avatar }}"/></a>
+                                            <a class="d-block d-md-none pr-3 media-body" href="/accounts/{{reply.author}}/" style="position: absolute; left: 3%; z-index: 3;"><img class="rounded-circle" alt="{{reply.author.name}}" src="{{ MEDIA_URL }}{{ reply.author.avatar }}"/></a>
                                             <div class="media-body">
 
                                                 <div class="row">
