@@ -135,13 +135,13 @@
               </div>
 
               <div class="row gutters-sm">
-                <div class="{% if duser.user == user %}col-6{% else %}col{% endif %} mb-3">
+                <div class="{% if duser.user == user %}col-12 col-md-6{% else %}col{% endif %} mb-3">
                   <div class="card h-100">
                     <div class="card-body">
                       {% if duser.user == user %}
                       <h5 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">My Awards: </i>Received</h5>
                       {% else %}
-                      <h5 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Awards Received</i></h5>
+                      <h5 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Recently Received Awards</i></h5>
                       {% endif %}
                       <!--                      <small>Fans</small>-->
 <!--                      <div class="progress mb-3" style="height: 5px">-->
@@ -156,15 +156,15 @@
                           >{{ awarditem.award.name}}<strong class="d-flex" style="justify-content: right;">{{ awarditem.quantity}}</strong></a>
                       {% endfor %}
                     </div>
-                    <p><b>Exchange Value:</b> {{duser.user.exchangeval}} NGN <i class="fa fa-info" title="Test title"></i></p>
+                    <p><b>Exchange Value:</b> {{duser.user.exchangeval}} NGN</p>
                     {% if duser.user == user %}<button class="btn btn-main" onclick="dev();">Exchange / Withdraw</button>{% endif %}
                   </div>
                 </div>
-                <div class="{% if duser.user == user %}col-6{% else %}d-none{% endif %} mb-3">
+                <div class="{% if duser.user == user %}col-12 col-md-6{% else %}d-none{% endif %} mb-3">
                   <div class="card h-100">
                     <div class="card-body">
 
-                      <h5 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">My Awards: </i>Purchased</h5>
+                      <h5 class="d-flex align-items-center mb-3">Purchased</h5>
 <!--                      <small>Fans</small>-->
 <!--                      <div class="progress mb-3" style="height: 5px">-->
 <!--                        <div class="progress-bar bg-primary" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>-->

@@ -40,20 +40,25 @@ class CustomUser(AbstractUser):
 
     @property
     def awards(self):
-        # awards = AwardItem.objects.filter(owner=self)
-        awards = AwardItem.objects.filter(owner=self, parent_id=None)
-        # awards2 = AwardItem.objects.all()
-        # for award in awards2:
-        #     print(type(award.parent_id))
-        #     print(award.parent_id is None)
-        return awards
+        awards = AwardItem.objects.filter(owner=self)
+        awards2 = []
+        for award in awards:
+            # print(bool(award.parent_id))
+            if bool(award.parent_id) is False:
+                awards2.append(award)
+        return awards2
 
     @property
     def awards_received(self):
         awards = AwardItem.objects.filter(owner=self)
         awards2 = []
+        limit = 0
         for award in awards:
-            if award.parent_id is not None:
+            limit += 1
+            if limit >= 5:
+                break
+            # print(bool(award.parent_id))
+            if bool(award.parent_id) is True:
                 awards2.append(award)
             # print(award.parent_id is None)
         return awards2
@@ -64,7 +69,7 @@ class CustomUser(AbstractUser):
         awards2 = 0
         # awards2 = {}
         for award in awards:
-            if award.parent_id is not None:
+            if bool(award.parent_id) is True:
                 awards2 += (award.award.price * award.quantity) / 5
 
         awards2 = format_currency(awards2)

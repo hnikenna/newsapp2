@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 {% block head %}
 <!--    <script src="{% static 'js/util.js' %}"></script>-->
-    <script src="{% static 'css/slider.css' %}"></script>
+<!--    <script src="{% static 'css/slider.css' %}"></script>-->
 {% endblock %}
 {% block title %}
 {{ article.title }}
@@ -467,8 +467,8 @@
                                                                         <div class="col">
                                                                         <h5 class="text-center">Your Awards</h5>
                                                                             <div class="dropdown-divider"></div>
-                                                                        {% for awarditem in user.awards %}
-                                                                        <a class="dropdown-item gift">
+                                                                            {% for awarditem in user.awards %}
+                                                                            <a class="dropdown-item gift" data-id="{{awarditem.get_anon_id}}" data-owner="{{reply.author}}" data-parent="{{reply.get_anon_id}}" data-award="{{awarditem.award.id}}">
                                                                             <img src="{% static 'img/awards' %}/{{ awarditem.award.image }}"
                                                                                  alt="{{awarditem.award.name}} - Award"
                                                                                  title="{{ awarditem.award.name}}"

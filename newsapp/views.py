@@ -339,7 +339,7 @@ def delete(request, type, id):
 def gift(request):
     user = request.user
     data = json.loads(request.body)
-    # print('Data:', data)
+    print('Data:', data)
     id = data['id']
     owner = data['owner']
     parent = data['parent']
