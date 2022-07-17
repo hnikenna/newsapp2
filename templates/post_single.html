@@ -12,7 +12,8 @@
 
 
 <div class="text-center" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
-  <img src="{{ MEDIA_URL }}{{ article.image }}" class="rounded header-image" alt="..." width="80%">
+  <img src="{{ MEDIA_URL }}{{ article.image }}" class="d-none d-md-inline rounded header-image" alt="..." width="80%">
+  <img src="{{ MEDIA_URL }}{{ article.image }}" class="d-inline d-md-none rounded header-image" alt="..." width="60%">
 <!--  <img src="{% static 'img/banner3.jpg' %}" class="rounded" alt="..." width="80%">-->
     <span class="d-none d-md-inline"><h2 style="text-decoration: overline;">{{ article.title }}</h2></span>
     <span class="d-inline d-md-none"><h5 style="text-decoration: overline;">{{ article.title }}</h5></span>
@@ -40,7 +41,7 @@
                     <button class="btn btn-main" id="read-more">Read More</button>
                 </div>
                 <div style="display: none;" id="full-content">
-                    <p style="font-size: 100px;">
+                    <p>
                         {{ article.content|linebreaks }}
                     </p>
                     <p>Source: <a href="{{ article.source_url }}" target="_blank">{{ article.source_name }}</a></p>
@@ -85,8 +86,7 @@
 </div>
 <br/>
 <div class="text-center col-12"  id="discussion">
-<!--    Ads Section-->
-    <img src="{% static 'img/ad1.jpg' %}" style="width: 70%; border-radius: 10px;" class="text-center">
+
     <!--        <h3>Vote Now</h3>-->
             <div class="row" id="articlevotes">
                 <div class="col">
@@ -115,13 +115,30 @@
                             <p><strong>Disagree</strong></p>
                         </div>
                 </div>
-        </div>
+            </div>
+            <!--    Ads Section-->
+<!--    <div id="ads" class="row">-->
+<!--        <div class="col-4 box">-->
+<!--            <img src="{% static 'img/ad1.jpg' %}" style="width: 90%; border-radius: 10px;" class="d-none d-md-inline text-center">-->
+<!--            <img src="{% static 'img/ad1.jpg' %}" style="width: 90%; border-radius: 10px;" class="d-inline d-md-none text-center">-->
+<!--        </div>-->
+<!--        <div class="col-4 box">-->
+<!--            <img src="{% static 'img/ad2.jpg' %}" style="width: 90%; border-radius: 10px;" class="d-none d-md-inline text-center">-->
+<!--            <img src="{% static 'img/ad2.jpg' %}" style="width: 90%; border-radius: 10px;" class="d-inline d-md-none text-center">-->
+<!--        </div>-->
+<!--        <div class="col-4 box">-->
+<!--            <img src="{% static 'img/ad3.jpg' %}" style="width: 90%; border-radius: 10px;" class="d-none d-md-inline text-center">-->
+<!--            <img src="{% static 'img/ad3.jpg' %}" style="width: 90%; border-radius: 10px;" class="d-inline d-md-none text-center">-->
+<!--        </div>-->
+
+<!--    </div>-->
 <!--        <hr/>-->
 <!--        <h3>Discussions</h3>-->
 
 </div>
 
 <div class="container mb-5 mt-5" style="position: relative;">
+
 
     <div class="nocard">
 					<div class="row">
