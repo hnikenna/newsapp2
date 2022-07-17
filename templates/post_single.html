@@ -305,8 +305,8 @@
                                                                                 </td>
                                                                                 <td>
                                                                                     <br>
-                                                                                    <h5 class="d-none d-md-block">{{ award.name}}</h5>
-                                                                                    <strong class="d-block d-md-none">{{ award.name}}</strong>
+                                                                                    <h5 class="d-none d-md-block">{{ award.name}} x5</h5>
+                                                                                    <strong class="d-block d-md-none">{{ award.name}} x5</strong>
                                                                                 </td>
                                                                                 <td>
                                                                                     <br>
@@ -315,7 +315,7 @@
                                                                                 <td>
                                                                                     <br>
                                                                                     {% if user.is_authenticated %}
-                                                                                    <button class="btn btn-main ml-4 buyGift" data-auth="" data-id="{{awarditem.get_anon_id}}" data-owner="{{user}}" data-parent="" data-award="{{award.id}}" data-extra="{{award.price}}, {{award.name}}, {{user.email}}">Buy x5</button>
+                                                                                    <button class="btn btn-main ml-4 buyGift" data-auth="" data-id="{{awarditem.get_anon_id}}" data-owner="{{user}}" data-parent="" data-award="{{award.id}}" data-extra="{{award.price}}, {{award.name}}, {{user.email}}">Buy</button>
                                                                                     {% else %}
                                                                                     <button class="btn btn-main ml-4 buyGift" data-auth="guest" data-id="{{awarditem.get_anon_id}}" data-owner="{{comment.author}}" data-parent="{{comment.get_anon_id}}" data-award="{{award.id}}" data-extra="{{award.price}}, {{award.name}}, guest@email.com">Gift</button>
                                                                                     {% endif %}
@@ -506,8 +506,8 @@
                                                                                 </td>
                                                                                 <td>
                                                                                     <br>
-                                                                                    <h5 class="d-none d-md-flex">{{ award.name}}</h5>
-                                                                                    <strong class="d-inline d-md-none">{{ award.name}}</strong><br>
+                                                                                    <h5 class="d-none d-md-flex">{{ award.name}} x5</h5>
+                                                                                    <strong class="d-inline d-md-none">{{ award.name}} x5</strong><br>
                                                                                     <p class="d-inline d-md-none" style="justify-content: right; color: purple;">₦{{award.price}}</p>
 
                                                                                 </td>
@@ -518,7 +518,7 @@
                                                                                 <td>
                                                                                     <br>
                                                                                     {% if user.is_authenticated %}
-                                                                                    <button class="btn btn-main ml-4 buyGift" data-auth="" data-id="{{awarditem.get_anon_id}}" data-owner="{{user}}" data-parent="" data-award="{{award.id}}" data-extra="{{award.price}}, {{award.name}}, {{user.email}}">Buy x5</button>
+                                                                                    <button class="btn btn-main ml-4 buyGift" data-auth="" data-id="{{awarditem.get_anon_id}}" data-owner="{{user}}" data-parent="" data-award="{{award.id}}" data-extra="{{award.price}}, {{award.name}}, {{user.email}}">Buy</button>
                                                                                     {% else %}
                                                                                     <button class="btn btn-main ml-4 buyGift" data-auth="guest" data-id="{{awarditem.get_anon_id}}" data-owner="{{reply.author}}" data-parent="{{reply.get_anon_id}}" data-award="{{award.id}}" data-extra="{{award.price}}, {{award.name}}, guest@email.com">Gift</button>
                                                                                     {% endif %}
