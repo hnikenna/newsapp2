@@ -255,7 +255,7 @@
                                                                 <div class="row">
                                                                         {% if user.awards|length < 1 %}
                                                                     <div class="col"  style="display: flex; justify-content: center; align-items: center;">
-                                                                        <div class="text-center media-body">
+                                                                        <div class="text-center">
                                                                             {% if not user.is_authenticated %}
                                                                             <h4 class="dropdown-item">Anonymous Gifting</h4>
                                                                             <img src="{% static 'img/guest-star.png' %}" width="100%"><br>
@@ -445,7 +445,7 @@
                                                                 </div>
                                                             </div>
                                                             {% endif %}
-                                                            <div class="container db ml-5 mb-3 pb-3 pt-2" id="db-{{comment.get_anon_id}}-{{reply.get_anon_id}}">
+                                                            <div class="container db md-ml-5 mb-3 pb-3 pt-2" id="db-{{comment.get_anon_id}}-{{reply.get_anon_id}}">
                                                                 <div class="row">
                                                                         {% if user.awards|length < 1 %}
                                                                     <div class="col"  style="display: flex; justify-content: center; align-items: center;">
