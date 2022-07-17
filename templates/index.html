@@ -14,7 +14,7 @@
 <!--			News Section-->
 			{% for article in all_article_list reversed %}
 			<div class="col-md-12 noPadding">
-				<div class="filterBack" style="
+				<div class="d-none d-md-block filterBack" style="
 				background: url({{ MEDIA_URL }}{{ article.image }});
 				background-position: top;
 				background-size: cover;
@@ -22,7 +22,17 @@
 				color: red;
 				font-weight: bold;
 				background-attachment: fixed;
-			">
+			"></div>
+				<div class="d-block d-md-none filterBack" style="
+				background: url({{ MEDIA_URL }}{{ article.image }});
+				background-position: top;
+				background-size: contain;
+				min-height: 350px;
+				color: red;
+				font-weight: bold;
+				background-attachment: fixed;
+			"></div>
+
 <!--				<div class="filterBack"></div>-->
 					<div class="abs text-center d-flex" style="align-items: center;">
 						<div class="container">
