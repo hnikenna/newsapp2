@@ -27,16 +27,25 @@
 		<link href="{% static 'css/responsive.css' %}" rel="stylesheet">
 		  <script type="text/javascript">var user = '{{ request.user }}'</script>
 		<script src="{% static 'js/acc.js' %}"></script>
+		<style>
+			#acc1 {
+			  background-color: #2D162A;
+			  color: white;
+			}
+			a {
+				color: #A46DA4;
+			}
+		</style>
 
   </head>
     <body>
 {% load crispy_forms_tags %}
 
 <!-- Split Form-->
-        <div id="acc1" class="col-md-6 col-12 split" style="top: 0;">
+        <div id="acc1" class="col-md-6 col-12 split left">
             <div class="topcorner zoom"><a href="javascript: history.go(-1)"><br><img src="{% static 'img/close.png' %}" style="width: 24px; height: 24px;"/> &emsp;</a></div>
             <br>
-            <div class="centered center px-5 py-2" id="form-content">
+            <div class="centered center-md-none px-5 py-2 my-5" id="form-content">
 				{% block head %}
 <!--                <h2  class="text-center" style="font-weight: bolder;">Create an account</h2>-->
 <!--                <p  class="text-center">Already have an account? <a href="/accounts/login/" style="text-decoration: ;">Sign in</a></p>-->
@@ -51,11 +60,11 @@
             </div>
         </div>
 <!--        <div class="d-none d-lg-block split right" style="background-color: #3F1B3C;">-->
-        <div id="acc2" class="d-none d-md-block split right" style="background-color: #3F1B3C; width: 50%;">
+        <div id="acc2" class="d-none d-md-block split right" style="width: 50%;">
 			<div class="centered text-center">
 
                <a href="/"><img src="{% static 'img/red_people.png' %}"/></a>
-                <h2 style="color: white;">The place to be..</h2>
+                <h2 style="color: black;">The place to be..</h2>
 			</div>
 
         </div>
@@ -70,13 +79,12 @@
         window.onload = function () {
           google.accounts.id.initialize({
             client_id: '533285096762-ddjp7cj2ngd545a93u6mrvr5hi9htvn0.apps.googleusercontent.com',
-            client_secret: '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',
             // client_id: "YOUR_GOOGLE_CLIENT_ID",
             callback: handleCredentialResponse
           });
           google.accounts.id.renderButton(
             document.getElementById("buttonDiv"),
-            { theme: "filled_black", size: "large", text: "continue_with" }  // customization attributes
+            { theme: "light", size: "large", text: "continue_with" }  // customization attributes
           );
           google.accounts.id.prompt(); // also display the One Tap dialog
         }

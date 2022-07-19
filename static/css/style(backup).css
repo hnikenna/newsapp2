@@ -10,10 +10,17 @@ body{
     font-family: 'Montserrat', sans-serif;
 
 }
-
+.topOff{
+    margin-top: 25px;
+}
+.fixedArea {
+    position: fixed;
+    z-index: 1000;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+}
 .myNavbar{
     background-color: transparent !important;
-/*    background-color: transparent !important;*/
     border: 0px !important;
 }
 
@@ -36,6 +43,21 @@ body{
 @font-face {
   font-family: GlyphFont;
   src: url(../fonts/glyphicons-halflings-regular.ttf);
+}
+
+
+.myCaption {
+    right: 20%;
+    left: 20%;
+    padding-bottom: 30px;
+    top: 70px;
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    color:#BAE4F4;
+    /*font-family: MONOSPACE;*/
+/*    font-family: GlyphFont;*/
 }
 
 .myContainerAbs {
@@ -1205,7 +1227,7 @@ html {
   color: #000;
   background-color: #fff;
   border: none;
-  border-radius: 10px;
+  border-radius: 45px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease 0s;
   cursor: pointer;
@@ -1222,45 +1244,3 @@ html {
 }
 .source + p{display: inline;}
 
-.black {
-    color: blank;
-}
-
-.split {
-  height: 100%;
-  /*width: 50%;*/
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  overflow-x: hidden;
-  padding-top: 20px;
-}
-
-/* Control the left side */
-.left {
-  left: 0;
-
-}
-
-/* Control the right side */
-.right {
-  right: 0;
-}
-
-.centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-}
-
-/* Style the image inside the centered container, if needed */
-.centered img {
-  width: 150px;
-  border-radius: 100%;
-}
-
-input[type="checkbox"]:checked {
-    background: rgba(0, 0, 0, 0);
-}

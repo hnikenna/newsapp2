@@ -120,6 +120,9 @@ class Reply(models.Model):
         votes = VoteItem.objects.filter(parent='r', parent_id=self.id)
         return votes
 
+    def get_recipent(self):
+        return self.recipent
+
 
 class Comment(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -227,7 +230,7 @@ class Article(models.Model):
 
     @property
     def get_title(self):
-        return breadcrumb(self.title, 70)
+        return breadcrumb(self.title, 65)
 
     @property
     def get_short_title(self):

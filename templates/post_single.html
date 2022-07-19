@@ -305,8 +305,8 @@
                                                                                 </td>
                                                                                 <td>
                                                                                     <br>
-                                                                                    <h5 class="d-none d-md-block">{{ award.name}} x5</h5>
-                                                                                    <strong class="d-block d-md-none">{{ award.name}} x5</strong>
+                                                                                    <h5 class="d-none d-md-block">{{ award.name}} {% if user.is_authenticated %} x5{% endif %}</h5>
+                                                                                    <strong class="d-block d-md-none">{{ award.name}} {% if user.is_authenticated %} x5{% endif %}</strong>
                                                                                 </td>
                                                                                 <td>
                                                                                     <br>
@@ -377,8 +377,8 @@
                                                                      {{reply.author.name}}{% if reply.author.is_verified %}<img src="{% static 'img/verify.png' %}" class="verified text-center">{%endif%}
                                                                      <span style="color: #808B8C; font-size: 13px;"> &#8611; {{reply.recipent}}</span>
                                                                  </span>
-                                                                 <span class="d-none d-md-inline time">{{ reply.time_ago }}</span>
-                                                                 <span class="d-md-none row time ml-1">{{ reply.time_ago }}</span>
+                                                                 <span class="d-none d-md-inline time">- {{ reply.time_ago }}</span>
+                                                                 <small class="d-md-none row time ml-1">{{ reply.time_ago }}</small>
                                                              </h5>
                                                  </div>
 
@@ -456,7 +456,7 @@
                                                                             <img src="{% static 'img/guest-star.png' %}" width="100%"><br>
                                                                             <p>Gift <strong>{{reply.author}}</strong>'s reply an award anonymously</p>
                                                                             {% comment %} <p>Gift <strong>{{reply.author}}</strong>'s reply an award</p> {% endcomment %}
-                                                                            <p><a href="/accounts/login"><b>Sign in</b></a> for <strong style="color: red;">80%</strong> discount</p>
+                                                                            <p><a href="/accounts/login"><b>Sign in</b></a> to receive <strong style="color: red;">4 more gifts</strong> with every purchase</p>
                                                                             {%else%}
                                                                             <img src="{% static 'img/cancel.png' %}" width="90%"><br>
                                                                             <p style="color: red;">You do not have any award to gift</p>
@@ -506,8 +506,8 @@
                                                                                 </td>
                                                                                 <td>
                                                                                     <br>
-                                                                                    <h5 class="d-none d-md-flex">{{ award.name}} x5</h5>
-                                                                                    <strong class="d-inline d-md-none">{{ award.name}} x5</strong><br>
+                                                                                    <h5 class="d-none d-md-flex">{{ award.name}} {% if user.is_authenticated %} x5{% endif %}</h5>
+                                                                                    <strong class="d-inline d-md-none">{{ award.name}} {% if user.is_authenticated %} x5{% endif %}</strong><br>
                                                                                     <p class="d-inline d-md-none" style="justify-content: right; color: purple;">₦{{award.price}}</p>
 
                                                                                 </td>
