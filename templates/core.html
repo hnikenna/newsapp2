@@ -46,10 +46,11 @@
             <div class="topcorner zoom"><a href="javascript: history.go(-1)"><br><img src="{% static 'img/close.png' %}" style="width: 24px; height: 24px;"/> &emsp;</a></div>
             <br>
             <div class="centered center-md-none px-5 py-2 my-5" id="form-content">
-				{% block head %}
+				<div class="text-center">
+                    {% block head %}{% endblock %}
+                </div>
 <!--                <h2  class="text-center" style="font-weight: bolder;">Create an account</h2>-->
 <!--                <p  class="text-center">Already have an account? <a href="/accounts/login/" style="text-decoration: ;">Sign in</a></p>-->
-				{% endblock %}
                 <form method="post">
                     {% csrf_token %}
 					{% block form %}
