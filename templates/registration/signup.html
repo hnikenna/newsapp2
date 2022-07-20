@@ -2,8 +2,10 @@
 {% load crispy_forms_tags %}
 {% block title %}Sign up{% endblock %}
 {% block head %}
-                <h2  class="text-center" style="font-weight: bolder; top: 50%">Create an account</h2>
+<div class="mt-5 pt-5">
+                <h2  class="text-center mt-5 pt-5" style="font-weight: bolder;">Create an account</h2>
                 <p  class="text-center">Already have an account? <a href="/accounts/login/" style="text-decoration: ;">Sign in</a></p>
+    </div>
 {% endblock %}
 {% block form %}
 {{ form|crispy }}
