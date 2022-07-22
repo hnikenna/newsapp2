@@ -10,6 +10,7 @@ from .models import *
 from accounts.models import CustomUser
 
 
+
 # Create your views here.
 class HomeView(ListView):
     model = Article
@@ -380,3 +381,5 @@ def awardTransaction(request):
     return JsonResponse(
         'Logged', safe=False
     )
+
+

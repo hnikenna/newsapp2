@@ -16,6 +16,7 @@ function alerT(event, text='Hey! This is a success message!!', color='green'){
     $('#info').css('font-family', 'sans-serif');
     $('#info').css('background-color', color);
     $('#info').slideDown();
+    $('#info').click(function(){$('#info').hide();$('#navHeader').fadeIn();})
 //    $('#info').delay(5000).fadeOut('slow');
 
     var ty = setTimeout(function() {

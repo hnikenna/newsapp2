@@ -1264,3 +1264,32 @@ html {
 input[type="checkbox"]:checked {
     background: rgba(0, 0, 0, 0);
 }
+input[type="file"]::file-selector-button {
+  display: none;
+}
+input[type="file"] {
+    display: block;
+
+}
+
+.custom-file-upload {
+    border: 0px solid black;
+    border-radius: 15px;
+    display: inline-block;
+    padding: 3px 5px;
+    cursor: pointer;
+    color: #652B61;
+}
+
+.custom-file-upload:focus {
+    background-color: #3F1B3C;
+}
+.custom-file-upload:hover {
+    background-color: #3F1B3C;
+    color: white;
+}
+
+.trans {
+/*    opacity: 50%;*/
+    background: rgba(249, 215, 255, .8);
+}

@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
 from .models import CustomUser, Profile
+from PIL import Image
+from django.core.files import File
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -28,18 +30,18 @@ class ProfileEditForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['full_name', 'phone', 'bio']
-        # fields = '__all_  _'
+
+
+class AvatarEditForm(forms.ModelForm):
+    # avatar = forms.FileField(upload_to='avatars')
+
+    class Meta:
+        model = Profile
+        fields = ['avatar']
 
 
 class SocialsEditForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['website', 'tiktok', 'twitter', 'instagram', 'facebook']
-        # fields = '__all_  _'
 
-
-class AvatarUploadForm(forms.ModelForm):
-    
-    class Meta:
-        model = Profile
-        fields = ['avatar']

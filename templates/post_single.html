@@ -19,7 +19,7 @@
     <span class="d-inline d-md-none"><h5 style="text-decoration: overline;">{{ article.title }}</h5></span>
         <div class="d-flex justify-content-between align-items-center">
             <a href="#discussion"> Go to Discussion <span style="font-weight: 400; font-size: 20px;">&#8595</span> </a>
-            <p>{{ article.date }} - <span class="time">{{article.time_ago }}</span><span class="d-none d-md-inline"><img src="{% static 'img/dot_button.png' %}" width="5%"><a href="#"> {{ article.username }}</a></span></p>
+            <p>{{ article.date }} - <span class="time">{{article.time_ago }} </span><span class="d-none d-md-inline"><img src="{% static 'img/dot_button.png' %}" width="5%"><a href="#"> {{ article.username }}</a></span></p>
         </div>
 
 </div>
@@ -571,10 +571,9 @@
 						</div>
 					</div>
                 </div>
-</div>
-
-
-</div>
-    <script src="https://checkout.flutterwave.com/v3.js"></script>
+        </div>
+    </div>
 </div>
 {% endblock %}
+
+{% block js %}<script src="https://checkout.flutterwave.com/v3.js"></script>{% endblock %}

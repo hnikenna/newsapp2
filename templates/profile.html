@@ -3,7 +3,10 @@
 {% load crispy_forms_tags %}
 {% block title %}{{duser.username}}{% endblock %}
 {% block profile_active %}active{% endblock %}
-{% block head %}<link href="{% static 'css/profile.css' %}" rel="stylesheet">{% endblock %}
+{% block head %}
+<link href="{% static 'css/profile.css' %}" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/css/bootstrap-modal.css" rel="stylesheet">
+{% endblock %}
 {% block content %}
 
     <div class="main-body">
@@ -24,10 +27,21 @@
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
 <!--                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">-->
-                    <img src="{{ MEDIA_URL }}{{ duser.avatar }}" alt="{{duser.username}} Avatar" class="rounded-circle" width="150" height="150">
+                    <img  type="file" src="{{ MEDIA_URL }}{{ duser.avatar }}" alt="{{duser.username}} Avatar" class="rounded-circle" width="150" height="150">
+                      {% if duser.user == user %}<a href="javascript: $('#edit_avatar').toggle();">Edit</a>{% endif %}
+
+                      <div id="edit_avatar" style="display: none;">
+                        <form method="post" action="avatar_edit" enctype="multipart/form-data">
+                        {% csrf_token %}
+                         <input class="inputfile" style="position: relative;'" type="file" name="avatar" accept="image/*" id="id_avatar">
+                        <label class="btn btn-main" for="id_avatar" href="$(.inputfile).show();"><small>Select Image</small></label>
+                        <input type="submit" class="btn btn-dark" value="Update">
+                    </form>
+                      </div>
                     <div class="mt-3">
                       <h4>{{duser.username}}{% if duser.is_verified %}<img src="{% static 'img/verify.png' %}" class="verified text-center" width="10">{%endif%}</h4>
-                        <pre style="background-color: #95A5A6; color: white;" class="text-secondary mb-1"><span class="text">New User</span></pre>
+
+                      <pre style="background-color: #95A5A6; color: white;" class="text-secondary mb-1"><span class="text">New User</span></pre>
                       <p class="text-muted font-size-sm">{{duser.bio|default_if_none:" "}}</p>
                       <button class="btn btn-primary">Follow</button>
                       <button class="btn btn-outline-primary" onclick="dev()">Message</button>
@@ -67,7 +81,7 @@
                     <div class="card-body">
                       <h3>Update your socials</h3>
                       <h6>All fields are optional</h6>
-                      <form method="post" action="social_edit">
+                      <form method="post"  enctype="multipart/form-data" action="social_edit">
                         {% csrf_token %}
                         {{social_form|crispy}}
                         <input type="submit" class="btn btn-dark" value="Update">
@@ -123,7 +137,7 @@
                 <div class="col-12">
                   <div class="card mb-3">
                     <div class="card-body">
-                      <form method="post" action="edit">
+                      <form method="post" action="edit" enctype="multipart/form-data">
                         {% csrf_token %}
                         {{form|crispy}}
                         <input type="submit" class="btn btn-dark" value="Update profile">
@@ -222,3 +236,4 @@
         </div>
 
 {% endblock %}
+

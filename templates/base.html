@@ -78,22 +78,22 @@
                   <div class="d-inline my-2 my-lg-0 float-right">
                     {% if not user.is_authenticated %}
 					<li class="nav-item d-inline my-2 mx-2 my-lg-0">
-						<button class="btn btn-light"><a class="nav-link" href="/accounts/login"><b>Sign In</b></a></button>
+						<button class="btn btn-light trans"><a class="nav-link" href="/accounts/login"><b>Sign In</b></a></button>
 					</li>
 					<li class="nav-item d-inline my-2 mx-2 my-lg-0">
-							<button class="btn btn-light"><a class="nav-link" href="/accounts/signup"><b>Create an Account</b></a></button>
+							<button class="btn btn-light trans"><a class="nav-link" href="/accounts/signup"><b>Create an Account</b></a></button>
 						</li>
 					{% else %}
 
 					<li class="nav-item d-inline my-2 mx-2 my-lg-0">
-						<button class="btn btn-light"><a class="nav-link" href="/accounts/{{user.username}}"><b>Profile</b></a></button>
+						<button class="btn btn-light trans"><a class="nav-link" href="/accounts/{{user.username}}"><b>Profile</b></a></button>
 					</li>
 					<li class="nav-item d-inline my-2 mx-2 my-lg-0">
-							<button class="btn btn-light"><a class="nav-link" href="/accounts/logout"><b>Logout</b></a></button>
+							<button class="btn btn-light trans"><a class="nav-link" href="/accounts/logout"><b>Logout</b></a></button>
 						</li>
 
 					{% endif %}
-                      </div>
+				  </div>
 			  </div>
 			</nav>
 		</div>
@@ -136,6 +136,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		<script src="{% static 'js/main.js' %}"></script>
 		<script src="{% static 'js/util.js' %}"></script>
+		{% block js %}{% endblock %}
 
   </body>
 </html>

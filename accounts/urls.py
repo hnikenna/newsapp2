@@ -8,4 +8,5 @@ urlpatterns = [
     path('<username>/', get_user_profile, name='profile'),
     path('<username>/edit', edit_user_profile, name='edit_profile'),
     path('<username>/social_edit', edit_user_social, name='edit_social'),
+    path('<username>/avatar_edit', edit_user_avatar, name='edit_avatar'),
 ]
