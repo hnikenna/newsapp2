@@ -3,6 +3,7 @@ var commentVoteBtns = document.getElementsByClassName('comment-vote')
 var replyVoteBtns = document.getElementsByClassName('reply-vote')
 var deleteBtns = document.getElementsByClassName('deletebtn')
 var reportBtns = document.getElementsByClassName('reportbtn')
+var shareBtns = document.getElementsByClassName('sharebtn')
 var commentBtn = document.getElementById('addCommentBtn')
 var commentBox = document.getElementById('commentbox')
 var textBox = document.getElementById('textbox')
@@ -411,6 +412,18 @@ for (var i=0; i<deleteBtns.length; i++){
         var id = this.dataset.id
         var type = this.dataset.type
         var confirm_box_id = 'del_'+ id
+        var confirmBox = document.getElementById(confirm_box_id)
+        showHide('', confirmBox, '')
+
+        }
+    )
+}
+
+// Share Buttons
+for (var i=0; i<shareBtns.length; i++){
+    shareBtns[i].addEventListener('click', function (e){
+        var parent = this.dataset.parent
+        var confirm_box_id = 'share-'+ parent
         var confirmBox = document.getElementById(confirm_box_id)
         showHide('', confirmBox, '')
 

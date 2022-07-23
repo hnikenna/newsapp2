@@ -6,7 +6,7 @@
     <p  class="text-center">Don't have an account? <a href="/accounts/signup/" style="text-decoration: ;">Sign up</a></p>
 {% endblock %}
 {% block form %}
-{{ form }}
+{{ form|crispy }}
 <a href="/accounts/password_reset/">Forgot password?</a><br>
 <br>
 <button class="btn btn-main" style="width: 100%;" type="submit">Sign in</button><hr>

@@ -5,8 +5,14 @@ Author: Cemre Tellioğlu Tunçay
 Author URI: https://cemreworks.com
 */
 
-body{
 
+body {
+    margin:0;
+    padding:0;
+    background: #dedede;
+    height: 100%
+    display: grid;
+    /*place-items: center;*/
     font-family: 'Montserrat', sans-serif;
 
 }
@@ -889,12 +895,6 @@ section#section5 {
     margin-top: 10px;
 }
 
-body {
-    height: 100%
-    display: grid;
-    /*place-items: center;*/
-}
-
 h5 {
     font-weight: bold;
 }
@@ -1034,10 +1034,13 @@ h5 {
 }
 
 .media .award-glow {
-    position: relative;
+/*    position: absolute;*/
+    left: 0;
     width: 20px;
     height: 20px;
     margin: 5px 5px 5px 5px;
+/*    margin-left: 0px;*/
+
 /*    box-shadow: 0px 0px 5px #DB880E;*/
 /*    -webkit-filter: drop-shadow( 7px 4px 4px #DB880E);*/
     animation-name: award-glow;
@@ -1190,9 +1193,13 @@ a:hover {
 
 .db {
     width: 100%;
-    /*border: 1px solid black;*/
+    border: 2px solid gold;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     display: none;
+    background: #FCFFEC;
+    border-radius: 10%;
+    margin-top: 2%;
+
 }
 th {
   text-align: center;
