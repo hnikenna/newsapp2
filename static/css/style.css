@@ -993,13 +993,13 @@ h5 {
   100% { transform: rotate(360deg); }*/
 
   0% {
-    background: #329034;
+    background: #5A229F;
   }
   50% {
     background: #23257D;
   }
   100% {
-    background: #329034;
+    background: #5A229F;
   }
 
 }
