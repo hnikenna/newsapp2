@@ -17,11 +17,14 @@ class Award(models.Model):
     ROTATE = 'rotate'
     GLOW = 'glow'
     SHAKE = 'shake'
+    SHAKE = 'shake'
+    SPIN = 'spin'
 
     ANIMATION_CHOICES = [
         (ROTATE, 'Rotate'),
         (GLOW, 'Glow'),
         (SHAKE, 'Shake'),
+        (SPIN, 'Spin'),
     ]
     name = models.CharField(max_length=50)
     image = models.CharField(max_length=20)

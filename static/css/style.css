@@ -988,6 +988,22 @@ h5 {
 
 }
 
+@keyframes award-spin {
+/*  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }*/
+
+  0% {
+    background: #329034;
+  }
+  50% {
+    background: #23257D;
+  }
+  100% {
+    background: #329034;
+  }
+
+}
+
 .media .award-none {
     width: 25px;
     height: 25px;
@@ -1026,6 +1042,23 @@ h5 {
 /*    -webkit-filter: drop-shadow( 7px 4px 4px #DB880E);*/
     animation-name: award-glow;
     animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+
+.media .award-spin {
+    position: relative;
+/*    border-radius: 30%;*/
+    border: 1px dotted gold;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    margin: 5px 5px 5px 5px;
+    padding: 2px 2px 2px 2px;
+/*    box-shadow: 0px 0px 5px #DB880E;*/
+/*    -webkit-filter: drop-shadow( 7px 4px 4px #DB880E);*/
+    animation-name: award-spin;
+    animation-duration: 5s;
     animation-iteration-count: infinite;
 }
 
@@ -1293,3 +1326,4 @@ input[type="file"] {
 /*    opacity: 50%;*/
     background: rgba(249, 215, 255, .8);
 }
+
