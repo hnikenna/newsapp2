@@ -261,6 +261,17 @@ for (var i=0; i<subReplyBtns.length; i++){
 }
 
 // Awards
+for (var i=0; i<awardBtns.length; i++){
+    awardBtns[i].addEventListener('click', function (e){
+        var id = this.dataset.id
+        var confirm_box_id = 'award-'+ id
+        var confirmBox = document.getElementById(confirm_box_id)
+        showHide('', confirmBox, '')
+
+        }
+    )
+}
+
 for (var i=0; i<giftBtns.length; i++){
     giftBtns[i].addEventListener('click', function (e){
         var award_id = this.dataset.id

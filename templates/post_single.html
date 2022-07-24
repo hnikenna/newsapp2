@@ -236,9 +236,9 @@
                                                                  data-article="{{ article.slug }}"
                                                             >{{ comment.no_vote }}
                                                             <a class="replybtn button" data-comment="{{comment.get_anon_id}}"><img src="{% static 'img/reply-message.png' %}" class="button"><span class="d-none d-md-inline">Reply</span></a>
-                                                            <a class="sharebtn"  data-id="{{comment.get_anon_id}}"><img src="{% static 'img/send.png' %}" class="button"><span class="d-none d-md-inline">Share</span></a>
+                                                            <a class="sharebtn" data-id="{{comment.get_anon_id}}"><img src="{% static 'img/send.png' %}" class="button"><span class="d-none d-md-inline">Share</span></a>
                                                             {% if comment.author != request.user %}
-                                                            <a class="awardBtn {{comment.get_anon_id}}"><img src="{% static 'img/badge.png' %}" class="button"><span class="d-none d-md-inline">Award</span></a>
+                                                            <a class="awardBtn" data-id="{{comment.get_anon_id}}"><img src="{% static 'img/badge.png' %}" class="button"><span class="d-none d-md-inline">Award</span></a>
                                                             <a class="reportbtn" data-id="{{comment.get_anon_id}}"><img src="{% static 'img/police.png' %}" class="button"><span class="d-none d-md-inline">Report</span></a>
                                                             <div id="rep-{{comment.get_anon_id}}" style="display: none;">
                                                                 <br><p>Are you sure you want to report this comment?</p>
@@ -258,18 +258,18 @@
                                                             </div>
                                                             {% endif %}
                                                         </div>
-                                                        <div class="text-center" id="share-{{comment.get_anon_id}}" style="display: none; height: 100px;">
+                                                        <div class="" id="share-{{comment.get_anon_id}}" style="display: none; height: 100px;">
 
                                                             <ul class="ul">
                                                               <li><a href="#"><i class="fab fa fa-facebook" aria-hidden="true"></i></a></li>
                                                               <li><a href="#"><i class="fab fa fa-twitter" aria-hidden="true"></i></a></li>
-                                                              <li><a href="#"><i class="fab fa fa-google" aria-hidden="true"></i></a></li>
-                                                              <li><a href="#"><i class="fab fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                                              <li><a href="#"><i class="fab fa fa-instagram" aria-hidden="true"></i></a></li>
+                                                              <li><a href="#"><i class="fab fa fa-whatsapp" aria-hidden="true"></i></a></li>
+                                                               <li><a href="#"><i class="fab fa fa-telegram" aria-hidden="true"></i></a></li>
+                                                              <li><a href="#"><i class="fab fa fa-reddit" aria-hidden="true"></i></a></li>
                                                             </ul>
 
                                                         </div>
-                                                        <div class="container db ml-md-5 mb-3 p-5" id="db-{{comment.get_anon_id}}">
+                                                        <div class="container db ml-md-5 mb-3 p-5" id="award-{{comment.get_anon_id}}">
                                                                 <div class="row">
                                                                         {% if user.awards|length < 1 %}
                                                                     <div class="col"  style="display: flex; justify-content: center; align-items: center;">
@@ -282,7 +282,7 @@
                                                                             <p><a href="/accounts/login"><b>Sign in</b></a> to receive <strong style="color: red;">4 more gifts</strong> with every purchase</p>
                                                                             {%else%}
                                                                             <img src="{% static 'img/cancel.png' %}" width="90%"><br>
-                                                                            <p style="color: red;">You do not have any award to gift</p>
+                                                                            <strong>You do not have any award to gift</strong>
                                                                             {% endif %}
                                                                         </div>
                                                                         {%else%}
@@ -290,7 +290,7 @@
                                                                         <h5 class="text-center">Your Awards</h5>
                                                                             <div class="dropdown-divider"></div>
                                                                         {% for awarditem in user.awards %}
-                                                                        <a class="dropdown-item gift" data-id="{{awarditem.get_anon_id}}" data-owner="{{comment.author}}" data-id="{{comment.get_anon_id}}" data-award="{{awarditem.award.id}}">
+                                                                        <a class="dropdown-item gift" data-id="{{awarditem.get_anon_id}}" data-owner="{{comment.author}}" data-parent="{{comment.get_anon_id}}" data-award="{{awarditem.award.id}}">
                                                                             <img src="{% static 'img/awards' %}/{{ awarditem.award.image }}"
                                                                                  alt="{{awarditem.award.name}} - Award"
                                                                                  title="{{ awarditem.award.name}}"
@@ -450,10 +450,17 @@
                                                                  data-article="{{ article.slug }}"
                                                             >{{ reply.no_vote }}
                                                             <a class="subreplybtn button" data-reply="{{comment.get_anon_id}}-{{reply.get_anon_id}}"><img src="{% static 'img/reply-message.png' %}" class="button"><span class="d-none d-md-inline">Reply</span></a>
-                                                            <a><img src="{% static 'img/send.png' %}" class="button"><span class="d-none d-md-inline">Share</span></a>
+                                                            <a class="sharebtn" data-id="{{reply.get_anon_id}}"><img src="{% static 'img/send.png' %}" class="button"><span class="d-none d-md-inline">Share</span></a>
                                                             {% if reply.author != request.user %}
-                                                            <a class="awardBtn {{comment.get_anon_id}}-{{reply.get_anon_id}}"><img src="{% static 'img/badge.png' %}" class="button"><span class="d-none d-md-inline">Award</span></a>
-                                                            <a><img src="{% static 'img/police.png' %}" class="button reportbtn" data-id="{{reply.get_anon_id}}"><span class="d-none d-md-inline">Report</span></a>
+                                                            <a class="awardBtn" data-id="{{reply.get_anon_id}}"><img src="{% static 'img/badge.png' %}" class="button"><span class="d-none d-md-inline">Award</span></a>
+                                                            <a class="reportbtn" data-id="{{reply.get_anon_id}}"><img src="{% static 'img/police.png' %}" class="button reportbtn" data-id="{{reply.get_anon_id}}"><span class="d-none d-md-inline">Report</span></a>
+                                                            <div id="rep-{{reply.get_anon_id}}" style="display: none;">
+                                                                <br><p>Are you sure you want to report this comment?</p>
+                                                                <div class="d-inline">
+                                                                <button class="btn btn-dark mr-5" onclick="alerT('', 'Comment has been sent to our team for review.', '#B9162E');$('#rep-{{comment.get_anon_id}}').hide()">Yes</button>
+                                                                <button class="btn btn-dark ml-5" onclick="$('#rep-{{reply.get_anon_id}}').hide()">No</button><br>
+                                                                </div>
+                                                            </div>
                                                             {% else %}
                                                             <a class="deletebtn" data-type="reply" data-id='{{reply.get_anon_id}}' style="color: #C9281A;"><i class="button mr-1 fa fa-close fa-lg" style="height: 15px;"></i><span class="d-none d-md-inline">Delete</span></a>
                                                             <div id="del_{{reply.get_anon_id}}" style="display: none;">
@@ -464,7 +471,18 @@
                                                                 </div>
                                                             </div>
                                                             {% endif %}
-                                                            <div class="container db md-ml-5 mb-3 pb-3 pt-2" id="db-{{comment.get_anon_id}}-{{reply.get_anon_id}}" style="">
+                                                            <div class="" id="share-{{reply.get_anon_id}}" style="display: none; height: 100px;">
+
+                                                            <ul class="ul">
+                                                              <li><a href="#"><i class="fab fa fa-facebook" aria-hidden="true"></i></a></li>
+                                                              <li><a href="#"><i class="fab fa fa-twitter" aria-hidden="true"></i></a></li>
+                                                              <li><a href="#"><i class="fab fa fa-whatsapp" aria-hidden="true"></i></a></li>
+                                                              <li><a href="#"><i class="fab fa fa-telegram" aria-hidden="true"></i></a></li>
+                                                              <li><a href="#"><i class="fab fa fa-reddit" aria-hidden="true"></i></a></li>
+                                                            </ul>
+
+                                                        </div>
+                                                            <div class="container db md-ml-5 mb-3 pb-3 pt-2" id="award-{{reply.get_anon_id}}">
                                                                 <div class="row">
                                                                         {% if user.awards|length < 1 %}
                                                                     <div class="col"  style="display: flex; justify-content: center; align-items: center;">
@@ -477,7 +495,7 @@
                                                                             <p><a href="/accounts/login"><b>Sign in</b></a> to receive <strong style="color: red;">4 more gifts</strong> with every purchase</p>
                                                                             {%else%}
                                                                             <img src="{% static 'img/cancel.png' %}" width="90%"><br>
-                                                                            <p style="color: red;">You do not have any award to gift</p>
+                                                                            <strong>You do not have any award to gift</strong>
                                                                             {% endif %}
 
                                                                         </div>

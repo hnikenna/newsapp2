@@ -897,13 +897,13 @@ h5 {
   100% { transform: rotate(360deg); }*/
 
   0% {
-    background: #5A229F;
+    background: #000000;
   }
   50% {
-    background: #23257D;
+    background: #0B157D;
   }
   100% {
-    background: #5A229F;
+    background: #000000;
   }
 
 }
@@ -954,8 +954,6 @@ h5 {
 
 
 .media .award-spin {
-    position: relative;
-/*    border-radius: 30%;*/
     border: 1px dotted gold;
     border-radius: 50%;
     width: 22px;
@@ -1255,8 +1253,8 @@ input[type="file"] {
 
 .ul li a {
   position: relative;
-  width:45px;
-  height:45px;
+  width:35px;
+  height:35px;
   display:block;
   text-align:center;
   margin:0 10px;
@@ -1265,7 +1263,7 @@ input[type="file"] {
   box-sizing: border-box;
   text-decoration:none;
   box-shadow: 0 10px 15px rgba(0,0,0,0.3);
-  background: linear-gradient(0deg, #ddd, #fff);
+  background: linear-gradient(0deg, #ddd, #f2f2f2);
   transition: .5s;
 }
 
@@ -1280,8 +1278,8 @@ input[type="file"] {
   display:block;
   background: linear-gradient(0deg, #fff, #ddd);
   border-radius: 50%;
-  line-height: calc(45px - 12px);
-  font-size:20px;
+  line-height: calc(35px - 12px);
+  font-size:18px;
   color: #262626;
   transition: .5s;
   text-align: center;
@@ -1296,7 +1294,7 @@ input[type="file"] {
 }
 
 .ul li:nth-child(3) a:hover .fab {
-  color: #dd4b39;
+  color: green;
 }
 
 .ul li:nth-child(4) a:hover .fab {
@@ -1304,5 +1302,5 @@ input[type="file"] {
 }
 
 .ul li:nth-child(5) a:hover .fab {
-  color: #e4405f;
+  color: #C94635;
 }
