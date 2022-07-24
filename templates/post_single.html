@@ -236,10 +236,17 @@
                                                                  data-article="{{ article.slug }}"
                                                             >{{ comment.no_vote }}
                                                             <a class="replybtn button" data-comment="{{comment.get_anon_id}}"><img src="{% static 'img/reply-message.png' %}" class="button"><span class="d-none d-md-inline">Reply</span></a>
-                                                            <a class="sharebtn"  data-parent="{{comment.get_anon_id}}"><img src="{% static 'img/send.png' %}" class="button"><span class="d-none d-md-inline">Share</span></a>
+                                                            <a class="sharebtn"  data-id="{{comment.get_anon_id}}"><img src="{% static 'img/send.png' %}" class="button"><span class="d-none d-md-inline">Share</span></a>
                                                             {% if comment.author != request.user %}
                                                             <a class="awardBtn {{comment.get_anon_id}}"><img src="{% static 'img/badge.png' %}" class="button"><span class="d-none d-md-inline">Award</span></a>
                                                             <a class="reportbtn" data-id="{{comment.get_anon_id}}"><img src="{% static 'img/police.png' %}" class="button"><span class="d-none d-md-inline">Report</span></a>
+                                                            <div id="rep-{{comment.get_anon_id}}" style="display: none;">
+                                                                <br><p>Are you sure you want to report this comment?</p>
+                                                                <div class="d-inline">
+                                                                <button class="btn btn-dark mr-5" onclick="alerT('', 'Comment has been sent to our team for review.', '#B9162E');$('#rep-{{comment.get_anon_id}}').hide()">Yes</button>
+                                                                <button class="btn btn-dark ml-5" onclick="$('#rep-{{comment.get_anon_id}}').hide()">No</button><br>
+                                                                </div>
+                                                            </div>
                                                             {% else %}
                                                             <a class="deletebtn" data-type="comment" data-id='{{comment.get_anon_id}}' style="color: #C9281A;"><i class="button mr-1 fa fa-close fa-lg" style="height: 15px;"></i><span class="d-none d-md-inline">Delete</span></a>
                                                             <div id="del_{{comment.get_anon_id}}" style="display: none;">
@@ -251,7 +258,7 @@
                                                             </div>
                                                             {% endif %}
                                                         </div>
-                                                        <div id="share-{{comment.get_anon_id}}" style="display: none; height: 150px;">
+                                                        <div class="text-center" id="share-{{comment.get_anon_id}}" style="display: none; height: 100px;">
 
                                                             <ul class="ul">
                                                               <li><a href="#"><i class="fab fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -283,7 +290,7 @@
                                                                         <h5 class="text-center">Your Awards</h5>
                                                                             <div class="dropdown-divider"></div>
                                                                         {% for awarditem in user.awards %}
-                                                                        <a class="dropdown-item gift" data-id="{{awarditem.get_anon_id}}" data-owner="{{comment.author}}" data-parent="{{comment.get_anon_id}}" data-award="{{awarditem.award.id}}">
+                                                                        <a class="dropdown-item gift" data-id="{{awarditem.get_anon_id}}" data-owner="{{comment.author}}" data-id="{{comment.get_anon_id}}" data-award="{{awarditem.award.id}}">
                                                                             <img src="{% static 'img/awards' %}/{{ awarditem.award.image }}"
                                                                                  alt="{{awarditem.award.name}} - Award"
                                                                                  title="{{ awarditem.award.name}}"

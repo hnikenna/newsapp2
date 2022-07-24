@@ -33,7 +33,6 @@ for (var i=0; i<voteBtns.length; i++){
         if (user == 'AnonymousUser') {
 //            console.log('Guest')
             this.style.animation = 'award-shake 1s';
-            console.log(this.disabled)
             if (this.disabled) {
 
                 alerT(e, 'Oops! You have to be logged in to vote', '#C9162D');
@@ -135,13 +134,8 @@ function updateArticleVote(slug, poll) {
 
     .then((data) => {
         console.log('data:', data)
-        console.log('Loading..')
-//        location.reload()
-        console.log($( "#yesvote" ).text())
-        $( "#yesvote" ).load(location.reload() + " #yesvote");
-//        $( "#articlevotes" ).load(window.location.href + " #articlevotes");
-//        document.getElementById('yesvote').innerHTML = data['y'];
-//        document.getElementById('novote').innerHTML = data['n'];
+        console.log('Reloading..')
+        location.reload()
 
     })
 
@@ -274,7 +268,6 @@ for (var i=0; i<giftBtns.length; i++){
         var parent = this.dataset.parent
         var award = this.dataset.award
         var award_data = [award_id, owner, parent, award]
-        console.log(e)
         sendAward(award_data)
         e.preventDefault()
 //        awardBox.style.display = 'block'
@@ -422,8 +415,8 @@ for (var i=0; i<deleteBtns.length; i++){
 // Share Buttons
 for (var i=0; i<shareBtns.length; i++){
     shareBtns[i].addEventListener('click', function (e){
-        var parent = this.dataset.parent
-        var confirm_box_id = 'share-'+ parent
+        var id = this.dataset.id
+        var confirm_box_id = 'share-'+ id
         var confirmBox = document.getElementById(confirm_box_id)
         showHide('', confirmBox, '')
 
@@ -436,8 +429,10 @@ for (var i=0; i<shareBtns.length; i++){
 for (var i=0; i<reportBtns.length; i++){
     reportBtns[i].addEventListener('click', function (e){
         var id = this.dataset.id
-        alerT('', 'Comment has been sent to our team for review!', '#920331')
-//        alerT('', 'Comment ' + id + ' has been sent to our team for review. Thanks B!', '#920331')
+        var type = this.dataset.type
+        var confirm_box_id = 'rep-'+ id
+        var confirmBox = document.getElementById(confirm_box_id)
+        showHide('', confirmBox, '')
 
         }
     )
