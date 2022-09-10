@@ -8,35 +8,32 @@ from django.utils.text import slugify
 from django.urls import reverse
 
 from news_project.utils import *
+
+
 # from django.contrib.auth import get_user_model
 
 
 # Create your models here.
 class Country(models.Model):
+    name = models.CharField(max_length=50)
+    capital = models.CharField(max_length=50)
+    continent = models.CharField(max_length=50)
+    iso = models.BooleanField(default=True)
+    code = models.CharField(max_length=2)
 
-     name = models.CharField(max_length=50)
-     capital = models.CharField(max_length=50)
-     continent = models.CharField(max_length=50)
-     iso = models.BooleanField(default=True)
-     code = models.CharField(max_length=2)
+    def __str__(self):
+        return self.name
 
-     def __str__(self):
-         return self.name
+    def get_path_1(self):
+        path = f"/static/flags/1x1/{self.code}.svg"
+        return path
 
-     def get_path_1(self):
-         path = f"/static/flags/1x1/{self.code}.svg"
-         return path
-
-     def get_path_2(self):
-         path = f"/static/flags/4x3/{self.code}.svg"
-         return path
-
-
-
+    def get_path_2(self):
+        path = f"/static/flags/4x3/{self.code}.svg"
+        return path
 
 
 class Award(models.Model):
-
     ROTATE = 'rotate'
     GLOW = 'glow'
     SHAKE = 'shake'
@@ -59,7 +56,6 @@ class Award(models.Model):
 
 
 class AwardItem(models.Model):
-
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     award = models.ForeignKey(Award, on_delete=models.PROTECT)
     quantity = models.PositiveIntegerField(default=0)

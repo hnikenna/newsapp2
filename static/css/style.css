@@ -1120,7 +1120,7 @@ html {
 
 .sidebar {
 /*    background-image: linear-gradient( 95.2deg, rgba(173,252,234,1) 26.8%, rgba(192,229,246,1) 64% );*/
-    background-image: linear-gradient(to left, #FFFFF9, #CEE6FF);
+    /*background-image: linear-gradient(to left, #FFFFF9, #CEE6FF);*/
     height: 210px;
 }
 
@@ -1303,4 +1303,21 @@ input[type="file"] {
 
 .ul li:nth-child(5) a:hover .fab {
   color: #C94635;
+}
+
+.country {
+
+    background-size: cover;
+    font-weight: bold;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+
+}
+
+.blurry {
+    font-weight: bold;
+    color: white;
+/*    border: 1px solid black;*/
+    border-radius: 5px;
+    background-color:rgba(0, 0, 0, 0.5);
 }

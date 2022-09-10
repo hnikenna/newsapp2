@@ -19,6 +19,7 @@
     <span class="d-inline d-md-none"><h5 style="text-decoration: overline;">{{ article.title }}</h5></span>
         <div class="d-flex justify-content-between align-items-center">
             <a href="#discussion"> Go to Discussion <span style="font-weight: 400; font-size: 20px;">&#8595</span> </a>
+            <h4>News from <strong>{{article.country}}</strong> <img src="{{article.country.get_path_1}}" style="width: 32px; height: 32px; border-radius: 50%;"></h4>
             <p>{{ article.date }} - <span class="time">{{article.time_ago }} </span><span class="d-none d-md-inline"><img src="{% static 'img/dot_button.png' %}" width="5%"><a href="#"> {{ article.username }}</a></span></p>
         </div>
 
@@ -52,28 +53,45 @@
         </div>
 
 <!--        Top Comments Section-->
-        <div class="col-3 d-none d-lg-block">
+        <div class="col-12 col-lg-3">
                 <h3 class="text-center">You might also like...</h3><hr/>
             {% for article in featured %}
-                <div class="card sidebar">
-                    <div class="card-content text-center">
-                            <a href="#" style="text-decoration: none;">
-                                <h5 class="zoom" style="font-weight: bold;">
+                <div class="card sidebar country text-center" style="background-image: url({{ article.country.get_path_1 }}); position: relative;">
+                    <div class="blurry" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0"></div>
+                    <div class="card-content text-center zoom"style="position: relative;" >
+                            <a href="{{article.get_absolute_url}}" style="text-decoration: none; color: white;">
+                                <h5>
                                     {{ article.title }}
                                 </h5>
+
+                                <div class="d-none d-lg-flex justify-content-between">
+                                    <div class="container text-center">
+                                        <h5 class="absTitle">{{ article.yes_vote }}</h5>
+                                        <img src="{% static 'img/white_people.png' %}" width="40%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
+                                        <p class="absText">Agree</p>
+                                    </div>
+                                    <div class="container text-center">
+                                        <h5 class="absTitle">{{ article.no_vote }}</h5>
+                                        <img src="{% static 'img/black_people.png' %}" width="40%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
+                                        <p class="absText">Disagree</p>
+                                    </div>
+                                </div>
+<!--                                Mobile Sidebar Buttons-->
+                                <div class="d-flex d-lg-none justify-content-between">
+                                    <div class="container text-center">
+                                        <h6 class="absTitle">{{ article.yes_vote }}</h6>
+                                        <img src="{% static 'img/white_people.png' %}" width="20%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
+                                        <p class="absText">Agree</p>
+                                    </div>
+                                    <div class="container text-center">
+                                        <h6 class="absTitle">{{ article.no_vote }}</h6>
+                                        <img src="{% static 'img/black_people.png' %}" width="20%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
+                                        <p class="absText">Disagree</p>
+                                    </div>
+                                </div>
+
+
                             </a>
-                            <div class="d-flex justify-content-between">
-                                <div class="container text-center">
-                                    <h5 class="absTitle">{{ article.yes_vote }}</h5>
-                                    <img src="{% static 'img/white_people.png' %}" width="40%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
-                                    <p class="absText">Agree</p>
-                                </div>
-                                <div class="container text-center">
-                                    <h5 class="absTitle">{{ article.no_vote }}</h5>
-                                    <img src="{% static 'img/black_people.png' %}" width="40%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
-                                    <p class="absText">Disagree</p>
-                                </div>
-                            </div>
 
 
 
