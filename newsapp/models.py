@@ -12,6 +12,29 @@ from news_project.utils import *
 
 
 # Create your models here.
+class Country(models.Model):
+
+     name = models.CharField(max_length=50)
+     capital = models.CharField(max_length=50)
+     continent = models.CharField(max_length=50)
+     iso = models.BooleanField(default=True)
+     code = models.CharField(max_length=2)
+
+     def __str__(self):
+         return self.name
+
+     def get_path_1(self):
+         path = f"/static/flags/1x1/{self.code}.svg"
+         return path
+
+     def get_path_2(self):
+         path = f"/static/flags/4x3/{self.code}.svg"
+         return path
+
+
+
+
+
 class Award(models.Model):
 
     ROTATE = 'rotate'
@@ -211,7 +234,8 @@ class Article(models.Model):
     image = models.ImageField(upload_to='articles', blank=True)
     source_url = models.URLField(blank=True)
     source_name = models.CharField(max_length=200)
-    # tags = models.CharField(max_length=250)
+    country = models.ForeignKey(Country, on_delete=models.PROTECT, null=True)
+    # tags = models.ManyToManyField(Tag, on_delete=models.PROTECT)
     yes_vote = models.IntegerField(default=0)
     no_vote = models.IntegerField(default=0)
     comment = models.ManyToManyField(Comment, blank=True)
@@ -233,7 +257,7 @@ class Article(models.Model):
 
     @property
     def get_title(self):
-        return breadcrumb(self.title, 65)
+        return breadcrumb(self.title, 60)
 
     @property
     def get_short_title(self):
@@ -245,7 +269,7 @@ class Article(models.Model):
 
     @property
     def get_short_content(self):
-        return breadcrumb(self.content, 200)
+        return breadcrumb(self.content, 180)
 
     @property
     def get_shorter_content(self):

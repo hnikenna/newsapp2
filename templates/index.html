@@ -6,7 +6,7 @@
 
 <!--			Top News Section-->
 			<div class="col-md-12 noPadding text-center">
-				<h1 class="titleText">TOP NEWS</h1>
+				<h1 class="titleText">INFORMATION FROM ALL ACROSS THE WORLD</h1>
 				<hr/>
 <!--				<img class="withBottom" src="{% static 'img/shapegreen.png' %}">-->
 			</div>
@@ -25,11 +25,11 @@
 				border-radius: 15px;
 			"></div>
 				<div class="d-block d-md-none filterBack text-center" style="
-				/*background: url({{ MEDIA_URL }}{{ article.image }});*/
-				background-color: purple; /* new */
+				background: url({{ article.country.get_path_1 }}) center repeat;
+<!--				background-color: purple; /* new */-->
 				background-position: top;
 				background-size: cover;
-				min-height: 350px;
+				min-height: 400px;
 				color: red;
 				font-weight: bold;
 				background-attachment: fixed;
@@ -40,6 +40,15 @@
 <!--				<div class="filterBack"></div>-->
 					<div class="abs text-center d-flex" style="align-items: center; border-radius: 15px;">
 						<div class="container">
+							<div id="country-box" class="d-none d-md-inline zoom pull-right col-1">
+
+								<img
+									class="mt-5" src="{{article.country.get_path_1}}"
+									style="width: 100%; border-radius: 50%;"
+									title="News from {{article.country}}"
+									alt="{{article.country}} Flag"
+								>
+							</div>
 							<div class="row" style="color: #E8ECE8;">
 								<div class="col-3">
 									<div class="d-none d-lg-block">
@@ -87,9 +96,10 @@
 
 								</div>
 							</div>
+
 						</div>
 					</div>
-				</div>
+
 
 
 <!--			Seperator-->
@@ -99,6 +109,7 @@
 <!--				<h1 class="mainText">Price Table</h1>-->
 <!--				<img class="withBottom" src="{% static 'img/shapegreen.png' %}">-->
 			</div>
+		</div>
 
 			{% endfor %}
 

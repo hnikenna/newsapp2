@@ -15,3 +15,4 @@ urlpatterns = [
     path('delete/<type>/<id>', delete, name='delete'),
     path('award_transaction/', awardTransaction, name='award_transaction'),
 ]
+

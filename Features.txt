@@ -4,3 +4,13 @@ Article Tagging with 'django-tagging'
 Work in progress page will show updates being made
 Vote buttons will rotate when selected but if already voted, will shake (as in no vote) -V
 Guest Users can comment but will have a name field
+Let Mobile view show country flag as bg
+Use paypal, stripe, django-money, django.contrib.exchange
+
+Article Categories:
+  preset:
+    Country
+    Sector/Tag
+    Continent
+
+

@@ -10,7 +10,6 @@ from .models import *
 from accounts.models import CustomUser
 
 
-
 # Create your views here.
 class HomeView(ListView):
     model = Article
@@ -336,6 +335,7 @@ def delete(request, type, id):
     else:
         return JsonResponse('Error with deletion', safe=False)
 
+
 @csrf_exempt
 def gift(request):
     user = request.user
@@ -365,6 +365,7 @@ def gift(request):
 
     return JsonResponse('Done', safe=False)
 
+
 @csrf_exempt
 def awardTransaction(request):
     user = request.user
@@ -381,5 +382,3 @@ def awardTransaction(request):
     return JsonResponse(
         'Logged', safe=False
     )
-
-
