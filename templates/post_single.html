@@ -19,7 +19,8 @@
     <span class="d-inline d-md-none"><h5 style="text-decoration: overline;">{{ article.title }}</h5></span>
         <div class="d-flex justify-content-between align-items-center">
             <a href="#discussion"> Go to Discussion <span style="font-weight: 400; font-size: 20px;">&#8595</span> </a>
-            <h4>News from <strong>{{article.country}}</strong> <img src="{{article.country.get_path_1}}" style="width: 32px; height: 32px; border-radius: 50%;"></h4>
+            <h4 class="d-none d-lg-inline">News from <strong>{{article.country}}</strong> <img src="{{article.country.get_path_1}}" style="width: 32px; height: 32px; border-radius: 50%;"></h4>
+            <h6 class="d-inline d-lg-none">News from <strong>{{article.country}}</strong> <img src="{{article.country.get_path_1}}" style="width: 32px; height: 32px; border-radius: 50%;"></h6>
             <p>{{ article.date }} - <span class="time">{{article.time_ago }} </span><span class="d-none d-md-inline"><img src="{% static 'img/dot_button.png' %}" width="5%"><a href="#"> {{ article.username }}</a></span></p>
         </div>
 
