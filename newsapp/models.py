@@ -231,6 +231,7 @@ class Article(models.Model):
     source_url = models.URLField(blank=True)
     source_name = models.CharField(max_length=200)
     country = models.ForeignKey(Country, on_delete=models.PROTECT, null=True)
+    video = models.URLField(null=True)
     # tags = models.ManyToManyField(Tag, on_delete=models.PROTECT)
     yes_vote = models.IntegerField(default=0)
     no_vote = models.IntegerField(default=0)

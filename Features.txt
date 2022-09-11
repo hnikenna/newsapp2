@@ -6,6 +6,8 @@ Vote buttons will rotate when selected but if already voted, will shake (as in n
 Guest Users can comment but will have a name field
 Let Mobile view show country flag as bg
 Use paypal, stripe, django-money, django.contrib.exchange
+Terms and Conditions will say users must post credible news only
+Users can withdraw anytime
 
 Article Categories:
   preset:

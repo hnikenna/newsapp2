@@ -9,7 +9,7 @@ Author URI: https://cemreworks.com
 body {
     margin:0;
     padding:0;
-    background: white;
+    background: #F0F0F0;
     height: 100%
     display: grid;
     /*place-items: center;*/
@@ -18,7 +18,6 @@ body {
 }
 
 .myNavbar{
-    background-color: transparent !important;
 /*    background-color: transparent !important;*/
     border: 0px !important;
 }
@@ -915,8 +914,8 @@ h5 {
 }
 
 .media .award-rotate {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     margin: 5px 5px 5px 5px;
 
 /*    box-shadow: 0px 0px 5px #DB880E;*/
@@ -927,8 +926,8 @@ h5 {
 }
 
 .media .award-shake {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     margin: 5px 5px 5px 5px;
     /*box-shadow: 0px 0px 5px #DB880E;*/
     /*-webkit-filter: drop-shadow( 5px -2px 6px #DB880E);*/
@@ -940,8 +939,8 @@ h5 {
 .media .award-glow {
 /*    position: absolute;*/
     left: 0;
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     margin: 5px 5px 5px 5px;
 /*    margin-left: 0px;*/
 
@@ -956,8 +955,8 @@ h5 {
 .media .award-spin {
     border: 1px dotted gold;
     border-radius: 50%;
-    width: 22px;
-    height: 22px;
+    width: 25px;
+    height: 25px;
     margin: 5px 5px 5px 5px;
     padding: 2px 2px 2px 2px;
 /*    box-shadow: 0px 0px 5px #DB880E;*/
@@ -1021,7 +1020,7 @@ a:hover {
 }
 
 .selected {
-    filter: invert(20%) sepia(60%) saturate(3465%) hue-rotate(351deg) brightness(99%) contrast(93%);
+    filter: invert(20%) sepia(60%) saturate(3465%) hue-rotate(250deg) brightness(70%) contrast(93%);
 }
 
 /* Style the header */
@@ -1316,8 +1315,9 @@ input[type="file"] {
 
 .blurry {
     font-weight: bold;
-    color: white;
+    color: #748081;
 /*    border: 1px solid black;*/
     border-radius: 5px;
-    background-color:rgba(0, 0, 0, 0.5);
+    background-color:rgba(0, 0, 0, 0.2);
 }
+

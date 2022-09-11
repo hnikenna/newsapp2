@@ -12,9 +12,12 @@
 
 
 <div class="text-center" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
-  <img src="{{ MEDIA_URL }}{{ article.image }}" class="d-none d-md-inline rounded header-image" alt="..." width="80%">
-  <img src="{{ MEDIA_URL }}{{ article.image }}" class="d-inline d-md-none rounded header-image" alt="..." width="60%">
-<!--  <img src="{% static 'img/banner3.jpg' %}" class="rounded" alt="..." width="80%">-->
+    {% if article.video %}
+        <iframe width="100%" height="300px;" src="{{article.video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    {% else %}
+      <img src="{{ MEDIA_URL }}{{ article.image }}" class="d-none d-md-inline rounded header-image" alt="..." width="80%">
+      <img src="{{ MEDIA_URL }}{{ article.image }}" class="d-inline d-md-none rounded header-image" alt="..." width="60%">
+    {% endif%}
     <span class="d-none d-md-inline"><h2 style="text-decoration: overline;">{{ article.title }}</h2></span>
     <span class="d-inline d-md-none"><h5 style="text-decoration: overline;">{{ article.title }}</h5></span>
         <div class="d-flex justify-content-between align-items-center">
@@ -183,7 +186,7 @@
 <!--                                        <a class="pr-3" href="#"><img class="rounded-circle" alt="Sholake Adeyemi" src="https://i.imgur.com/xELPaag.jpg" /></a>-->
 
                                         <a class="d-none d-md-inline pr-3" href="/accounts/{{comment.author}}/"><img class="rounded-circle" alt="{{comment.author.name}}" src="{{ MEDIA_URL }}{{ comment.author.avatar }}"/></a>
-                                        <a class="d-inline d-md-none pr-1 mb-0" href="/accounts/{{comment.author}}/"><img class="rounded-circle" alt="{{comment.author.name}}" src="{{ MEDIA_URL }}{{ comment.author.avatar }}" style="width: 50px; height: 50px;"/></a>
+                                        <a class="d-inline d-md-none pr-1 mb-0 mr-1" href="/accounts/{{comment.author}}/"><img class="rounded-circle" alt="{{comment.author.name}}" src="{{ MEDIA_URL }}{{ comment.author.avatar }}" style="width: 50px; height: 50px;"/></a>
 
                                         <div class="media-body">
 											<div class="row">
@@ -192,7 +195,7 @@
                                                          <!--{{comment.author.username}}-->
                                                          <span>
 <!--                                                             Sholake Adeyemi{% if comment.author.is_verified %}<img src="{% static 'img/verify.png' %}" class="verified text-center">{%endif%}</span>-->
-                                                             {{comment.author.name}}{% if comment.author.is_verified %}<img src="{% static 'img/verify.png' %}" class="verified text-center">{%endif%}<small class="time"> - {{comment.time_ago }}</small>
+                                                             {{comment.author.name}}{% if comment.author.is_verified %}<img src="{% static 'img/verify.png' %}" class="verified text-center">{%endif%}<small class="time"><br>{{comment.time_ago }}</small>
                                                          </span>
                                                      </h5>
 											 </div>
@@ -415,7 +418,7 @@
                                                                      {{reply.author.name}}{% if reply.author.is_verified %}<img src="{% static 'img/verify.png' %}" class="verified text-center">{%endif%}
                                                                      <span style="color: #808B8C; font-size: 13px;"> &#8611; {{reply.recipent}}</span>
                                                                  </span>
-                                                                 <small class="d-inline time"> - {{ reply.time_ago }}</small>
+                                                                 <small class="d-inline time"><br>{{ reply.time_ago }}</small>
                                                              </h5>
                                                  </div>
 
