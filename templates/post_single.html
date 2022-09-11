@@ -63,21 +63,20 @@
                 <div class="card sidebar country text-center" style="background-image: url({{ article.country.get_path_1 }}); position: relative;">
                     <div class="blurry" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0"></div>
                     <div class="card-content text-center zoom"style="position: relative;" >
-                            <a href="{{article.get_absolute_url}}" style="text-decoration: none; color: white;">
-                                <h5>
-                                    {{ article.title }}
-                                </h5>
+                            <a href="{{article.get_absolute_url}}" style="text-decoration: none; color: #EFF1ED;">
+                                <h5 class="d-none d-lg-block">{{ article.title }}</h5>
+                                <h4 class="d-block d-lg-none">{{ article.title }}</h4>
 
                                 <div class="d-none d-lg-flex justify-content-between">
                                     <div class="container text-center">
                                         <h5 class="absTitle">{{ article.yes_vote }}</h5>
                                         <img src="{% static 'img/white_people.png' %}" width="40%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
-                                        <p class="absText">Agree</p>
+                                        <p class="absText">Like</p>
                                     </div>
                                     <div class="container text-center">
                                         <h5 class="absTitle">{{ article.no_vote }}</h5>
                                         <img src="{% static 'img/black_people.png' %}" width="40%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
-                                        <p class="absText">Disagree</p>
+                                        <p class="absText">Dislike</p>
                                     </div>
                                 </div>
 <!--                                Mobile Sidebar Buttons-->
@@ -85,12 +84,12 @@
                                     <div class="container text-center">
                                         <h6 class="absTitle">{{ article.yes_vote }}</h6>
                                         <img src="{% static 'img/white_people.png' %}" width="20%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
-                                        <p class="absText">Agree</p>
+                                        <p class="absText">Like</p>
                                     </div>
                                     <div class="container text-center">
                                         <h6 class="absTitle">{{ article.no_vote }}</h6>
                                         <img src="{% static 'img/black_people.png' %}" width="20%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
-                                        <p class="absText">Disagree</p>
+                                        <p class="absText">Dislike</p>
                                     </div>
                                 </div>
 
@@ -115,13 +114,13 @@
                     <div class="d-none d-lg-block">
                             <h2>{{ article.yes_vote }}</h2>
                             <img src="{% static 'img/white_people.png' %}" width="20%" class="vote {{article.selectYV}}" data-slug="{{ article.slug }}" data-poll="yes">
-                            <p><strong>Agree</strong></p>
+                            <p><strong>Like</strong></p>
                         </div>
                         <div class="d-block d-lg-none">
                             <h4>{{ article.yes_vote }}</h4>
 <!--                            <h4 id="yesvote">{{ article.yes_vote }}</h4>-->
                             <img src="{% static 'img/white_people.png' %}" width="40%" class="vote {{article.selectYV}}" data-slug="{{ article.slug }}" data-poll="yes">
-                            <p><strong>Agree</strong></p>
+                            <p><strong>Like</strong></p>
                         </div>
                     </div>
                 <div class="col">
@@ -129,12 +128,12 @@
                             <h2>{{ article.no_vote }}</h2>
 <!--                            <h2 id="novote">{{ article.no_vote }}</h2>-->
                             <img src="{% static 'img/black_people.png' %}" width="20%" class="vote {{article.selectNV}}" data-slug="{{ article.slug }}" data-poll="no">
-                            <p><strong>Disagree</strong></p>
+                            <p><strong>Dislike</strong></p>
                         </div>
                         <div class="d-block d-lg-none">
                             <h4>{{ article.no_vote }}</h4>
                             <img src="{% static 'img/black_people.png' %}" width="40%" class="vote {{article.selectNV}}" data-slug="{{ article.slug }}" data-poll="no">
-                            <p><strong>Disagree</strong></p>
+                            <p><strong>Dislike</strong></p>
                         </div>
                 </div>
             </div>
@@ -347,18 +346,18 @@
                                                                                     <br>
                                                                                     <h5 class="d-none d-md-block">{{ award.name}} {% if user.is_authenticated %} x5{% endif %}</h5>
                                                                                     <strong class="d-block d-md-none">{{ award.name}} {% if user.is_authenticated %} x5{% endif %}</strong>
-                                                                                    <p class="d-inline d-md-none" style="justify-content: right; color: purple;">₦{{award.price}}</p>
+                                                                                    <p class="d-inline d-md-none" style="justify-content: right; color: purple;">{{award.btc_price}} <i class="fa fa-btc ml-1" aria-hidden="true"></i></p>
                                                                                 </td>
                                                                                 <td>
                                                                                     <br>
-                                                                                    <p class="d-none d-md-flex" style="justify-content: right; color: purple;">₦{{award.price}}</p>
+                                                                                    <p class="d-none d-md-flex" style="justify-content: right; color: purple;">{{award.btc_price}} <i class="fa fa-btc ml-1" aria-hidden="true"></i></p>
                                                                                 </td>
                                                                                 <td>
                                                                                     <br>
                                                                                     {% if user.is_authenticated %}
-                                                                                    <button class="btn btn-main ml-4 buyGift" data-auth="" data-id="{{awarditem.get_anon_id}}" data-owner="{{user}}" data-parent="" data-award="{{award.id}}" data-extra="{{award.price}}, {{award.name}}, {{user.email}}">Buy</button>
+                                                                                    <button class="btn btn-main ml-4 buyGift" data-auth="" data-id="{{awarditem.get_anon_id}}" data-owner="{{user}}" data-parent="" data-award="{{award.id}}" data-extra="{{award.btc_price}}, {{award.name}}, {{user.email}}">Buy</button>
                                                                                     {% else %}
-                                                                                    <button class="btn btn-main ml-4 buyGift" data-auth="guest" data-id="{{awarditem.get_anon_id}}" data-owner="{{comment.author}}" data-parent="{{comment.get_anon_id}}" data-award="{{award.id}}" data-extra="{{award.price}}, {{award.name}}, guest@email.com">Gift</button>
+                                                                                    <button class="btn btn-main ml-4 buyGift" data-auth="guest" data-id="{{awarditem.get_anon_id}}" data-owner="{{comment.author}}" data-parent="{{comment.get_anon_id}}" data-award="{{award.id}}" data-extra="{{award.btc_price}}, {{award.name}}, guest@smartmoneyjr.com">Gift</button>
                                                                                     {% endif %}
                                                                                 </td>
                                                                             </tr>
@@ -566,19 +565,19 @@
                                                                                     <br>
                                                                                     <h5 class="d-none d-md-flex">{{ award.name}} {% if user.is_authenticated %} x5{% endif %}</h5>
                                                                                     <strong class="d-inline d-md-none">{{ award.name}} {% if user.is_authenticated %} x5{% endif %}</strong><br>
-                                                                                    <p class="d-inline d-md-none" style="justify-content: right; color: purple;">₦{{award.price}}</p>
+                                                                                    <p class="d-inline d-md-none" style="justify-content: right; color: purple;">{{award.btc_price}} <i class="fa fa-btc ml-1" aria-hidden="true"></i></p>
 
                                                                                 </td>
                                                                                 <td>
                                                                                     <br>
-                                                                                    <p class="d-none d-md-flex" style="justify-content: right; color: purple;">₦{{award.price}}</p>
+                                                                                    <p class="d-none d-md-flex" style="justify-content: right; color: purple;">{{award.btc_price}} <i class="fa fa-btc ml-1" aria-hidden="true"></i></p>
                                                                                 </td>
                                                                                 <td>
                                                                                     <br>
                                                                                     {% if user.is_authenticated %}
-                                                                                    <button class="btn btn-main ml-4 buyGift" data-auth="" data-id="{{awarditem.get_anon_id}}" data-owner="{{user}}" data-parent="" data-award="{{award.id}}" data-extra="{{award.price}}, {{award.name}}, {{user.email}}">Buy</button>
+                                                                                    <button class="btn btn-main ml-4 buyGift" data-auth="" data-id="{{awarditem.get_anon_id}}" data-owner="{{user}}" data-parent="" data-award="{{award.id}}" data-extra="{{award.btc_price}}, {{award.name}}, {{user.email}}">Buy</button>
                                                                                     {% else %}
-                                                                                    <button class="btn btn-main ml-4 buyGift" data-auth="guest" data-id="{{awarditem.get_anon_id}}" data-owner="{{reply.author}}" data-parent="{{reply.get_anon_id}}" data-award="{{award.id}}" data-extra="{{award.price}}, {{award.name}}, guest@email.com">Gift</button>
+                                                                                    <button class="btn btn-main ml-4 buyGift" data-auth="guest" data-id="{{awarditem.get_anon_id}}" data-owner="{{reply.author}}" data-parent="{{reply.get_anon_id}}" data-award="{{award.id}}" data-extra="{{award.btc_price}}, {{award.name}}, guest@email.com">Gift</button>
                                                                                     {% endif %}
 
                                                                                 </td>

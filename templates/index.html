@@ -6,7 +6,7 @@
 
 <!--			Top News Section-->
 			<div class="col-md-12 noPadding text-center">
-				<h1 class="titleText">INFORMATION FROM ALL OVER THE WORLD</h1>
+				<h1 class="titleText">Global News</h1>
 				<hr/>
 <!--				<img class="withBottom" src="{% static 'img/shapegreen.png' %}">-->
 			</div>
@@ -43,19 +43,19 @@
 									style="width: 100%; border-radius: 50%; border: 2px solid silver"
 									title="News from {{article.country}}"
 									alt="{{article.country}} Flag"
-								>
+								><b>{{article.country}}</b>
 							</div>
 							<div class="row" style="color: #E8ECE8;">
 								<div class="col-3">
 									<div class="d-none d-lg-block">
 										<h2 class="absTitle">{{ article.yes_vote }}</h2>
 										<img src="{% static 'img/white_people.png' %}" width="40%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="yes">
-										<p class="absText">Agree</p>
+										<p class="absText">Like</p>
 									</div>
 									<div class="d-block d-lg-none">
 										<h4 class="absTitle">{{ article.yes_vote }}</h4>
 										<img src="{% static 'img/white_people.png' %}" width="100%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="yes">
-										<p class="absText">Agree</p>
+										<p class="absText">Like</p>
 									</div>
 
 								</div>
@@ -64,11 +64,11 @@
 									<h2 class="d-none d-lg-block absTitle">{{ article.get_title }}</h2>
 									<h4 class="d-block d-lg-none absTitle"><b>{{ article.get_title }}</b></h4>
 
-									<p class="d-none d-md-block absText">
+									<h4 class="d-none d-md-block absText">
 										<img src="{% static 'img/shape.png' %}"><br>
 <!--									<p class="col-md-12">-->
 										{{ article.get_short_content }}
-									</p>
+									</h4>
 									<p class="d-block d-md-none absText">
 <!--										<img src="{% static 'img/shape.png' %}"><br>-->
 <!--									<p class="col-md-12">-->
@@ -81,12 +81,12 @@
 									<div class="d-none d-lg-block">
 										<h2 class="absTitle">{{ article.no_vote }}</h2>
 										<img src="{% static 'img/black_people.png' %}" width="40%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
-										<p class="absText">Disagree</p>
+										<p class="absText">Dislike</p>
 									</div>
 									<div class="d-block d-lg-none">
 										<h4 class="absTitle">{{ article.no_vote }}</h4>
 										<img src="{% static 'img/black_people.png' %}" width="100%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
-										<p class="absText">Disagree</p>
+										<p class="absText">Dislike</p>
 									</div>
 
 
@@ -123,7 +123,7 @@
 <!--						<div class="col-md-3">-->
 <!--							<h2 class="absTitle">20</h2>-->
 <!--							<img src="{% static 'img/white_people.png' %}" width="40%">-->
-<!--							<p class="absText">Agree</p>-->
+<!--							<p class="absText">Like</p>-->
 <!--						</div>-->
 <!--						<div class="col-md-6">-->
 <!--							<h2 class="absTitle">PDP Holds Re-Run Primaries For Reps, Abia Assembly Candidates In Ohafia Amidst Tight Security</h2>-->
@@ -137,7 +137,7 @@
 <!--						<div class="col-md-3">-->
 <!--							<h2 class="absTitle">30</h2>-->
 <!--							<img src="{% static 'img/black_people.png' %}" width="40%">-->
-<!--							<p class="absText">Disagree</p>-->
+<!--							<p class="absText">Dislike</p>-->
 <!--						</div>-->
 
 <!--					</div>-->

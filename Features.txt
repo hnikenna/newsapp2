@@ -8,6 +8,7 @@ Let Mobile view show country flag as bg
 Use paypal, stripe, django-money, django.contrib.exchange
 Terms and Conditions will say users must post credible news only
 Users can withdraw anytime
+Verify site in SimilarWeb
 
 Article Categories:
   preset:

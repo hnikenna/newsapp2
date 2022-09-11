@@ -335,8 +335,8 @@ function logAward(log_data){
 
     .then((data) => {
         console.log('data:', data)
-        // alerT('', data, 'green')
-        location.reload()
+        alerT('', data, 'green')
+//        location.reload()
     })
 
 }
@@ -404,7 +404,7 @@ function makePayment(extras, award_data, award_quantity=1) {
         customizations: {
         title: "You will Receive \n'" + award_name + "' X" + award_quantity,
         description: "The place to be..",
-        logo: "http://127.0.0.1:8000/static/img/red_people.png",
+        logo: "http://127.0.0.1:8000/static/img/logo.png",
         },
     });
     }

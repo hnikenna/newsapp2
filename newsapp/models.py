@@ -54,6 +54,11 @@ class Award(models.Model):
     def __str__(self):
         return self.name
 
+    @property
+    def btc_price(self):
+        btc_price = self.price * (10 ** -8)
+        return btc_price
+
 
 class AwardItem(models.Model):
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -231,7 +236,7 @@ class Article(models.Model):
     source_url = models.URLField(blank=True)
     source_name = models.CharField(max_length=200)
     country = models.ForeignKey(Country, on_delete=models.PROTECT, null=True)
-    video = models.URLField(null=True)
+    video = models.URLField(null=True, blank=True)
     # tags = models.ManyToManyField(Tag, on_delete=models.PROTECT)
     yes_vote = models.IntegerField(default=0)
     no_vote = models.IntegerField(default=0)
@@ -266,11 +271,11 @@ class Article(models.Model):
 
     @property
     def get_short_content(self):
-        return breadcrumb(self.content, 180)
+        return breadcrumb(self.header_text, 180)
 
     @property
     def get_shorter_content(self):
-        return breadcrumb(self.content, 100)
+        return breadcrumb(self.header_text, 100)
 
     @property
     def username(self):

@@ -13,7 +13,7 @@ body {
     height: 100%
     display: grid;
     /*place-items: center;*/
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Avanta Garde', sans-serif;
 
 }
 
@@ -29,7 +29,7 @@ body {
     font-size: 12pt;
     font-weight: bold;
     text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Avanta Garde', sans-serif;
     color: #00e099;
 
 }
@@ -58,7 +58,7 @@ body {
     color: #ffffff;
     font-weight: bold;
     text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Avanta Garde', sans-serif;
 }
 
 .myInput{
@@ -68,7 +68,7 @@ body {
     color: #ffffff;
     font-weight: bold;
     text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Avanta Garde', sans-serif;
 }
 
 .myInput::placeholder{
@@ -84,7 +84,7 @@ body {
 .mainText{
     margin-top: 135px;
     font-family: 'Monstreat';
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Avanta Garde', sans-serif;
     font-weight: bold;
     /* line-height: 100; */
     letter-spacing: -1px;
@@ -95,7 +95,7 @@ body {
 .titleText{
     margin-top: 50px;
     font-family: 'Monstreat';
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Avanta Garde', sans-serif;
     font-weight: bold;
     /* line-height: 100; */
     letter-spacing: -1px;
@@ -106,7 +106,7 @@ body {
 .myTextMain {
     line-height: 35px;
     margin-top: 30px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Avanta Garde', sans-serif;
     margin-bottom: 30px;
 
 }
@@ -153,12 +153,12 @@ body {
 
 .absTitle{
     margin-top: 20%;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Avanta Garde', sans-serif;
     font-weight: bold;
 }
 
 .absText{
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Avanta Garde', sans-serif;
     font-weight: bold;
 }
 
@@ -181,7 +181,7 @@ body {
     background-color: #003056;
     padding: 40px;
     color: #fff;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Avanta Garde', sans-serif;
     font-weight: bold;
 }
 
@@ -190,7 +190,7 @@ body {
     padding: 40px;
 
     color: #fff;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Avanta Garde', sans-serif;
     font-weight: bold;
 
 }
@@ -200,7 +200,7 @@ body {
     padding: 40px;
 
     color: #fff;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Avanta Garde', sans-serif;
     font-weight: bold;
 
 }
@@ -210,7 +210,7 @@ body {
     padding: 40px;
 
     color: #fff;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Avanta Garde', sans-serif;
     font-weight: bold;
 
 
@@ -1020,7 +1020,7 @@ a:hover {
 }
 
 .selected {
-    filter: invert(20%) sepia(60%) saturate(3465%) hue-rotate(250deg) brightness(70%) contrast(93%);
+    filter: invert(17%) sepia(89%) saturate(5570%) hue-rotate(350deg) brightness(92%) contrast(106%);
 }
 
 /* Style the header */
@@ -1315,9 +1315,8 @@ input[type="file"] {
 
 .blurry {
     font-weight: bold;
-    color: #748081;
 /*    border: 1px solid black;*/
     border-radius: 5px;
-    background-color:rgba(0, 0, 0, 0.2);
+    background-color:rgba(0, 0, 0, 0.5);
 }
 

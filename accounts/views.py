@@ -99,15 +99,13 @@ def edit_user_avatar(request, username):
         data = form.cleaned_data
         avatar = data['avatar']
 
-        if avatar != 'static_media/user.png':
-            typ = str(avatar.name).split('.')[-1]
-            # typ = str(avatar.name)[-4:]
-            print('TYPE:', typ)
-            avatar.name = (username + '.' + typ).lower()
-            print('Avatar:', str(avatar.name))
-            # print('Data Chunk:', avatar.chunks)
         user.avatar = avatar
         user.save()
+        if avatar != 'static_media/user.png':
+            typ = str(avatar.name).split('.')[-1]
+            avatar.name = (username + '.' + typ).lower()
+            # print('Avatar:', str(avatar.name))
+            # print('Data Chunk:', avatar.chunks)
         # filename = username
         # with open('.media/avatars/')
 
