@@ -382,3 +382,8 @@ def awardTransaction(request):
     return JsonResponse(
         'Logged', safe=False
     )
+
+"""START PRODUCTS CATEGORY"""
+def products(request):
+    context = {}
+    return render(request, 'products.html', context)

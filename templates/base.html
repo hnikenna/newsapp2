@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>{% block title %}{% endblock %} | Smart Money Jr. | {{request.user.username}}</title>
+		<title>{% block title %}{% endblock %} | Rhynery.com | {{request.user.username}}</title>
 		<meta name="description" content="">
 		<meta name="author" content="Cemre Tellioğlu Tunçay">
 		<link rel="icon" type="image/png" href="{% static 'img/logo-light.png' %}" sizes="32x32"/>
@@ -29,10 +29,10 @@
 	<div id="loader"></div>
 	<div id="body">
 		<div class="header mt-0 pb-0" id="navHeader"> <!--style="height: 78px;">-->
-				<nav class="navbar navbar-expand-lg navbar-dark myNavbar rounded-bottom py-5"style="background: #F4E8FF;">
+				<nav class="navbar navbar-expand-lg navbar-dark myNavbar rounded-bottom py-5"style="background: #A87AA5;">
 				  <a class="navbar-brand-inline mr-2" href="/">
-					  <img class="m-2" src="{% static 'img/logo.png' %}" style="width: 42px; height: 42px;
-					  border-radius: 50%;"/><h2 class="d-inline" style="color: black; top:1">Heton Inc.</h2>
+					  <img class="m-2" src="{% static 'img/logo.png' %}" style="width: 64px; height: 64px;
+					  border-radius: 40%;"/><h2 class="d-inline" style="color: #3F1B3C; top:23px;">Wyfas</h2>
 				  </a>
 				  <button class="navbar-toggler" type="button" data-toggle="collapse"
 						  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -43,16 +43,16 @@
 				  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav mr-auto myNavUl">
 					  	<li class="nav-item {% block earn_active %}{% endblock %}">
-							<a class="nav-link" href="/contact" style="color: black;">Earn</a>
+							<a class="nav-link" href="/contact" style="color: #3F1B3C;">Earn</a>
 						  </li>
 
 						<li class="nav-item {% block news_active %}{% endblock %}">
-								<a class="nav-link" href="/  " style="color: black;">News</a>
+								<a class="nav-link" href="/  " style="color: #3F1B3C;">News</a>
 						</li>
 
 	                <li class="nav-item {% block about_active %}{% endblock %} dropdown">
 	                        <a class="nav-link dropdown-toggle" href="/contact" id="navbarDropdown1" role="button"
-							   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: black;">
+							   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #3F1B3C;">
 	                          About Us
 	                        </a>
 	                        <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
@@ -69,10 +69,10 @@
 	                </li>
 
 						<li class="nav-item">
-								<a class="nav-link {% block products_active %}{% endblock %}" href="/contact" style="color: black;">Products</a>
+								<a class="nav-link {% block products_active %}{% endblock %}" href="/products" style="color: #3F1B3C;">Products</a>
 						</li>
 						<li class="nav-item">
-								<a class="nav-link {% block edu_active %}{% endblock %}" href="/contact" style="color: black;">Education</a>
+								<a class="nav-link {% block edu_active %}{% endblock %}" href="/contact" style="color: #3F1B3C;">Education</a>
 						</li>
 
 
@@ -114,11 +114,14 @@
 			</div>
 		</div>
 <hr>
-		<div class="container">{% block content %}{% endblock %}</div>
+		<div class="container">
+			{% block content %}{% endblock %}
+		</div>
 
-		<div class="col-md-12 noPadding text-center backFooter">
+
+	</div>
 					<!-- Footer -->
-		<footer class="page-footer font-small blue">
+		<footer class="page-footer font-small blue text-center">
 
 		  <!-- Copyright -->
 		  <div class="footer-copyright text-center py-3">© 2022 Copyright:
@@ -128,7 +131,6 @@
 
 		</footer>
 		<!-- Footer -->
-		</div>
 
 		<!-- JavaScript Bundle with Popper -->
 		<div id="js">
@@ -148,7 +150,6 @@
 <!--			<script src="{% static 'js/loader.js' %}"></script>-->
 			{% block js %}{% endblock %}
 		</div>
-	</div>
 
   </body>
 </html>

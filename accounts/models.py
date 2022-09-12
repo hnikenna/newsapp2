@@ -74,6 +74,19 @@ class CustomUser(AbstractUser):
         awards2 = format_currency(awards2)
         return awards2
 
+    @property
+    def btc_exchangeval(self):
+        awards = AwardItem.objects.filter(owner=self)
+        awards2 = 0
+        # awards2 = {}
+        for award in awards:
+            if bool(award.parent_id) is True:
+                awards2 += (award.award.price * award.quantity) / 5
+
+        awards2 = (awards2 * (10 ** -8))
+        return awards2
+
+
 
 class Profile(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.PROTECT)

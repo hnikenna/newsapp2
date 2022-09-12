@@ -172,8 +172,8 @@
                           >{{ awarditem.award.name}}<strong class="d-flex" style="justify-content: right;">{{ awarditem.quantity}}</strong></a>
                       {% endfor %}
                     </div>
-                    <p><b>Exchange Value:</b> {{duser.user.exchangeval}} NGN</p>
-                    {% if duser.user == user %}<button class="btn btn-main" onclick="dev();">Exchange / Withdraw</button>{% endif %}
+                    <p><b>Exchange Value:</b> {{duser.user.btc_exchangeval}} <i class="fa fa-btc ml-1" aria-hidden="true"></i></p>
+                    {% if duser.user == user %}<button class="btn btn-main" onclick="dev();">Transfer to BTC Wallet</button>{% endif %}
                   </div>
                 </div>
                 <div class="{% if duser.user == user %}col-12 col-md-6{% else %}d-none{% endif %} mb-3">
