@@ -17,7 +17,7 @@
         <iframe width="100%" class="curve" height="300px;" src="{{article.video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     {% else %}
       <img src="{{ MEDIA_URL }}{{ article.image }}" class="d-none d-md-inline rounded header-image curve" alt="..." width="80%">
-      <img src="{{ MEDIA_URL }}{{ article.image }}" class="d-inline d-md-none rounded header-image curve" alt="..." width="60%">
+      <img src="{{ MEDIA_URL }}{{ article.image }}" class="d-inline d-md-none rounded header-image curve" alt="..." width="100%">
     {% endif%}
     <span class="d-none d-md-inline"><h2 style="text-decoration: overline;">{{ article.title }}</h2></span>
     <span class="d-inline d-md-none"><h3 style="text-decoration: overline;">{{ article.title }}</h3></span>
@@ -37,7 +37,7 @@
     <!--    News Section-->
         <section id="news-section" class="col-12 col-lg-9">
             <h2 class="d-none d-md-inline"><strong>{{ article.header_text }}</strong></h2>
-            <h3 class="d-inline d-md-none"><strong>{{ article.header_text }}</strong></h3>
+            <h4 class="d-inline d-md-none"><strong>{{ article.header_text }}</strong></h4>
             <div id="mid-content">
                 <div class="pcontent">
                     <h4 style="">
@@ -342,11 +342,11 @@
                                                                                     <br>
                                                                                     <h5 class="d-none d-md-block">{{ award.name}} {% if user.is_authenticated %} x5{% endif %}</h5>
                                                                                     <strong class="d-block d-md-none">{{ award.name}} {% if user.is_authenticated %} x5{% endif %}</strong>
-                                                                                    <p class="d-inline d-md-none" style="justify-content: right; color: purple;">{{award.btc_price}} <i class="fa fa-btc ml-1" aria-hidden="true"></i></p>
+                                                                                    <p class="d-inline d-md-none" style="justify-content: right; color: purple;"><i class="fa fa-btc ml-1" aria-hidden="true"></i> {{award.btc_price}}</p>
                                                                                 </td>
                                                                                 <td>
                                                                                     <br>
-                                                                                    <p class="d-none d-md-flex" style="justify-content: right; color: purple;">{{award.btc_price}} <i class="fa fa-btc ml-1" aria-hidden="true"></i></p>
+                                                                                    <p class="d-none d-md-flex" style="justify-content: right; color: purple;"><i class="fa fa-btc ml-1" aria-hidden="true"></i> {{award.btc_price}}</p>
                                                                                 </td>
                                                                                 <td>
                                                                                     <br>
@@ -561,12 +561,12 @@
                                                                                     <br>
                                                                                     <h5 class="d-none d-md-flex">{{ award.name}} {% if user.is_authenticated %} x5{% endif %}</h5>
                                                                                     <strong class="d-inline d-md-none">{{ award.name}} {% if user.is_authenticated %} x5{% endif %}</strong><br>
-                                                                                    <p class="d-inline d-md-none" style="justify-content: right; color: purple;">{{award.btc_price}} <i class="fa fa-btc ml-1" aria-hidden="true"></i></p>
+                                                                                    <p class="d-inline d-md-none" style="justify-content: right; color: purple;"><i class="fa fa-btc ml-1" aria-hidden="true"></i> {{award.btc_price}}</p>
 
                                                                                 </td>
                                                                                 <td>
                                                                                     <br>
-                                                                                    <p class="d-none d-md-flex" style="justify-content: right; color: purple;">{{award.btc_price}} <i class="fa fa-btc ml-1" aria-hidden="true"></i></p>
+                                                                                    <p class="d-none d-md-flex" style="justify-content: right; color: purple;"><i class="fa fa-btc ml-1" aria-hidden="true"></i> {{award.btc_price}}</p>
                                                                                 </td>
                                                                                 <td>
                                                                                     <br>
@@ -574,18 +574,6 @@
                                                                                     <button class="btn btn-main ml-4 buyGift" data-auth="" data-id="{{awarditem.get_anon_id}}" data-owner="{{user}}" data-parent="" data-award="{{award.id}}" data-extra="{{award.btc_price}}, {{award.name}}, {{user.email}}">Buy</button>
                                                                                     {% else %}
                                                                                     <button class="btn btn-main ml-4 buyGift" data-auth="guest" data-id="{{awarditem.get_anon_id}}" data-owner="{{reply.author}}" data-parent="{{reply.get_anon_id}}" data-award="{{award.id}}" data-extra="{{award.btc_price}}, {{award.name}}, guest@email.com">Gift</button>
-
-
-<!--    <div>-->
-<!--      <a class="buy-with-crypto"-->
-<!--        href="https://commerce.coinbase.com/checkout/98c396ab-7503-4478-87a8-fe8b675ff9fa">-->
-<!--        Buy with Crypto-->
-<!--      </a>-->
-<!--      <script src="https://commerce.coinbase.com/v1/checkout.js?version=201807">-->
-<!--      </script>-->
-<!--    </div>-->
-
-
                                                                                     {% endif %}
 
                                                                                 </td>

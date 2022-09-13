@@ -173,7 +173,13 @@
                           >{{ awarditem.award.name}}<strong class="d-flex" style="justify-content: right;">{{ awarditem.quantity}}</strong></a>
                       {% endfor %}
                     </div>
-                    <p><b>Exchange Value (Bitcoin):</b><i class="fa fa-btc ml-1" aria-hidden="true"></i> {{duser.user.btc_exchangeval}} </p>
+                    <p>
+                      <b class="border-0">Exchange Value (Bitcoin):</b>
+                      <span style="border: 2px solid #3F1B3C; padding: 4px;">
+
+                        <i class="fa fa-btc ml-1" aria-hidden="true"></i> {{duser.user.btc_exchangeval}}
+                      </span>
+                    </p>
                     {% if duser.user == user %}<button class="btn btn-main" onclick="dev();">Withdraw to BTC Wallet</button>{% endif %}
                   </div>
                 </div>

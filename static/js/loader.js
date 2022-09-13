@@ -1,7 +1,7 @@
 var myVar;
 
 function loader() {
-    console.log('PathName:', window.location.pathname)
+//    console.log('PathName:', window.location.pathname)
     if(window.location.pathname === '/') {
 
 //        myVar = setTimeout(showPage, 2000);

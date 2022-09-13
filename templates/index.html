@@ -13,7 +13,9 @@
 
 <!--			News Section-->
 			{% for article in all_article_list reversed %}
-			<div class="col-md-12 noPadding">
+
+
+			<div class="col-md-12 noPadding" onclick="window.location.href='{{ article.get_absolute_url }}'">
 				<div class="d-none d-md-block filterBack" style="
 				background: url({{ MEDIA_URL }}{{ article.image }});
 				background-position: top;
@@ -106,7 +108,6 @@
 <!--				<img class="withBottom" src="{% static 'img/shapegreen.png' %}">-->
 			</div>
 		</div>
-
 			{% endfor %}
 
 <!--&lt;!&ndash;			Price Table Section&ndash;&gt;-->
