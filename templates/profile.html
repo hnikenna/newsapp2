@@ -172,8 +172,8 @@
                           >{{ awarditem.award.name}}<strong class="d-flex" style="justify-content: right;">{{ awarditem.quantity}}</strong></a>
                       {% endfor %}
                     </div>
-                    <p><b>Exchange Value:</b> {{duser.user.btc_exchangeval}} <i class="fa fa-btc ml-1" aria-hidden="true"></i></p>
-                    {% if duser.user == user %}<button class="btn btn-main" onclick="dev();">Transfer to BTC Wallet</button>{% endif %}
+                    <p><b>Exchange Value (Bitcoin):</b><i class="fa fa-btc ml-1" aria-hidden="true"></i> {{duser.user.btc_exchangeval}} </p>
+                    {% if duser.user == user %}<button class="btn btn-main" onclick="dev();">Withdraw to BTC Wallet</button>{% endif %}
                   </div>
                 </div>
                 <div class="{% if duser.user == user %}col-12 col-md-6{% else %}d-none{% endif %} mb-3">
@@ -204,7 +204,7 @@
                   <div class="card h-100">
                     <div class="card-body">
 
-                      <h5 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Social Score: </i>Bronze Level</h5>
+                      <h5 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Account Level: </i>New User</h5>
                       <small>Comment Engagements</small>
                       <div class="progress mb-3" style="height: 5px">
                         <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>

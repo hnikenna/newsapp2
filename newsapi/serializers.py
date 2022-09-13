@@ -12,4 +12,4 @@ class CountrySerializer(serializers.ModelSerializer):
 class ArticleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Article
-        fields = ('title', 'slug')
+        fields = ('id', 'title', 'yes_vote', 'no_vote')

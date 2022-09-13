@@ -251,7 +251,8 @@ class Article(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
-        self.title = str(self.title.title())
+        # Format title text
+        # self.title = str(self.title.title())
         super(Article, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
@@ -259,11 +260,7 @@ class Article(models.Model):
 
     @property
     def get_title(self):
-        return breadcrumb(self.title, 60)
-
-    @property
-    def get_short_title(self):
-        return breadcrumb(self.title, 50)
+        return breadcrumb(self.title, 100)
 
     @property
     def get_mid_content(self):
@@ -271,7 +268,7 @@ class Article(models.Model):
 
     @property
     def get_short_content(self):
-        return breadcrumb(self.header_text, 180)
+        return breadcrumb(self.header_text, 150)
 
     @property
     def get_shorter_content(self):

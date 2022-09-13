@@ -1,4 +1,8 @@
 import json
+import random
+
+from html_sanitizer import Sanitizer
+sanitizer = Sanitizer()
 
 from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
@@ -22,6 +26,7 @@ def post(request, slug):
     article = get_object_or_404(Article, slug=slug)
     all_awards = Award.objects.all()
     featured = Article.objects.all()[:3]
+
     # all_articles = Article.objects.all()[:4]
     # featured = random.choices(all_articles, weights=None, cum_weights=None, k=4)
 
@@ -247,7 +252,7 @@ def addComment(request, slug):
 
     if form.is_valid():
         data = form.cleaned_data
-        content = data['content']
+        content = sanitizer.sanitize(data['content'])
         article = get_object_or_404(Article, slug=slug)
         comment = Comment(author=user, content=content)
         comment.yes_vote += 1
@@ -281,7 +286,7 @@ def addReply(request):
     if form.is_valid():
         data = form.cleaned_data
         print(data)
-        content = data['content']
+        content = sanitizer.sanitize(data['content'])
         recipent = data['recipent']
         # verified_img = '<img src="/static/img/verify.png" class="verified text-center">'
         # content = f"<span style='color: #3932be'>@{recipent}</span> {content}"

@@ -13,6 +13,7 @@ datetime = "*"
 django-crispy-forms = "*"
 django-imagekit = "*"
 gunicorn = "*"
+html-sanitizer = "*"
 
 [dev-packages]
 

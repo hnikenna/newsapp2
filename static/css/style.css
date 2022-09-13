@@ -1262,7 +1262,6 @@ input[type="file"] {
   box-sizing: border-box;
   text-decoration:none;
   box-shadow: 0 10px 15px rgba(0,0,0,0.3);
-  background: linear-gradient(0deg, #ddd, #f2f2f2);
   transition: .5s;
 }
 
@@ -1275,12 +1274,12 @@ input[type="file"] {
   widht: 100%;
   height:100%;
   display:block;
-  background: linear-gradient(0deg, #fff, #ddd);
+/*  background: linear-gradient(0deg, #fff, #ddd);*/
   border-radius: 50%;
   line-height: calc(35px - 12px);
   font-size:18px;
   color: #262626;
-  transition: .5s;
+/*  transition: .5s;*/
   text-align: center;
 }
 
@@ -1326,4 +1325,8 @@ input[type="file"] {
    width: 100%;
    height: 100px;   /* Height of the footer */
    background: #3F1B3C;
+}
+
+.curve {
+    border-radius: 10px;
 }

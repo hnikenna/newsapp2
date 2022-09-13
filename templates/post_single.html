@@ -8,56 +8,57 @@
 {% block title %}
 {{ article.title }}
 {% endblock %}
+{% block news_active %}active{% endblock %}
 {% block content %}
 
 
 <div class="text-center" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
     {% if article.video %}
-        <iframe width="100%" height="300px;" src="{{article.video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="100%" class="curve" height="300px;" src="{{article.video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     {% else %}
-      <img src="{{ MEDIA_URL }}{{ article.image }}" class="d-none d-md-inline rounded header-image" alt="..." width="80%">
-      <img src="{{ MEDIA_URL }}{{ article.image }}" class="d-inline d-md-none rounded header-image" alt="..." width="60%">
+      <img src="{{ MEDIA_URL }}{{ article.image }}" class="d-none d-md-inline rounded header-image curve" alt="..." width="80%">
+      <img src="{{ MEDIA_URL }}{{ article.image }}" class="d-inline d-md-none rounded header-image curve" alt="..." width="60%">
     {% endif%}
     <span class="d-none d-md-inline"><h2 style="text-decoration: overline;">{{ article.title }}</h2></span>
-    <span class="d-inline d-md-none"><h5 style="text-decoration: overline;">{{ article.title }}</h5></span>
-        <div class="d-flex justify-content-between align-items-center">
+    <span class="d-inline d-md-none"><h3 style="text-decoration: overline;">{{ article.title }}</h3></span>
+        <section id="article-info" class="d-flex justify-content-between align-items-center">
             <a href="#discussion"> Go to Discussion <span style="font-weight: 400; font-size: 20px;">&#8595</span> </a>
             <h4 class="d-none d-lg-inline">News from <strong>{{article.country}}</strong> <img src="{{article.country.get_path_1}}" style="width: 32px; height: 32px; border-radius: 50%;"></h4>
-            <h6 class="d-inline d-lg-none">News from <strong>{{article.country}}</strong> <img src="{{article.country.get_path_1}}" style="width: 32px; height: 32px; border-radius: 50%;"></h6>
+            <h5 class="d-inline d-lg-none">News from <strong>{{article.country}}</strong> <img src="{{article.country.get_path_1}}" style="width: 32px; height: 32px; border-radius: 50%;"></h5>
             <p>{{ article.date }} - <span class="time">{{article.time_ago }} </span><span class="d-none d-md-inline"><img src="{% static 'img/dot_button.png' %}" width="5%"><a href="#"> {{ article.username }}</a></span></p>
-        </div>
+        </section>
 
 </div>
 
 
 <hr/>
 <div class="nocard">
-<div class="row">
-        <div class="col-12 col-lg-9">
-                <h3 class="d-none d-md-inline"><strong>{{ article.header_text }}</strong></h3>
-                <p class="d-inline d-md-none"><strong>{{ article.header_text }}</strong></p>
-                <div id="mid-content">
-                    <div class="pcontent">
-                        <p style="font-size: 100px;">
-                            {{ article.get_mid_content|linebreaks }}
-                        <div class="gradientback"></div>
-                        </p>
-                    </div>
-                    <button class="btn btn-main" id="read-more">Read More</button>
+    <div class="row">
+    <!--    News Section-->
+        <section id="news-section" class="col-12 col-lg-9">
+            <h2 class="d-none d-md-inline"><strong>{{ article.header_text }}</strong></h2>
+            <h3 class="d-inline d-md-none"><strong>{{ article.header_text }}</strong></h3>
+            <div id="mid-content">
+                <div class="pcontent">
+                    <h4 style="">
+                        {{ article.get_mid_content|linebreaks }}
+                    <div class="gradientback"></div>
+                    </h4>
                 </div>
-                <div style="display: none;" id="full-content">
-                    <p>
-                        {{ article.content|linebreaks }}
-                    </p>
-                    <p>Source: <a href="{{ article.source_url }}" target="_blank">{{ article.source_name }}</a></p>
-                    <p><a href="/" ><button class="btn btn-main">&#8592 Go to Feed</button></a></p>
+                <button class="btn btn-main" id="read-more">Read More</button>
+            </div>
+            <div style="display: none;" id="full-content">
+                <h4>
+                    {{ article.content|linebreaks }}
+                </h4>
+                <p>Source: <a href="{{ article.source_url }}" target="_blank">{{ article.source_name }}</a></p>
+                <p><a href="/" ><button class="btn btn-main">&#8592 Go to Feed</button></a></p>
 
-                </div>
+            </div>
+        </section>
 
-        </div>
-
-<!--        Top Comments Section-->
-        <div class="col-12 col-lg-3">
+    <!--    Sidebar Section-->
+        <section id="sidebar-section" class="col-12 col-lg-3">
                 <h3 class="text-center">You might also like...</h3><hr/>
             {% for article in featured %}
                 <div class="card sidebar country text-center" style="background-image: url({{ article.country.get_path_1 }}); position: relative;">
@@ -71,39 +72,34 @@
                                     <div class="container text-center">
                                         <h5 class="absTitle">{{ article.yes_vote }}</h5>
                                         <img src="{% static 'img/white_people.png' %}" width="40%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
-                                        <p class="absText">Like</p>
+    <!--                                        <p class="absText">Like</p>-->
                                     </div>
                                     <div class="container text-center">
                                         <h5 class="absTitle">{{ article.no_vote }}</h5>
                                         <img src="{% static 'img/black_people.png' %}" width="40%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
-                                        <p class="absText">Dislike</p>
+    <!--                                        <p class="absText">Dislike</p>-->
                                     </div>
                                 </div>
-<!--                                Mobile Sidebar Buttons-->
+    <!--                                Mobile Sidebar Buttons-->
                                 <div class="d-flex d-lg-none justify-content-between">
                                     <div class="container text-center">
                                         <h6 class="absTitle">{{ article.yes_vote }}</h6>
                                         <img src="{% static 'img/white_people.png' %}" width="20%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
-                                        <p class="absText">Like</p>
+    <!--                                        <p class="absText">Like</p>-->
                                     </div>
                                     <div class="container text-center">
                                         <h6 class="absTitle">{{ article.no_vote }}</h6>
                                         <img src="{% static 'img/black_people.png' %}" width="20%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
-                                        <p class="absText">Dislike</p>
+    <!--                                        <p class="absText">Dislike</p>-->
                                     </div>
                                 </div>
-
-
                             </a>
-
-
-
                         </div>
                 </div><br>
             {% endfor %}
-        </div>
+        </section>
 
-</div>
+    </div>
 </div>
 <br/>
 <div class="text-center col-12"  id="discussion">
@@ -578,6 +574,18 @@
                                                                                     <button class="btn btn-main ml-4 buyGift" data-auth="" data-id="{{awarditem.get_anon_id}}" data-owner="{{user}}" data-parent="" data-award="{{award.id}}" data-extra="{{award.btc_price}}, {{award.name}}, {{user.email}}">Buy</button>
                                                                                     {% else %}
                                                                                     <button class="btn btn-main ml-4 buyGift" data-auth="guest" data-id="{{awarditem.get_anon_id}}" data-owner="{{reply.author}}" data-parent="{{reply.get_anon_id}}" data-award="{{award.id}}" data-extra="{{award.btc_price}}, {{award.name}}, guest@email.com">Gift</button>
+
+
+<!--    <div>-->
+<!--      <a class="buy-with-crypto"-->
+<!--        href="https://commerce.coinbase.com/checkout/98c396ab-7503-4478-87a8-fe8b675ff9fa">-->
+<!--        Buy with Crypto-->
+<!--      </a>-->
+<!--      <script src="https://commerce.coinbase.com/v1/checkout.js?version=201807">-->
+<!--      </script>-->
+<!--    </div>-->
+
+
                                                                                     {% endif %}
 
                                                                                 </td>
