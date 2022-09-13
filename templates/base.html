@@ -40,9 +40,6 @@
 					<span class="navbar-toggler-icon"></span>
 				  </button>
 
-				  <button class="d-inline d-md-none btn btn-light nav-link scroll-btn"><b>Auto-Scroll</b></button>
-<!--						<script type="text/javascript" src="{% static 'js/autoscroll.js' %}"></script>-->
-
 				  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav mr-auto myNavUl">
 						<li class="nav-item {% block news_active %}{% endblock %}">
@@ -84,13 +81,12 @@
 <!--					  </li>-->
 
 					</ul>
-					<form method="" class="d-inline form-inline mx-4 my-2 my-lg-0" style="align: center;">
+					<form method="get" class="d-inline form-inline mx-4 my-2 my-lg-0" style="align: center;">
 						<input class="form-control mr-sm-2" type="search" placeholder="Search" style="width: 25%;" aria-label="Search">
 						<button class="btn btn-light my-2 my-sm-0" type="submit">Search</button>
 					</form>
 					<div class="d-inline">
-						<button class="d-none d-md-inline btn btn-light nav-link scroll-btn"><b>Auto-Scroll</b></button>
-						<script type="text/javascript" src="{% static 'js/autoscroll.js' %}"></script>
+						<button id="desktop-scroll" class="d-none d-md-inline btn btn-light nav-link scroll-btn"><b>Auto-Scroll</b></button>
 						<!--						<button id="translate-btn"class="btn btn-light"><a class="nav-link" onclick="$('#google_translate_element').toggle(); $('#translate-btn.disabled').hide()"><b>Translate</b></a></button>-->
 
 						<div id="google_translate_element" style="display: none; top: o; right: 0;">
@@ -133,7 +129,10 @@
 
 
 	</div>
-					<!-- Footer -->
+
+	<button id="mobile-scroll" class="d-inline d-md-none btn btn-main text-center scroll-btn m-3" style="position: fixed; bottom: 0;"><b>Auto-Scroll</b></button>
+
+		<!-- Footer -->
 		<footer class="page-footer font-small blue text-center">
 
 		  <!-- Copyright -->
@@ -147,6 +146,7 @@
 
 		<!-- JavaScript Bundle with Popper -->
 		<div id="js">
+			<script type="text/javascript" src="{% static 'js/autoscroll.js' %}"></script>
 			<script src="{% static 'js/jquery.min.js' %}"></script>
 			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 			<script src="https://unpkg.com/@popperjs/core@2" crossorigin="anonymous"></script>
