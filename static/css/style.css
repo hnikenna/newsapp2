@@ -1330,3 +1330,8 @@ input[type="file"] {
 .curve {
     border-radius: 10px;
 }
+
+.dropdown-item {
+    color: #85738B;
+    font-weight: bold;
+}

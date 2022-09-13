@@ -39,7 +39,7 @@ for (var i=0; i<scrollBtns.length; i++){
                     console.log('scope3')
                     scrolling = true
                     if(this.mobile){
-                        this.innerHTML = '<b style="color: #FFB9B5;">Stop</b>'
+                        this.innerHTML = '<b style="color: #DFFF40;">Stop</b>'
                     } else {
 //                    For Desktop
                         this.innerHTML = '<b style="color: red;">Stop</b>'
