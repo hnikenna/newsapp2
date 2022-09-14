@@ -37,22 +37,22 @@
     <!--    News Section-->
         <section id="news-section" class="col-12 col-lg-9">
             <h2 class="d-none d-md-inline"><strong>{{ article.header_text }}</strong></h2>
-            <h4 class="d-inline d-md-none"><strong>{{ article.header_text }}</strong></h4>
+            <h2 class="d-inline d-md-none"><strong>{{ article.header_text }}</strong></h2>
             <div id="mid-content">
                 <div class="pcontent">
-                    <h4 style="">
+                    <h3 style="">
                         {{ article.get_mid_content|linebreaks }}
                     <div class="gradientback"></div>
-                    </h4>
+                    </h3>
                 </div>
                 <button class="btn btn-main" id="read-more">Read More</button>
             </div>
             <div style="display: none;" id="full-content">
-                <h4>
+                <h3>
                     {{ article.content|linebreaks }}
-                </h4>
-                <p>Source: <a href="{{ article.source_url }}" target="_blank">{{ article.source_name }}</a></p>
-                <p><a href="/" ><button class="btn btn-main">&#8592 Go to Feed</button></a></p>
+                </h3>
+                <h4>Source: <a href="{{ article.source_url }}" target="_blank">{{ article.source_name }}</a></h4>
+                <h4><a href="/" ><button class="btn btn-main">&#8592 Go to Feed</button></a></h4>
 
             </div>
         </section>
@@ -258,7 +258,7 @@
                                                             <a class="awardBtn" data-id="{{comment.get_anon_id}}"><img src="{% static 'img/badge.png' %}" class="button"><span class="d-none d-md-inline">Award</span></a>
                                                             <a class="reportbtn" data-id="{{comment.get_anon_id}}"><img src="{% static 'img/police.png' %}" class="button"><span class="d-none d-md-inline">Report</span></a>
                                                             <div id="rep-{{comment.get_anon_id}}" style="display: none;">
-                                                                <br><p>Are you sure you want to report this comment?</p>
+                                                                <br><p>Do you want to report this comment?</p>
                                                                 <div class="d-inline">
                                                                 <button class="btn btn-dark mr-5" onclick="alerT('', 'Comment has been sent to our team for review.', '#B9162E');$('#rep-{{comment.get_anon_id}}').hide()">Yes</button>
                                                                 <button class="btn btn-dark ml-5" onclick="$('#rep-{{comment.get_anon_id}}').hide()">No</button><br>
@@ -304,7 +304,7 @@
                                                                         </div>
                                                                         {%else%}
                                                                         <div class="col">
-                                                                        <h5 class="text-center">Your Awards</h5>
+                                                                        <h5 class="text-center">My Purchased Awards</h5>
                                                                             <div class="dropdown-divider"></div>
                                                                         {% for awarditem in user.awards %}
                                                                         <a class="dropdown-item gift" data-id="{{awarditem.get_anon_id}}" data-owner="{{comment.author}}" data-parent="{{comment.get_anon_id}}" data-award="{{awarditem.award.id}}">
@@ -472,7 +472,7 @@
                                                             <a class="awardBtn" data-id="{{reply.get_anon_id}}"><img src="{% static 'img/badge.png' %}" class="button"><span class="d-none d-md-inline">Award</span></a>
                                                             <a class="reportbtn" data-id="{{reply.get_anon_id}}"><img src="{% static 'img/police.png' %}" class="button reportbtn" data-id="{{reply.get_anon_id}}"><span class="d-none d-md-inline">Report</span></a>
                                                             <div id="rep-{{reply.get_anon_id}}" style="display: none;">
-                                                                <br><p>Are you sure you want to report this comment?</p>
+                                                                <br><p>Do you want to report this comment?</p>
                                                                 <div class="d-inline">
                                                                 <button class="btn btn-dark mr-5" onclick="alerT('', 'Comment has been sent to our team for review.', '#B9162E');$('#rep-{{comment.get_anon_id}}').hide()">Yes</button>
                                                                 <button class="btn btn-dark ml-5" onclick="$('#rep-{{reply.get_anon_id}}').hide()">No</button><br>
@@ -518,7 +518,7 @@
                                                                         </div>
                                                                         {%else%}
                                                                         <div class="col">
-                                                                        <h5 class="text-center">Your Awards</h5>
+                                                                        <h5 class="text-center">My Purchased Awards</h5>
                                                                             <div class="dropdown-divider"></div>
                                                                             {% for awarditem in user.awards %}
                                                                             <a class="dropdown-item gift" data-id="{{awarditem.get_anon_id}}" data-owner="{{reply.author}}" data-parent="{{reply.get_anon_id}}" data-award="{{awarditem.award.id}}">

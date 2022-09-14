@@ -4,7 +4,10 @@ Theme URI: https://kloof.cemreworks.com
 Author: Cemre Tellioğlu Tunçay
 Author URI: https://cemreworks.com
 */
-
+::selection {
+  background: #521C4F;
+  color: white;
+}
 
 body {
     margin:0;
@@ -13,7 +16,7 @@ body {
     height: 100%
     display: grid;
     /*place-items: center;*/
-    font-family: 'Avanta Garde', sans-serif;
+    font-family: 'Garamond', serif;
 
 }
 
@@ -29,7 +32,7 @@ body {
     font-size: 12pt;
     font-weight: bold;
     text-transform: uppercase;
-    font-family: 'Avanta Garde', sans-serif;
+    font-family: 'Garamond', serif;
     color: #00e099;
 
 }
@@ -58,7 +61,7 @@ body {
     color: #ffffff;
     font-weight: bold;
     text-transform: uppercase;
-    font-family: 'Avanta Garde', sans-serif;
+    font-family: 'Garamond', serif;
 }
 
 .myInput{
@@ -68,7 +71,7 @@ body {
     color: #ffffff;
     font-weight: bold;
     text-transform: uppercase;
-    font-family: 'Avanta Garde', sans-serif;
+    font-family: 'Garamond', serif;
 }
 
 .myInput::placeholder{
@@ -84,7 +87,7 @@ body {
 .mainText{
     margin-top: 135px;
     font-family: 'Monstreat';
-    font-family: 'Avanta Garde', sans-serif;
+    font-family: 'Garamond', serif;
     font-weight: bold;
     /* line-height: 100; */
     letter-spacing: -1px;
@@ -95,7 +98,7 @@ body {
 .titleText{
     margin-top: 50px;
     font-family: 'Monstreat';
-    font-family: 'Avanta Garde', sans-serif;
+    font-family: 'Garamond', serif;
     font-weight: bold;
     /* line-height: 100; */
     letter-spacing: -1px;
@@ -106,7 +109,7 @@ body {
 .myTextMain {
     line-height: 35px;
     margin-top: 30px;
-    font-family: 'Avanta Garde', sans-serif;
+    font-family: 'Garamond', serif;
     margin-bottom: 30px;
 
 }
@@ -153,12 +156,12 @@ body {
 
 .absTitle{
     margin-top: 20%;
-    font-family: 'Avanta Garde', sans-serif;
+    font-family: 'Garamond', serif;
     font-weight: bold;
 }
 
 .absText{
-    font-family: 'Avanta Garde', sans-serif;
+    font-family: 'Garamond', serif;
     font-weight: bold;
 }
 
@@ -181,7 +184,7 @@ body {
     background-color: #003056;
     padding: 40px;
     color: #fff;
-    font-family: 'Avanta Garde', sans-serif;
+    font-family: 'Garamond', serif;
     font-weight: bold;
 }
 
@@ -190,7 +193,7 @@ body {
     padding: 40px;
 
     color: #fff;
-    font-family: 'Avanta Garde', sans-serif;
+    font-family: 'Garamond', serif;
     font-weight: bold;
 
 }
@@ -200,7 +203,7 @@ body {
     padding: 40px;
 
     color: #fff;
-    font-family: 'Avanta Garde', sans-serif;
+    font-family: 'Garamond', serif;
     font-weight: bold;
 
 }
@@ -210,7 +213,7 @@ body {
     padding: 40px;
 
     color: #fff;
-    font-family: 'Avanta Garde', sans-serif;
+    font-family: 'Garamond', serif;
     font-weight: bold;
 
 
