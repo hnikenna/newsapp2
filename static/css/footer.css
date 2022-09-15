@@ -136,26 +136,26 @@ ul.social-network li {
   position: relative; }
   .dk-footer-form input[type=email] {
     padding: 14px 28px;
-    border-radius: 50px;
+    border-radius: 10px;
     background: #2E2E2E;
     border: 1px solid #2E2E2E;
     color: #FFCDFA;
     height: 50px;
     }
   .dk-footer-form input::-webkit-input-placeholder, .dk-footer-form input::-moz-placeholder, .dk-footer-form input:-ms-input-placeholder, .dk-footer-form input::-ms-input-placeholder, .dk-footer-form input::-webkit-input-placeholder {
-    color: #878787;
+    color: white;
     font-size: 14px; }
   .dk-footer-form input::-webkit-input-placeholder, .dk-footer-form input::-moz-placeholder, .dk-footer-form input:-ms-input-placeholder, .dk-footer-form input::-ms-input-placeholder, .dk-footer-form input::placeholder {
-    color: #878787;
+    color: white;
     font-size: 14px; }
   .dk-footer-form button[type=submit] {
     position: absolute;
     top: 0;
     right: 0;
     padding: 12px 24px 12px 17px;
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
-    border: 1px solid #843781;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 1px solid #652B61;
     background: #3F1B3C;
     color: #fff;
     height: 50px;

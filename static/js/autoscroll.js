@@ -8,7 +8,7 @@ function Scroller(scrollBtn) {
         if(window.location.pathname === '/') {
             if(scrollinfo) {
 
-                scrolldelay = setTimeout(function(){alerT('', 'Align article to page center', '#3F1B3C')},50)
+                scrolldelay = setTimeout(function(){alerT('', 'Align article to page center for better view', '#3F1B3C')},50)
                 scrollinfo = false
             }
             window.scrollBy(0,475);
