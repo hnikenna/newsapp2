@@ -18,9 +18,9 @@ footer a:hover {
 }
 
 .copy {
-  font-size: 12px;
-  padding: 10px;
-  border-top: 1px solid #FFFFFF;
+  border-top: 3px solid none;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+
 }
 
 .footer-middle {
