@@ -14,6 +14,7 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 		<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 		<link href="{% static 'css/style.css' %}" rel="stylesheet">
+		<link href="{% static 'css/footer.css' %}" rel="stylesheet">
 		<link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
 
 		<link href="{% static 'css/responsive.css' %}" rel="stylesheet">
@@ -26,144 +27,216 @@
 
   </head>
 	<body onload="showPage()">
-	<div id="loader"></div>
-	<div id="body">
-		<div class="header mt-0 pb-0" id="navHeader"> <!--style="height: 78px;">-->
-				<nav class="navbar navbar-expand-lg navbar-dark myNavbar border-0 py-3"style="background: #3F1B3C;">
-				  <a class="navbar-brand-inline mr-2" href="/">
-					  <img class="m-2" src="{% static 'img/logo-light.png' %}" style="width: 64px; border-radius: 35%;"/>
-					  <h2 class="d-inline" style="color: white; top:23px;">Fawsy</h2>
-				  </a>
-				  <button class="navbar-toggler" type="button" data-toggle="collapse"
-						  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-						  aria-expanded="false" aria-label="Toggle navigation" style="background-color: #3F1B3C; opacity: 90%;">
-					<span class="navbar-toggler-icon"></span>
-				  </button>
+		<div id="loader" class="height: 100%;"></div>
 
-				  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav mr-auto myNavUl">
-						<li class="nav-item {% block news_active %}{% endblock %}">
-								<a class="nav-link" href="/  ">News</a>
+		<div id="body">
+			<div class="header mt-0 pb-0" id="navHeader"> <!--style="height: 78px;">-->
+					<nav class="navbar navbar-expand-lg navbar-dark myNavbar border-0 py-3"style="background: #3F1B3C;">
+					  <a class="navbar-brand-inline mr-2" href="/">
+						  <img class="m-2" src="{% static 'img/logo-light.png' %}" style="width: 64px; border-radius: 35%;"/>
+						  <h2 class="d-inline" style="color: white; top:23px;">Fawsy</h2>
+					  </a>
+					  <button class="navbar-toggler" type="button" data-toggle="collapse"
+							  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+							  aria-expanded="false" aria-label="Toggle navigation" style="background-color: #3F1B3C; opacity: 90%;">
+						<span class="navbar-toggler-icon"></span>
+					  </button>
+
+					  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav mr-auto myNavUl">
+							<li class="nav-item {% block news_active %}{% endblock %}">
+									<a class="nav-link" href="/">World News</a>
+							</li>
+
+							<li class="nav-item {% block about_active %}{% endblock %} dropdown">
+								<a class="nav-link dropdown-toggle" href="/contact" id="navbarDropdown1" role="button"
+								   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								  About
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown1" style="">
+									<a class="dropdown-item" href="/contact">Get in Touch</a>
+									<a class="dropdown-item" href="/contact">Who we are</a>
+									<a class="dropdown-item" href="/contact">Our Values</a>
+									<a class="dropdown-item" href="/contact">Legal</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="/contact">Privacy Policy</a>
+									<a class="dropdown-item" href="/contact">Terms & Conditions</a>
+									<a class="dropdown-item" href="/contact">Careers</a>
+									<a class="dropdown-item" href="/contact">Requests</a>
+								</div>
 						</li>
 
-	                	<li class="nav-item {% block about_active %}{% endblock %} dropdown">
-	                        <a class="nav-link dropdown-toggle" href="/contact" id="navbarDropdown1" role="button"
-							   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	                          About Us
-	                        </a>
-	                        <div class="dropdown-menu" aria-labelledby="navbarDropdown1" style="">
-								<a class="dropdown-item" href="/contact">Get in Touch</a>
-								<a class="dropdown-item" href="/contact">Who we are</a>
-								<a class="dropdown-item" href="/contact">Our Values</a>
-								<a class="dropdown-item" href="/contact">Legal</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="/contact">Privacy Policy</a>
-								<a class="dropdown-item" href="/contact">Terms & Conditions</a>
-								<a class="dropdown-item" href="/contact">Careers</a>
-								<a class="dropdown-item" href="/contact">Requests</a>
+							<li class="nav-item {% block earn_active %}{% endblock %}">
+								<a class="nav-link" href="/contact">Earn</a>
+							</li>
+
+							<li class="nav-item">
+									<a class="nav-link {% block products_active %}{% endblock %}" href="/products">Products</a>
+							</li>
+
+
+	<!--					  <li class="nav-item">-->
+	<!--						<a class="nav-link disabled" href="#">Disabled</a>-->
+	<!--					  </li>-->
+
+						</ul>
+						<form method="get" class="d-inline form-inline mx-4 my-2 my-lg-0" style="align: center;">
+							<input class="form-control mr-sm-2" type="search" placeholder="Search" style="width: 25%;" aria-label="Search">
+							<button class="btn btn-light my-2 my-sm-0" type="submit">Search</button>
+						</form>
+						<div class="d-inline">
+							<button id="desktop-scroll" class="d-none d-md-inline btn btn-light nav-link scroll-btn"><b>Auto-Scroll</b></button>
+							<!--						<button id="translate-btn"class="btn btn-light"><a class="nav-link" onclick="$('#google_translate_element').toggle(); $('#translate-btn.disabled').hide()"><b>Translate</b></a></button>-->
+
+							<div id="google_translate_element" style="display: none; top: o; right: 0;">
+								<script type="text/javascript" src="{% static 'js/google-translate.js' %}"></script>
+								<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 							</div>
-	                </li>
+						</div>
+						  <div class="d-inline my-2 my-lg-0 float-right">
+							{% if not user.is_authenticated %}
+							<li class="nav-item d-inline my-2 mx-2 my-lg-0">
+								<button class="btn btn-light"><a class="nav-link" href="/accounts/login"><b>Sign In</b></a></button>
+							</li>
+							<li class="nav-item d-inline my-2 mx-2 my-lg-0">
+									<button class="btn btn-light"><a class="nav-link" href="/accounts/signup"><b>Instant Signup</b></a></button>
+								</li>
+							{% else %}
 
-						<li class="nav-item {% block earn_active %}{% endblock %}">
-							<a class="nav-link" href="/contact">Earn</a>
-						</li>
+							<li class="nav-item d-inline my-2 mx-2 my-lg-0">
+								<button class="btn btn-light"><a class="nav-link" href="/accounts/{{user.username}}"><b>Profile</b></a></button>
+							</li>
+							<li class="nav-item d-inline my-2 mx-2 my-lg-0">
+									<button class="btn btn-light"><a class="nav-link" href="/accounts/logout"><b>Logout</b></a></button>
+								</li>
 
-						<li class="nav-item">
-								<a class="nav-link {% block products_active %}{% endblock %}" href="/products">Products</a>
-						</li>
-						<li class="nav-item">
-								<a class="nav-link {% block edu_active %}{% endblock %}" href="/contact">Education</a>
-						</li>
+							{% endif %}
+						  </div>
+					  </div>
+					</nav>
+			</div>
+
+<!--			Alert Box-->
+			<div id="info">
+				<div id="infoContent">
+					...
+				</div>
+			</div>
+			<hr>
+			<div class="container">
+				{% block content %}
+
+				{% endblock %}
+			</div>
 
 
-<!--					  <li class="nav-item">-->
-<!--						<a class="nav-link disabled" href="#">Disabled</a>-->
-<!--					  </li>-->
 
-					</ul>
-					<form method="get" class="d-inline form-inline mx-4 my-2 my-lg-0" style="align: center;">
-						<input class="form-control mr-sm-2" type="search" placeholder="Search" style="width: 25%;" aria-label="Search">
-						<button class="btn btn-light my-2 my-sm-0" type="submit">Search</button>
-					</form>
-					<div class="d-inline">
-						<button id="desktop-scroll" class="d-none d-md-inline btn btn-light nav-link scroll-btn"><b>Auto-Scroll</b></button>
-						<!--						<button id="translate-btn"class="btn btn-light"><a class="nav-link" onclick="$('#google_translate_element').toggle(); $('#translate-btn.disabled').hide()"><b>Translate</b></a></button>-->
 
-						<div id="google_translate_element" style="display: none; top: o; right: 0;">
-							<script type="text/javascript" src="{% static 'js/google-translate.js' %}"></script>
-							<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+		<div id="mobile-auto-scroll" style="display: none;">
+			<button
+			id="mobile-scroll"
+			class="d-inline d-md-none btn btn-main text-center scroll-btn m-5 p-1"
+			style="position: fixed; bottom: 0; right: 0; width: 25%; height: 7%; z-index: 5;"><b>Auto-Scroll </b></button>
+		</div>
+
+		<!-- Footer -->
+		<footer class="mainfooter" role="contentinfo" id="footer" style="display: none;">
+			<div class="footer-middle">
+			<div class="container">
+			<div class="row">
+			  <div class="col-md-3 col-sm-4">
+				<!--Column1-->
+				<div class="footer-pad">
+				  <h4>Heading 1</h4>
+				  <ul class="list-unstyled">
+					<li><a href="#"></a></li>
+					<li><a href="#">Payment Center</a></li>
+					<li><a href="#">Contact Directory</a></li>
+					<li><a href="#">Forms</a></li>
+					<li><a href="#">News and Updates</a></li>
+					<li><a href="#">FAQs</a></li>
+				  </ul>
+				</div>
+			  </div>
+			  <div class="col-md-3 col-sm-4">
+				<!--Column1-->
+				<div class="footer-pad">
+				  <h4>Heading 2</h4>
+				  <ul class="list-unstyled">
+					<li><a href="#">Website Tutorial</a></li>
+					<li><a href="#">Accessibility</a></li>
+					<li><a href="#">Disclaimer</a></li>
+					<li><a href="#">Privacy Policy</a></li>
+					<li><a href="#">FAQs</a></li>
+					<li><a href="#">Webmaster</a></li>
+				  </ul>
+				</div>
+			  </div>
+			  <div class="col-md-3 col-sm-4">
+				<!--Column1-->
+				<div class="footer-pad">
+				  <h4>Heading 3</h4>
+				  <ul class="list-unstyled">
+					<li><a href="#">Parks and Recreation</a></li>
+					<li><a href="#">Public Works</a></li>
+					<li><a href="#">Police Department</a></li>
+					<li><a href="#">Fire</a></li>
+					<li><a href="#">Mayor and City Council</a></li>
+					<li>
+					  <a href="#"></a>
+					</li>
+				  </ul>
+				</div>
+			  </div>
+			  <div class="col-md-3 text-center">
+				<h4>Subscribe to our Newsletter</h4>
+				  <form action="#">
+					<div class="form-row">
+						<div class="col dk-footer-form">
+							<input type="email" class="form-control" placeholder="Email Address">
+							<button type="submit">
+								<i class="fa fa-send"></i>
+							</button>
 						</div>
 					</div>
-					  <div class="d-inline my-2 my-lg-0 float-right">
-						{% if not user.is_authenticated %}
-						<li class="nav-item d-inline my-2 mx-2 my-lg-0">
-							<button class="btn btn-light"><a class="nav-link" href="/accounts/login"><b>Sign In</b></a></button>
-						</li>
-						<li class="nav-item d-inline my-2 mx-2 my-lg-0">
-								<button class="btn btn-light"><a class="nav-link" href="/accounts/signup"><b>Instant Signup</b></a></button>
-							</li>
-						{% else %}
-
-						<li class="nav-item d-inline my-2 mx-2 my-lg-0">
-							<button class="btn btn-light"><a class="nav-link" href="/accounts/{{user.username}}"><b>Profile</b></a></button>
-						</li>
-						<li class="nav-item d-inline my-2 mx-2 my-lg-0">
-								<button class="btn btn-light"><a class="nav-link" href="/accounts/logout"><b>Logout</b></a></button>
-							</li>
-
-						{% endif %}
-					  </div>
-				  </div>
-				</nav>
+				</form>
+				<!-- End form -->
+			</div>
+			</div>
+			<div class="row">
+			<div class="col-md-12 copy mt-3">
+			  <p class="text-center">&copy; Copyright 2022 - Fawsy.  All rights reserved.</p>
+			</div>
 			</div>
 
-		<div id="info">
-			<div id="infoContent">
-				...
+
 			</div>
-		</div>
-<hr>
-		<div class="container">
-			{% block content %}{% endblock %}
-		</div>
-
-
-	</div>
-
-	<button id="mobile-scroll" class="d-inline d-md-none btn btn-main text-center scroll-btn m-5 p-1"
-			style="position: fixed; bottom: 0; right: 0; width: 25%; height: 7%; z-index: 5;"><b>Auto-Scroll </b></button>
-
-		<!-- Footer -->
-		<footer class="page-footer font-small blue text-center">
-
-		  <!-- Copyright -->
-		  <div class="footer-copyright text-center py-3">© 2022 Copyright:
-			<a href="/"> Ikforshort</a>
-		  </div>
-		  <!-- Copyright -->
-
+			</div>
 		</footer>
-		<!-- Footer -->
 
+
+
+		<!-- End Footer -->
+		</div>
 		<!-- JavaScript Bundle with Popper -->
 		<div id="js">
-			<script type="text/javascript" src="{% static 'js/autoscroll.js' %}"></script>
-			<script src="{% static 'js/jquery.min.js' %}"></script>
-			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-			<script src="https://unpkg.com/@popperjs/core@2" crossorigin="anonymous"></script>
-			<script src="{% static 'js/jquery-easing/jquery.easing.min.js' %}"></script>
-			<script src="{% static 'js/popper.min.js' %}"></script>
-			<script src="{% static 'js/bootstrap.min.js' %}"></script>
-			<script src="{% static 'js/ajax-mail.js' %}"></script>
-			<script src="{% static 'js/jquery.nicescroll.min.js' %}"></script>
-			<script src="{% static 'js/scripts.js' %}"></script>
-			<script src="{% static 'js/sticky.js' %}"></script>
-			<script src="{% static 'js/post.js' %}"></script>
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-			<script src="{% static 'js/main.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/autoscroll.js' %}"></script>
+		<script src="{% static 'js/jquery.min.js' %}"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+		<script src="https://unpkg.com/@popperjs/core@2" crossorigin="anonymous"></script>
+		<script src="{% static 'js/jquery-easing/jquery.easing.min.js' %}"></script>
+		<script src="{% static 'js/popper.min.js' %}"></script>
+		<script src="{% static 'js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'js/ajax-mail.js' %}"></script>
+		<script src="{% static 'js/jquery.nicescroll.min.js' %}"></script>
+		<script src="{% static 'js/scripts.js' %}"></script>
+		<script src="{% static 'js/sticky.js' %}"></script>
+		<script src="{% static 'js/post.js' %}"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="{% static 'js/main.js' %}"></script>
 <!--			<script src="{% static 'js/loader.js' %}"></script>-->
-			{% block js %}{% endblock %}
-		</div>
+		{% block js %}{% endblock %}
+	</div>
 
-  </body>
+	</body>
 </html>

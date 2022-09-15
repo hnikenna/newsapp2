@@ -17,4 +17,6 @@ function loader() {
 function showPage() {
   document.getElementById("loader").style.display = "none";
   document.getElementById("body").style.display = "block";
+  document.getElementById("mobile-auto-scroll").style.display = "block";
+  document.getElementById("footer").style.display = "block";
 }

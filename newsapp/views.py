@@ -25,7 +25,7 @@ def post(request, slug):
     user = request.user
     article = get_object_or_404(Article, slug=slug)
     all_awards = Award.objects.all()
-    featured = Article.objects.all()[:3]
+    featured = Article.objects.filter(country=article.country.id).exclude(slug=article.slug)[:3]
 
     # all_articles = Article.objects.all()[:4]
     # featured = random.choices(all_articles, weights=None, cum_weights=None, k=4)
