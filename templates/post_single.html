@@ -629,14 +629,14 @@
             <div class="container">
                 <div class="row">
                     {% for article in featured reversed %}
-                <div class="col-4 px-2 card sidebar country text-center"
+                <div class="col-12 my-2 px-2 card sidebar country text-center"
                      style="background-image: url({{ article.country.get_path_1 }});
                             position: relative;
                             background-repeat: no-repeat;
-                            background-attachment: fixed;
+                            background-attachment: inherit;
                             background-position: center;">
                     <div class="blurry" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0"></div>
-                    <div class="card-content text-center zoom"style="position: relative;" >
+                    <div class="card-content text-center"style="position: relative;" >
                             <a href="{{article.get_absolute_url}}" style="text-decoration: none; color: #EFF1ED;">
                                 <h4 class="p-2">{{ article.title }}</h4>
                             </a>
