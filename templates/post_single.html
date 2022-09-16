@@ -22,7 +22,7 @@
     <span class="d-none d-md-inline"><h2 style="text-decoration: overline;">{{ article.title }}</h2></span>
     <span class="d-inline d-md-none"><h3 style="text-decoration: overline;">{{ article.title }}</h3></span>
         <section id="article-info" class="d-flex justify-content-between align-items-center">
-            <h4><a href="#discussion"> Go to Discussion <span style="font-weight: 400; font-size: 20px;">&#8595</span> </a></h4>
+            <h4><a href="#discussion">{{article.comments_count}}<span style="font-weight: 400; font-size: 20px;">&#8595</span> </a></h4>
             <h4>News from <strong>{{article.country}}</strong> <img src="{{article.country.get_path_1}}" style="width: 32px; height: 32px; border-radius: 50%;"></h4>
             <h4>{{ article.date }} - <span class="time">{{article.time_ago }} </span><span class="d-none d-md-inline"><img src="{% static 'img/dot_button.png' %}" width="5%"><a href="#"> {{ article.username }}</a></span></h4>
         </section>
@@ -329,11 +329,11 @@
                                                                         <br>
                                                                         <h5 class="d-none d-md-block">{{ award.name}} {% if user.is_authenticated %} x5{% endif %}</h5>
                                                                         <strong class="d-block d-md-none">{{ award.name}} {% if user.is_authenticated %} x5{% endif %}</strong>
-                                                                        <p class="d-inline d-md-none" style="justify-content: right; color: purple;"><i class="fa fa-btc ml-1" aria-hidden="true"></i> {{award.btc_price}}</p>
+                                                                        <p class="d-inline d-md-none" style="justify-content: right; color: purple;">{{award.btc_price}} <i class="fa fa-btc ml-1" aria-hidden="true"></i></p>
                                                                     </td>
                                                                     <td>
                                                                         <br>
-                                                                        <p class="d-none d-md-flex" style="justify-content: right; color: purple;"><i class="fa fa-btc ml-1" aria-hidden="true"></i> {{award.btc_price}}</p>
+                                                                        <p class="d-none d-md-flex" style="justify-content: right; color: purple;">{{award.btc_price}} <i class="fa fa-btc ml-1 pt-1 pb-0" aria-hidden="true"></i></p>
                                                                     </td>
                                                                     <td>
                                                                         <br>
@@ -625,6 +625,30 @@
 
     <!--    Sidebar Section-->
         <section id="sidebar-section-2" class="d-block d-lg-none">
+                {% if featured %}<h3 class="text-center">More from {{article.country}}</h3><hr/>{% endif %}
+            <div class="container">
+                <div class="row">
+                    {% for article in featured reversed %}
+                <div class="col-12 my-2 px-2 card sidebar country text-center"
+                     style="background-image: url({{ article.country.get_path_1 }});
+                            position: relative;
+                            background-repeat: no-repeat;
+                            background-attachment: inherit;
+                            background-position: center;">
+                    <div class="blurry" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0"></div>
+                    <div class="card-content text-center"style="position: relative;" >
+                            <a href="{{article.get_absolute_url}}" style="text-decoration: none; color: #EFF1ED;">
+                                <h4 class="p-2">{{ article.title }}</h4>
+                            </a>
+                        </div>
+                </div><br>
+            {% endfor %}
+                </div>
+            </div>
+
+        </section>
+    <!--    Sidebar Section-->
+        <section id="sidebar-section-2-2" class="d-block d-lg-none">
                 {% if featured %}<h3 class="text-center">More from {{article.country}}</h3><hr/>{% endif %}
             <div class="container">
                 <div class="row">

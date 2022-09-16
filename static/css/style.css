@@ -846,16 +846,13 @@ h5 {
 
 @keyframes award-glow {
   0%   {
-            width: 20px;
-            height: 20px;
+            padding: 3px;
         }
   50%   {
-            width: 25px;
-            height: 25px;
+            padding: 0px;
         }
   100%   {
-            width: 20px;
-            height: 20px;
+            padding: 3px;
         }
 
 /*  25%  {background-size:200%;}
@@ -907,7 +904,7 @@ h5 {
     background: #000000;
   }
   50% {
-    background: #0B157D;
+    background: #F5F5F5;
   }
   100% {
     background: #000000;
@@ -945,12 +942,12 @@ h5 {
 }
 
 .media .award-glow {
-/*    position: absolute;*/
-    left: 0;
-    width: 25px;
+/*    position: absolute;
+    left: 0.5;*/
+    width: 27px;
     height: 25px;
     margin: 5px 5px 5px 5px;
-/*    margin-left: 0px;*/
+
 
 /*    box-shadow: 0px 0px 5px #DB880E;*/
 /*    -webkit-filter: drop-shadow( 7px 4px 4px #DB880E);*/

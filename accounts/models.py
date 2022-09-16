@@ -84,8 +84,7 @@ class CustomUser(AbstractUser):
                 awards2 += (award.award.price * award.quantity) / 5
 
         awards2 = (awards2 * (10 ** -8))
-        return awards2
-
+        return round(awards2, 7)
 
 
 class Profile(models.Model):

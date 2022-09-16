@@ -8,8 +8,8 @@
 		<title>Vuzah - {% block title %}{% endblock %}</title>
 		<meta name="description" content="">
 		<meta name="author" content="Cemre Tellioğlu Tunçay">
-		<link rel="icon" type="image/png" href="{% static 'img/logo-light.png' %}" sizes="32x32"/>
-		<link rel="icon" type="image/png" href="{% static 'img/logo.png' %}" sizes="16x16" />
+		<link rel="icon" type="image/png" href="{% static 'img/v.png' %}" sizes="32x32"/>
+		<link rel="icon" type="image/png" href="{% static 'img/v.png' %}" sizes="16x16" />
 		<link href="https://fonts.googleapis.com/css?family=Garamond&display=swap&subset=latin-ext" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 		<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
@@ -35,11 +35,16 @@
 					  <a class="navbar-brand-inline mr-2" href="/">
 
 <!--						  <img class="m-2" src="{% static 'img/logo-light.png' %}" style="width: 64px; border-radius: 35%;"/>-->
-						  <h2 class="d-inline pt-5" style="color: white; padding-top: 20px;"><img class="m-2" src="{% static 'img/v.png' %}" style="width: 64px; border-radius: 35%;"/>Vuzah</h2>
+						  <h1 class="d-inline pt-5" style="color: white; padding-top: 20px;"><img class="m-2" src="{% static 'img/v.png' %}" style="width: 64px; border-radius: 35%;"/>uzah</h1>
 					  </a>
-					  <button class="navbar-toggler" type="button" data-toggle="collapse"
-							  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-							  aria-expanded="false" aria-label="Toggle navigation" style="background-color: #3F1B3C; opacity: 90%;">
+					  <button class="navbar-toggler"
+							  type="button"
+							  data-toggle="collapse"
+							  data-target="#navbarSupportedContent"
+							  aria-controls="navbarSupportedContent"
+							  aria-expanded="false"
+							  aria-label="Toggle navigation"
+							  style="background-color: #3F1B3C; opacity: 90%;">
 						<span class="navbar-toggler-icon"></span>
 					  </button>
 
@@ -49,24 +54,22 @@
 									<a class="nav-link" href="/">News</a>
 							</li>
 
-<!--							<li class="nav-item {% block about_active %}{% endblock %} dropdown">-->
-<!--								<a class="nav-link dropdown-toggle" href="/contact" id="navbarDropdown1" role="button"-->
-<!--								   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--								  About-->
-<!--								</a>-->
-<!--								<div class="dropdown-menu" aria-labelledby="navbarDropdown1" style="">-->
-<!--									<a class="dropdown-item" href="/contact">Get in Touch</a>-->
-<!--									<a class="dropdown-item" href="/contact">Who we are</a>-->
-<!--									<a class="dropdown-item" href="/contact">Our Values</a>-->
-<!--									<a class="dropdown-item" href="/contact">Legal</a>-->
-<!--									<div class="dropdown-divider"></div>-->
-<!--									<a class="dropdown-item" href="/contact">Privacy Policy</a>-->
-<!--									<a class="dropdown-item" href="/contact">Terms & Conditions</a>-->
-<!--									<a class="dropdown-item" href="/contact">Careers</a>-->
-<!--									<a class="dropdown-item" href="/contact">Requests</a>-->
-<!--								</div>-->
-<!--						</li>-->
+							<li class="nav-item {% block about_active %}{% endblock %} dropdown">
+								<a class="nav-link dropdown-toggle" href="/contact" id="navbarDropdown1" role="button"
+								   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								  Articles
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown1" style="">
+									<a class="dropdown-item" href="/contact">Business</a>
+									<a class="dropdown-item" href="/contact">Entertainment</a>
+									<a class="dropdown-item" href="/contact">Education</a>
+									<a class="dropdown-item" href="/contact">Legal</a>
+								</div>
+						</li>
 
+<!--							<li class="nav-item {% block ent_active %}{% endblock %}">-->
+<!--								<a class="nav-link" href="/contact">Articles</a>-->
+<!--							</li>-->
 							<li class="nav-item {% block earn_active %}{% endblock %}">
 								<a class="nav-link" href="/contact">Earn</a>
 							</li>
@@ -157,6 +160,7 @@
 					<li><a class="dropdown-item" href="/contact">Requests</a></li>
 					<li><a class="dropdown-item" href="/contact">Legal</a></li>
 					<li><a class="dropdown-item" href="/contact">Credits</a></li>
+					<li><a class="dropdown-item" href="/contact">Partnership| partnership@vuzah.com</a></li>
 
 
 
@@ -168,11 +172,12 @@
 				<div class="footer-pad">
 				  <h4 class="pl-4">About</h4>
 				  <ul class="list-unstyled">
+					<li><a class="dropdown-item" href="/contact">Vuzah Guide</a></li>
 					<li><a class="dropdown-item" href="/contact">Who we are</a></li>
-					  <li><a class="dropdown-item" href="/contact">Our Values</a></li>
-					  <li><a class="dropdown-item" href="/contact">FAQs</a></li>
+					  <li><a class="dropdown-item" href="/contact">Our Partners</a></li>
 					  <li><a class="dropdown-item" href="/contact">Terms & Conditions</a></li>
 					  <li><a class="dropdown-item" href="/contact">Privacy Policy</a></li>
+					  <li><a class="dropdown-item" href="/contact">FAQs</a></li>
 
 				  </ul>
 				</div>
@@ -180,24 +185,34 @@
 			  <div class="col-6 col-md-3">
 				<!--Column1-->
 				<div class="footer-pad">
-				  <h4 class="pl-4">Continents</h4>
+				  <h4 class="pl-4">Earn with Vuzah</h4>
 					<ul class="list-unstyled">
-						<li><a class="dropdown-item" href="/contact">Asia</a></li>
-						<li><a class="dropdown-item" href="/contact">Africa</a></li>
-						<li><a class="dropdown-item" href="/contact">Europe</a></li>
-						<li><a class="dropdown-item" href="/contact">North America</a></li>
-						<li><a class="dropdown-item" href="/contact">South America</a></li>
-						<li><a class="dropdown-item" href="/contact">Oceania</a></li>
-						<li><a class="dropdown-item" href="/contact">Antarctica</a></li>
+						<li><a class="dropdown-item" href="/contact">For Readers</a></li>
+						<li><a class="dropdown-item" href="/contact">For Freelancers</a></li>
+						<li><a class="dropdown-item" href="/contact">For Publishers</a></li>
+						<li><a class="dropdown-item" href="/contact">For Businesses</a></li>
 
 					</ul>
 				</div>
 			  </div>
-			  <div class="col-12 col-md-3 text-center py-3">
+		  <div class="col-6 col-md-3">
+				<!--Column1-->
+				<div class="footer-pad">
+				  <h4 class="pl-4">Publications</h4>
+					<ul class="list-unstyled">
+						<li><a class="dropdown-item" href="/contact">Research Publication</a></li>
+						<li><a class="dropdown-item" href="/contact">Article Publication</a></li>
+						<li><a class="dropdown-item" href="/contact">Ebook Publication</a></li>
+						<li><a class="dropdown-item" href="/contact">Biography/Autobiography</a></li>
+
+					</ul>
+				</div>
+			  </div>
+			  <div class="col-12 text-center py-3">
 				<h4>Subscribe to our Newsletter</h4>
 				  <form action="#">
 					<div class="form-row">
-						<div class="col dk-footer-form">
+						<div class="col dk-footer-form mx-5">
 							<input type="email" class="form-control" placeholder="Email">
 							<button type="submit">
 								<i class="fa fa-send"></i>
@@ -210,7 +225,7 @@
 			</div>
 			<div class="row">
 			<div class="col-md-12 copy py-3 my-5">
-			  <p class="text-center">&copy; Copyright 2022 - Vuzah International.  All rights reserved.</p>
+			  <p class="text-center">&copy; Copyright 2022 - Vuzah Publishers Ltd.  All rights reserved.</p>
 			</div>
 			</div>
 

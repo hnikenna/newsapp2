@@ -287,6 +287,26 @@ class Article(models.Model):
             return 'No Comment!'
 
     @property
+    def comments_count(self):
+        comment_count = 0
+        try:
+            comments = self.comment.all()
+            comment_count += len(comments)
+            for comment in comments:
+                reply = comment.reply.all()
+                comment_count += len(reply)
+            if comment_count > 1:
+                return str(comment_count) + ' comments'
+            elif comment_count == 1:
+                return str(comment_count) + ' comment'
+            elif comment_count == 0:
+                return '0 comments'
+            else:
+                return 'Error: Comment count'
+        except:
+            return 'No Comment!'
+
+    @property
     def get_votes(self):
         votes = VoteItem.objects.filter(parent='a', parent_id=self.id)
         return votes

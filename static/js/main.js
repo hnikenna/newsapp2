@@ -3,7 +3,7 @@ $('#infobtn').click(function(){alerT('', 'Stop!', 'blue');});
 $('#read-more').click(function(){
     $('#mid-content').hide();
     $('#full-content').show();
-    console.log($('#mid-content'));
+//    console.log($('#mid-content'));
 });
 
 function alerT(event, text='Hey! This is a success message!!', color='green'){

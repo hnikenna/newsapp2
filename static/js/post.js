@@ -17,7 +17,6 @@ function dev(){alerT('', 'Coming Soon..', '#261E7D');}
 
 function checkGuest(e, btn, msg = 'Sign in to use this feature', color = '#C9162D') {
     if (user == 'AnonymousUser') {
-        //            console.log('Guest')
         btn.style.animation = 'award-shake 1s';
         alerT(e, msg, color);
 
@@ -31,7 +30,6 @@ for (var i=0; i<voteBtns.length; i++){
     voteBtns[i].addEventListener('click', function (e){
         this.disabled = true;
         if (user == 'AnonymousUser') {
-//            console.log('Guest')
             this.style.animation = 'award-shake 1s';
             if (this.disabled) {
 
@@ -52,10 +50,6 @@ for (var i=0; i<voteBtns.length; i++){
 
             var slug = this.dataset.slug
             var poll = this.dataset.poll
-            console.log('Class:', this.classList.contains('selected'))
-            console.log('Slug:', slug)
-            console.log('Poll:', poll)
-            console.log('USER:', user)
             updateArticleVote(slug, poll)
         }
 //        location.reload()
@@ -377,7 +371,6 @@ function makePayment(extras, award_data, award_quantity=1) {
         currency: "NGN",
         payment_options: "card, banktransfer, ussd",
         callback: function(payment){
-        console.log(payment) 
         if(payment.status == 'successful' || payment.status == 'completed'){
             sendAward(award_data, award_quantity);
             log_data.status = 'processing'

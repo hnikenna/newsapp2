@@ -46,6 +46,14 @@
 									title="News from {{article.country}}"
 									alt="{{article.country}} Flag"
 								><b>{{article.country}}</b>
+
+								<img
+									class="mt-5" src="{% static 'img/timetable.png' %}"
+									style="width: 75%;"
+									title="News from {{article.country}}"
+									alt="{{article.country}} Flag"
+								><b>{{article.date}}</b>
+
 							</div>
 							<div class="row" style="color: #E8ECE8;">
 								<div class="col-3">
@@ -66,6 +74,8 @@
 									<h2 class="d-none d-lg-block absTitle">{{ article.get_title }}</h2>
 									<h4 class="d-block d-lg-none absTitle"><b>{{ article.get_title }}</b></h4>
 
+
+
 									<h4 class="d-none d-md-block absText">
 										<img src="{% static 'img/shape.png' %}"><br>
 <!--									<p class="col-md-12">-->
@@ -78,6 +88,7 @@
 									</p>
 
 									<a href="{{ article.get_absolute_url }}"><button class="btn btn-default zoom">Read More</button></a>
+
 								</div>
 								<div class="col-3">
 									<div class="d-none d-lg-block">
@@ -93,6 +104,7 @@
 
 
 								</div>
+								<b class="d-block d-lg-none"><img src="{% static 'img/timetable.png' %}" width="5%"/> {{article.date}}</b>
 							</div>
 
 						</div>
