@@ -291,7 +291,7 @@ class Article(models.Model):
 
     @property
     def get_shorter_content(self):
-        return breadcrumb(self.header_text, 100)
+        return breadcrumb(self.header_text, 70)
 
     @property
     def username(self):
