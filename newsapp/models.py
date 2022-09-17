@@ -272,6 +272,10 @@ class Article(models.Model):
         return breadcrumb(self.title, 100)
 
     @property
+    def get_short_title(self):
+        return breadcrumb(self.title, 70)
+
+    @property
     def get_content(self):
         content = self.content
         # allow bold characters by placing them between '<<' and '>>'
@@ -291,7 +295,7 @@ class Article(models.Model):
 
     @property
     def get_shorter_content(self):
-        return breadcrumb(self.header_text, 70)
+        return breadcrumb(self.header_text, 75)
 
     @property
     def username(self):
