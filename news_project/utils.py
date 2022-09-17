@@ -42,5 +42,7 @@ def anon_id(self, starter="ax", amount=12):
     # print('ID:', self.anon_id)
     return self.anon_id
 
+
 def format_currency(value):
     return "{:,.2f}".format(value)
+

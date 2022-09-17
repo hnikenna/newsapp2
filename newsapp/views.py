@@ -2,6 +2,7 @@ import json
 import random
 
 from html_sanitizer import Sanitizer
+
 sanitizer = Sanitizer()
 
 from django.http import JsonResponse
@@ -25,10 +26,8 @@ def post(request, slug):
     user = request.user
     article = get_object_or_404(Article, slug=slug)
     all_awards = Award.objects.all()
-    featured = Article.objects.filter(country=article.country.id).exclude(slug=article.slug)[:3]
-
-    # all_articles = Article.objects.all()[:4]
-    # featured = random.choices(all_articles, weights=None, cum_weights=None, k=4)
+    featured = Article.objects.all()[:3]
+    # featured = Article.objects.filter(country=article.country.id).exclude(slug=article.slug)[:3]
 
     # Code to display user article choices on page
     articleVoteItems = article.get_votes
@@ -388,7 +387,22 @@ def awardTransaction(request):
         'Logged', safe=False
     )
 
+
+def country(request):
+    countries = Country.objects.all()
+    json_file = [""""import json file here"""]
+
+    # for cont in json_file:
+        # new_country = Country(name=cont['name'], capital=cont['capital'], code=cont['code'], continent=cont[''])
+
+    # Country.objects.exclude(code="t1").delete()
+    context = {'countries': countries, 'count': len(countries), 'choice': random.choice(countries)}
+    return render(request, 'manage/country.html', context)
+
+
 """START PRODUCTS CATEGORY"""
+
+
 def products(request):
     context = {}
     return render(request, 'products.html', context)

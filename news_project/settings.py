@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'newsapi',
     'accounts',
     'crispy_forms',
+    'django_bleach',
     'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',

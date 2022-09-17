@@ -12,7 +12,7 @@ function Scroller(scrollBtn) {
                 scrollinfo = false
             }
             window.scrollBy(0,475);
-        } else {window.scrollBy(0,2);}
+        } else {window.scrollBy(0,1);}
 
 //        console.log(scrollBtn)
         if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {

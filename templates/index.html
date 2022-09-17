@@ -16,22 +16,32 @@
 
 
 			<div class="col-md-12 noPadding" onclick="window.location.href='{{ article.get_absolute_url }}'">
-				<div class="d-none d-md-block filterBack" style="
-				background: url({{ MEDIA_URL }}{{ article.image }});
-				background-position: top;
-				background-size: cover;
-				min-height: 350px;
-				color: red;
-				font-weight: bold;
-				background-attachment: fixed;
-				border-radius: 15px;
-			"></div>
+				<div class="d-none d-md-block filterBack art-screen"
+					 style="
+						{% if article.image %}
+							background: url({{ MEDIA_URL }}{{ article.image }});
+						{% else %}
+							background: url({{ article.image_url }});
+						{% endif %}
+							background-position: top;
+							background-size: cover;
+							min-height: 350px;
+							color: red;
+							font-weight: bold;
+							background-attachment: fixed;
+							border-radius: 15px;
+						"
+					 ></div>
 				<div class="d-block d-md-none filterBack text-center" style="
-					background-image: url({{ article.country.get_path_2 }});
-					background-size: cover;
+					{% if article.image %}
+					background-image: url({{ MEDIA_URL }}{{ article.image }});
+					{% else %}
+					background-image: url({{article.image_url}});
+					{% endif %}
+					background-size: 100% 100%;
+					background-attachment: inherit;
+
 					font-weight: bold;
-					background-attachment: scroll;
-					background-repeat: no-repeat;
 					border-radius: 15px;
 				"></div>
 
@@ -39,23 +49,40 @@
 					<div class="abs text-center d-flex" style="align-items: center; border-radius: 15px;">
 						<div class="container">
 							<div id="country-box" class="d-none d-md-inline pull-right col-1">
+								<div>
+									{% if article.country.code != 'xx' %}
+									<img
+										class="mt-5" src="{% static 'flags'%}/{{article.country.get_path_1}}"
+										style="width: 100%; border-radius: 50%; border: 2px solid silver"
+										title="News from {{article.country}}"
+										alt="{{article.country}} Flag"
+									>
+									<b>{{article.country}}</b>
+									{% else %}
 
-								<img
-									class="mt-5" src="{{article.country.get_path_1}}"
-									style="width: 100%; border-radius: 50%; border: 2px solid silver"
-									title="News from {{article.country}}"
-									alt="{{article.country}} Flag"
-								><b>{{article.country}}</b>
+									<img
+										class="mt-5" src="{% static 'categories'%}/{{article.category}}.svg"
+										style="width: 100%;"
+										title="Article in {{article.category}}"
+										alt="{{article.category}} category icon"
+									>
+<!--									<b>{{article.category}}</b>-->
+									{% endif %}
 
-								<img
+								</div>
+
+								<div>
+									<img
 									class="mt-5" src="{% static 'img/timetable.png' %}"
-									style="width: 75%;"
+									style="width: 50%;"
 									title="News from {{article.country}}"
 									alt="{{article.country}} Flag"
-								><b>{{article.date}}</b>
+									>
+									<p>{{article.date}}</p>
+								</div>
 
 							</div>
-							<div class="row" style="color: #E8ECE8;">
+							<div class="row py-4" style="color: #E8ECE8;">
 								<div class="col-3">
 									<div class="d-none d-lg-block">
 										<h2 class="absTitle">{{ article.yes_vote }}</h2>
@@ -64,7 +91,7 @@
 									</div>
 									<div class="d-block d-lg-none">
 										<h4 class="absTitle">{{ article.yes_vote }}</h4>
-										<img src="{% static 'img/white_people.png' %}" width="100%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="yes">
+										<img src="{% static 'img/white_people.png' %}" width="80%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="yes">
 										<p class="absText">Like</p>
 									</div>
 
@@ -81,13 +108,14 @@
 <!--									<p class="col-md-12">-->
 										{{ article.get_short_content }}
 									</h4>
-									<p class="d-block d-md-none absText">
-<!--										<img src="{% static 'img/shape.png' %}"><br>-->
-<!--									<p class="col-md-12">-->
-<!--										{{ article.get_shorter_content }}-->
-									</p>
 
-									<a href="{{ article.get_absolute_url }}"><button class="btn btn-default zoom">Read More</button></a>
+									<small class="d-block d-md-none absText">
+										<img src="{% static 'img/shape.png' %}"><br>
+<!--									<p class="col-md-12">-->
+										{{ article.get_short_content }}
+									</small>
+
+									<a href="{{ article.get_absolute_url }}"><button class="btn btn-default zoom mt-2">Read More</button></a>
 
 								</div>
 								<div class="col-3">

@@ -6,9 +6,10 @@ from django.conf import settings
 from django.utils import timezone
 from django.utils.text import slugify
 from django.urls import reverse
-
+from django_bleach.models import BleachField
 from news_project.utils import *
 
+import re
 
 # from django.contrib.auth import get_user_model
 
@@ -25,11 +26,11 @@ class Country(models.Model):
         return self.name
 
     def get_path_1(self):
-        path = f"/static/flags/1x1/{self.code}.svg"
+        path = f"1x1/{self.code}.svg"
         return path
 
     def get_path_2(self):
-        path = f"/static/flags/4x3/{self.code}.svg"
+        path = f"4x3/{self.code}.svg"
         return path
 
 
@@ -85,12 +86,12 @@ class AwardItem(models.Model):
 
 class Reply(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    date = models.DateTimeField(editable=True)
     recipent = models.CharField(max_length=50, null=True)
     content = models.TextField()
     yes_vote = models.IntegerField(default=0)
     no_vote = models.IntegerField(default=0)
     # award = models.ManyToManyField(AwardItem, blank=True)
-    date = models.DateTimeField(auto_now_add=True)
     anon_id = models.CharField(blank=True, null=True, unique=True, max_length=15)
 
     def __str__(self):
@@ -154,12 +155,12 @@ class Reply(models.Model):
 class Comment(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     # article = models.ForeignKey(Article, on_delete=models.CASCADE)
+    date = models.DateTimeField(auto_now=True, editable=True)
     content = models.TextField()
     yes_vote = models.IntegerField(default=0)
     no_vote = models.IntegerField(default=0)
     # reply = models.ManyToManyField('self', null=True, blank=True)
     reply = models.ManyToManyField(Reply, blank=True)
-    date = models.DateTimeField(auto_now_add=True)
     anon_id = models.CharField(blank=True, null=True, unique=True, max_length=15)
 
     def __str__(self):
@@ -225,19 +226,27 @@ class Comment(models.Model):
 
 
 class Article(models.Model):
+
+    CATEGORY_CHOICES = [
+        ('news', 'News'),
+        ('beauty', 'Beauty'),
+    ]
     title = models.CharField(max_length=250)
-    header_text = models.CharField(max_length=250, blank=True)
-    content = models.TextField()
-    slug = models.SlugField(max_length=100, unique=True, null=False, blank=True)
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
-    date = models.DateField(auto_now_add=True)
-    is_draft = models.BooleanField(default=True)
+    category = models.CharField(choices=CATEGORY_CHOICES, blank=True, max_length=50)
     image = models.ImageField(upload_to='articles', blank=True)
+    image_url = models.URLField(blank=True, null=True)
     source_url = models.URLField(blank=True)
     source_name = models.CharField(max_length=200)
+    header_text = models.CharField(max_length=250, blank=True)
+    content = BleachField(allowed_tags=[
+        'p', 'b', 'i', 'u', 'em', 'strong', 'a',
+        'img', 'h3', 'h4', 'h5', 'h6'])
+    slug = models.SlugField(max_length=100, unique=True, null=False, blank=True)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
+    date = models.DateField(auto_now_add=True)  # Change back to auto_now_add
+    is_draft = models.BooleanField(default=True)
     country = models.ForeignKey(Country, on_delete=models.PROTECT, null=True)
     video = models.URLField(null=True, blank=True)
-    # tags = models.ManyToManyField(Tag, on_delete=models.PROTECT)
     yes_vote = models.IntegerField(default=0)
     no_vote = models.IntegerField(default=0)
     comment = models.ManyToManyField(Comment, blank=True)
@@ -263,8 +272,18 @@ class Article(models.Model):
         return breadcrumb(self.title, 100)
 
     @property
+    def get_content(self):
+        content = self.content
+        # allow bold characters by placing them between '<<' and '>>'
+        content = content.replace('&lt;&lt;', '</h4><h3>').replace('&gt;&gt;', '</h3><h4>')
+        return content
+
+    @property
     def get_mid_content(self):
-        return breadcrumb(self.content, 2500)
+        content = breadcrumb(self.content, 2500)
+        # allow bold characters by placing them between '<<' and '>>'
+        content = content.replace('&lt;&lt;', '</h4><h3>').replace('&gt;&gt;', '</h3><h4>')
+        return content
 
     @property
     def get_short_content(self):

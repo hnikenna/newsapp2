@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "f177a877d8911da42dbe0db3782ef37dc49131c474737e3c0bdd063d8108925e"
+            "sha256": "2bf00a797883a35d92b2b1eb8a31db3df228ebb339404ac1861f2dd71db56618"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -32,13 +32,24 @@
             "markers": "python_version >= '3.6'",
             "version": "==4.11.1"
         },
+        "bleach": {
+            "extras": [
+                "css"
+            ],
+            "hashes": [
+                "sha256:085f7f33c15bd408dd9b17a4ad77c577db66d76203e5984b1bd59baeee948b2a",
+                "sha256:0d03255c47eb9bd2f26aa9bb7f2107732e7e8fe195ca2f64709fcf3b0a4a085c"
+            ],
+            "markers": "python_version >= '3.7'",
+            "version": "==5.0.1"
+        },
         "datetime": {
             "hashes": [
-                "sha256:9743bfc4da3bc86011d6678e6ad173e9d81ac80996d971a542a3cdb3fe7818eb",
-                "sha256:9c7657bc624e866a0f6bf0c5e2e49d3fbf4082cc333992bb6274f7c0120b53cd"
+                "sha256:7ff7c4a857f08b73db17a85fc54f102d065ad16e7db0133e699c5f1b37e41478",
+                "sha256:b8d2d605cfb5fed0da86f9ad64d0973c6f84b21939d49265e135811b33ee8113"
             ],
             "index": "pypi",
-            "version": "==4.6"
+            "version": "==4.7"
         },
         "django": {
             "hashes": [
@@ -55,6 +66,14 @@
             ],
             "markers": "python_version >= '3.1'",
             "version": "==1.0.5"
+        },
+        "django-bleach": {
+            "hashes": [
+                "sha256:67b6bdc797767f26ea960b38ddb4014a946c4eea4a024b2bec829bc28f8a03b2",
+                "sha256:ca989127e6021410f7f7e962844ebe678ee2c78110fc8a6e3f4b4f71f2a8dc92"
+            ],
+            "index": "pypi",
+            "version": "==3.0.0"
         },
         "django-crispy-forms": {
             "hashes": [
@@ -291,6 +310,13 @@
             "markers": "python_version >= '3.5'",
             "version": "==0.4.2"
         },
+        "tinycss2": {
+            "hashes": [
+                "sha256:b2e44dd8883c360c35dd0d1b5aad0b610e5156c2cb3b33434634e539ead9d8bf",
+                "sha256:fe794ceaadfe3cf3e686b22155d0da5780dd0e273471a51846d0a02bc204fec8"
+            ],
+            "version": "==1.1.1"
+        },
         "tzdata": {
             "hashes": [
                 "sha256:21f4f0d7241572efa7f7a4fdabb052e61b55dc48274e6842697ccdf5253e5451",
@@ -298,6 +324,13 @@
             ],
             "markers": "sys_platform == 'win32'",
             "version": "==2022.2"
+        },
+        "webencodings": {
+            "hashes": [
+                "sha256:a0af1213f3c2226497a97e2b3aa01a7e4bee4f403f95be16fc9acd2947514a78",
+                "sha256:b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923"
+            ],
+            "version": "==0.5.1"
         },
         "whitenoise": {
             "hashes": [
