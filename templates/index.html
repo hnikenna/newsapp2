@@ -99,7 +99,7 @@
 								<div class="col-6 pt-0">
 
 									<h2 class="d-none d-lg-block absTitle">{{ article.get_title }}</h2>
-									<h4 class="d-block d-lg-none absTitle"><b>{{ article.get_short_title }}</b></h4>
+									<h4 class="d-block d-lg-none absTitle"><b>{{ article.get_title }}</b></h4>
 
 
 
@@ -109,11 +109,11 @@
 										{{ article.get_short_content }}
 									</h4>
 
-									<small class="d-block d-md-none absText">
-										<img src="{% static 'img/shape.png' %}"><br>
-<!--									<p class="col-md-12">-->
-										{{ article.get_shorter_content }}
-									</small>
+<!--									<small class="d-block d-md-none absText">-->
+<!--										<img src="{% static 'img/shape.png' %}"><br>-->
+<!--										<p class="col-md-12">-->
+<!--										{{ article.get_shorter_content }}-->
+<!--									</small>-->
 
 									<a href="{{ article.get_absolute_url }}"><button class="btn btn-default zoom mt-2">Read More</button></a>
 
