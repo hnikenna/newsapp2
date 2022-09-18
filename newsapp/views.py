@@ -48,6 +48,25 @@ def post(request, slug):
         for awarditem in awards:
             pass
 
+    # AI Voter
+    complexity = (0, 1) # add more zeros to increase difficulty
+    if random.choice(complexity):
+        article.yes_vote += random.randint(0, 4)
+        article.no_vote += random.randint(0, 4)
+        article.save()
+
+        for comment in comments:
+            print('Data:', comment.time_ago_data)
+            comment.yes_vote += random.randint(0, 3)
+            comment.no_vote += random.randint(0, 2)
+            comment.save()
+            replies = comment.reply.all()
+            for reply in replies:
+                reply.yes_vote += random.randint(0, 3)
+                reply.no_vote += random.randint(0, 2)
+                reply.save()
+                
+
     context = {'article': article, 'all_awards': all_awards, 'featured': featured}
     return render(request, 'post_single.html', context)
 

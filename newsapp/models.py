@@ -6,7 +6,7 @@ from django.conf import settings
 from django.utils import timezone
 from django.utils.text import slugify
 from django.urls import reverse
-from django_bleach.models import BleachField
+# from django_bleach.models import BleachField
 from news_project.utils import *
 
 import re
@@ -155,7 +155,7 @@ class Reply(models.Model):
 class Comment(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     # article = models.ForeignKey(Article, on_delete=models.CASCADE)
-    date = models.DateTimeField(auto_now=True, editable=True)
+    date = models.DateTimeField(auto_now_add=True, editable=True)
     content = models.TextField()
     yes_vote = models.IntegerField(default=0)
     no_vote = models.IntegerField(default=0)
@@ -174,6 +174,33 @@ class Comment(models.Model):
         self.get_anon_id()
         awards = AwardItem.objects.filter(owner=self.author, parent_id=self.anon_id)
         return awards
+
+    @property
+    def time_ago_data(self):
+        start_time = self.date
+        now_time = datetime.now(timezone.utc)
+
+        difference = int((now_time - start_time).total_seconds())
+
+        second = [1, 'seconds', 1]
+        minute = [60, 'minutes', 2]
+        hour = [60 * minute[0], 'hours', 3]
+        day = [24 * hour[0], 'days', 4]
+        week = [7 * day[0], 'weeks', 5]
+        month = [4 * week[0], 'months', 6]
+        year = [12 * month[0], 'years', 7]
+
+        times = [year, month, week, day, hour, minute, second]
+        for time in times:
+            if difference >= time[0]:
+                time_ago = int(difference / time[0])
+                timeframe = time[1]
+                try:
+                    time_level = time[2]
+                except:
+                    time_level = 0
+                return [time_ago, timeframe, time_level]
+        return 0
 
     @property
     def time_ago(self):
@@ -229,7 +256,8 @@ class Article(models.Model):
 
     CATEGORY_CHOICES = [
         ('news', 'News'),
-        ('beauty', 'Beauty'),
+        ('blog', 'Blog'),
+        ('products', 'Products'),
     ]
     title = models.CharField(max_length=250)
     category = models.CharField(choices=CATEGORY_CHOICES, blank=True, max_length=50)
@@ -238,9 +266,7 @@ class Article(models.Model):
     source_url = models.URLField(blank=True)
     source_name = models.CharField(max_length=200)
     header_text = models.CharField(max_length=250, blank=True)
-    content = BleachField(allowed_tags=[
-        'p', 'b', 'i', 'u', 'em', 'strong', 'a',
-        'img', 'h3', 'h4', 'h5', 'h6'])
+    content = models.TextField(max_length=10000)
     slug = models.SlugField(max_length=100, unique=True, null=False, blank=True)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
     date = models.DateField(auto_now_add=True)  # Change back to auto_now_add
@@ -361,6 +387,10 @@ class Article(models.Model):
                 timeitem = str(time_ago) + ' ' + timeframe + ' ago'
                 return timeitem
         return 'Just Now'
+
+    @property
+    def get_category(self):
+        return str(self.category).title()
 
 
 class VoteItem(models.Model):

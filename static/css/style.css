@@ -12,7 +12,7 @@ Author URI: https://cemreworks.com
 body {
     margin:0;
     padding:0;
-    background: #F0F0F0;
+    background: white;
     height: 100%
     display: grid;
     /*place-items: center;*/
