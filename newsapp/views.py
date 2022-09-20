@@ -49,7 +49,8 @@ def post(request, slug):
             pass
 
     # AI Voter
-    complexity = (0, 1) # add more zeros to increase difficulty
+    difficulty = 1     # lowest at 0
+    complexity = [1] + [0]*difficulty
     if random.choice(complexity):
         article.yes_vote += random.randint(0, 4)
         article.no_vote += random.randint(0, 4)

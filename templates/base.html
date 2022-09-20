@@ -36,7 +36,7 @@
 					  <a class="navbar-brand-inline mr-2" href="/">
 
 <!--						  <img class="m-2" src="{% static 'img/logo-light.png' %}" style="width: 64px; border-radius: 35%;"/>-->
-						  <span style="display: inline"><h1 class="d-inline pt-5" style="color: gold; padding-top: 20px;">Re<img class="my-2 mx-0" src="{% static 'img/v.png' %}" style="width: 64px; border-radius: 35%;"/>iew World</h1></span>
+						  <span style="display: inline"><h1 class="d-inline pt-5" style="color: gold; padding-top: 20px;"><img class="my-2 mx-0" src="{% static 'img/v.png' %}" style="width: 64px; border-radius: 35%;"/>World News</h1></span>
 					  </a>
 					  <button class="navbar-toggler"
 							  type="button"
@@ -84,40 +84,46 @@
 	<!--						<a class="nav-link disabled" href="#">Disabled</a>-->
 	<!--					  </li>-->
 
-						</ul>
-						<form method="get" class="d-inline form-inline mx-4 my-2 my-lg-0" style="align: center;">
+<!--						</ul>-->
+						<form method="get" class="d-inline form-inline my-2 my-lg-0" style="align: center;">
 							<input class="form-control mr-sm-2" type="search" placeholder="Search" style="width: 25%;" aria-label="Search">
 							<button class="btn btn-light my-2 my-sm-0" type="submit">Search</button>
 						</form>
-						<div class="d-inline">
-							<button id="desktop-scroll" class="d-none d-md-inline btn btn-light nav-link scroll-btn"
-							style="width: 13%; height: 7%;"><b>Auto-Scroll</b></button>
+<!--						<div class="d-inline">-->
+<!--							<button id="desktop-scroll.dsbld" class="d-none d-md-inline btn btn-light nav-link scroll-btn"-->
+<!--							style="width: 13%; height: 7%;"><b>Auto-Scroll</b></button>-->
+
+							<li class="nav-item" style="width: 13%; height: 7%;">
+								<a id="desktop-scroll" class="nav-link scroll-btn">Auto-Scroll</a>
+							</li>
+
 <!--						<button id="translate-btn"class="btn btn-light"><a class="nav-link" onclick="$('#google_translate_element').toggle(); $('#translate-btn.disabled').hide()"><b>Translate</b></a></button>-->
 
 <!--							<div id="google_translate_element" style="display: none; top: o; right: 0;">-->
 <!--								<script type="text/javascript" s 	rc="{% static 'js/google-translate.js' %}"></script>-->
 <!--								<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>-->
 <!--							</div>-->
-						</div>
-						  <div class="d-inline my-2 my-lg-0 float-right">
+<!--						</div>-->
+<!--						  <div class="d-inline my-2 my-lg-0 float-right">-->
 							{% if not user.is_authenticated %}
 							<li class="nav-item d-inline my-2 mx-2 my-lg-0">
-								<button class="btn btn-light"><a class="nav-link" href="/accounts/login"><b>Sign In</b></a></button>
+								<a class="nav-link" href="/accounts/login"><b>Sign In</b></a>
 							</li>
 							<li class="nav-item d-inline my-2 mx-2 my-lg-0">
-									<button class="btn btn-light"><a class="nav-link" href="/accounts/signup"><b>Instant Signup</b></a></button>
+								<button class="btn btn-main"><a class="nav-link" href="/accounts/signup"><b>Instant Signup</b></a></button>
 								</li>
 							{% else %}
 
 							<li class="nav-item d-inline my-2 mx-2 my-lg-0">
-								<button class="btn btn-light"><a class="nav-link" href="/accounts/{{user.username}}"><b>Profile</b></a></button>
+								<a class="nav-link" href="/accounts/{{user.username}}"><b>Profile</b></a>
 							</li>
 							<li class="nav-item d-inline my-2 mx-2 my-lg-0">
-									<button class="btn btn-light"><a class="nav-link" href="/accounts/logout"><b>Logout</b></a></button>
+									<button class="btn btn-main"><a class="nav-link" href="/accounts/logout"><b>Logout</b></a></button>
 								</li>
 
 							{% endif %}
-						  </div>
+<!--						  </div>-->
+						</ul>
 					  </div>
 					</nav>
 			</div>
