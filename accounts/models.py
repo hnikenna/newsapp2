@@ -96,7 +96,7 @@ class Profile(models.Model):
     website = models.CharField(blank=True, null=True, max_length=100)
     facebook = models.CharField(blank=True, null=True, max_length=50)
     twitter = models.CharField(blank=True, null=True, max_length=50)
-    instagram= models.CharField(blank=True, null=True, max_length=50)
+    instagram = models.CharField(blank=True, null=True, max_length=50)
     tiktok = models.CharField(blank=True, null=True, max_length=50)
     is_verified = models.BooleanField(default=False)
     avatar = models.ImageField(upload_to='avatars', blank=True, null=False, default='static_media/user.png')
@@ -118,3 +118,5 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.name
+
+

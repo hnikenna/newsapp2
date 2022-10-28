@@ -2,7 +2,7 @@ import json
 import random
 
 from html_sanitizer import Sanitizer
-
+from django.utils.datastructures import MultiValueDictKeyError
 sanitizer = Sanitizer()
 
 from django.http import JsonResponse
@@ -22,12 +22,27 @@ class HomeView(ListView):
     context_object_name = 'all_article_list'
 
 
+def home(request):
+    all_articles = Article.objects.all()
+    try:
+        keyword = request.GET['s']
+    except MultiValueDictKeyError:
+        keyword = ''
+    # print('Keyword:', keyword)
+    if keyword:
+        # countries = Country.objects.filter(name__icontains=keyword)
+        # all_articles = Article.objects.filter(country__in=countries)
+        all_articles = Article.objects.filter(title__icontains=keyword)
+    context = {'all_article_list': all_articles}
+    return render(request, 'index.html', context)
+
+
 def post(request, slug):
     user = request.user
     article = get_object_or_404(Article, slug=slug)
     all_awards = Award.objects.all()
-    featured = Article.objects.all()[:3]
-    # featured = Article.objects.filter(country=article.country.id).exclude(slug=article.slug)[:3]
+    in_featured = Article.objects.filter(country=article.country.id).exclude(slug=article.slug).order_by('-id')[:3]
+    featured = Article.objects.exclude(country=article.country.id).order_by('-id')[:3-len(in_featured)]
 
     # Code to display user article choices on page
     articleVoteItems = article.get_votes
@@ -49,15 +64,15 @@ def post(request, slug):
             pass
 
     # AI Voter
-    difficulty = 1     # lowest at 0
-    complexity = [1] + [0]*difficulty
+    difficulty = 1  # lowest at 0
+    complexity = [1] + [0] * difficulty
     if random.choice(complexity):
         article.yes_vote += random.randint(0, 4)
         article.no_vote += random.randint(0, 4)
         article.save()
 
         for comment in comments:
-            print('Data:', comment.time_ago_data)
+            # print('Data:', comment.time_ago_data)
             comment.yes_vote += random.randint(0, 3)
             comment.no_vote += random.randint(0, 2)
             comment.save()
@@ -66,9 +81,8 @@ def post(request, slug):
                 reply.yes_vote += random.randint(0, 3)
                 reply.no_vote += random.randint(0, 2)
                 reply.save()
-                
 
-    context = {'article': article, 'all_awards': all_awards, 'featured': featured}
+    context = {'article': article, 'all_awards': all_awards, 'featured': featured, 'in_featured': in_featured}
     return render(request, 'post_single.html', context)
 
 
@@ -404,7 +418,7 @@ def awardTransaction(request):
     award_tf = AwardTransaction(award=award, status=status, email=email, price=price)
     award_tf.save()
     return JsonResponse(
-        'Logged', safe=False
+        'Success', safe=False
     )
 
 
@@ -413,7 +427,7 @@ def country(request):
     json_file = [""""import json file here"""]
 
     # for cont in json_file:
-        # new_country = Country(name=cont['name'], capital=cont['capital'], code=cont['code'], continent=cont[''])
+    # new_country = Country(name=cont['name'], capital=cont['capital'], code=cont['code'], continent=cont[''])
 
     # Country.objects.exclude(code="t1").delete()
     context = {'countries': countries, 'count': len(countries), 'choice': random.choice(countries)}

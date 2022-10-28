@@ -62,6 +62,7 @@ class Award(models.Model):
 
 
 class AwardItem(models.Model):
+
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     award = models.ForeignKey(Award, on_delete=models.PROTECT)
     quantity = models.PositiveIntegerField(default=0)
@@ -269,7 +270,7 @@ class Article(models.Model):
     content = models.TextField(max_length=10000)
     slug = models.SlugField(max_length=100, unique=True, null=False, blank=True)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
-    date = models.DateField(auto_now_add=True)  # Change back to auto_now_add
+    date = models.DateField(auto_now_add=True)
     is_draft = models.BooleanField(default=True)
     country = models.ForeignKey(Country, on_delete=models.PROTECT, null=True)
     video = models.URLField(null=True, blank=True)
@@ -304,7 +305,7 @@ class Article(models.Model):
     @property
     def get_content(self):
         content = self.content
-        # allow bold characters by placing them between '<<' and '>>'
+        # allow bold characters by placing them between '<<' and '>>' / '&lt;&lt;' and '&gt;&gt;'
         content = content.replace('&lt;&lt;', '</h4><h3>').replace('&gt;&gt;', '</h3><h4>')
         return content
 

@@ -8,7 +8,7 @@ function Scroller(scrollBtn) {
         if(window.location.pathname === '/') {
             if(scrollinfo) {
 
-                scrolldelay = setTimeout(function(){alerT('', 'Align article to page center for better view', '#3F1B3C')},50)
+//                scrolldelay = setTimeout(function(){alerT('', 'Align article to page center for better view', '#3F1B3C')},50)
                 scrollinfo = false
             }
             window.scrollBy(0,475);
@@ -20,7 +20,7 @@ function Scroller(scrollBtn) {
 //                console.log('scope5')
                 scrolling = false
                 scrollinfo = true
-                scrollBtn.innerHTML = '<b>Auto-Scroll</b>'
+                scrollBtn.innerHTML = '<i class="fa fa-flash" style="color: white; font-size: 150%;"></i>'
             } else {
                 if(window.location.pathname === '/') {
                     scrolldelay = setTimeout(function(){Scroller(scrollBtn)},3000);
@@ -51,15 +51,15 @@ for (var i=0; i<scrollBtns.length; i++){
 //                    console.log('scope4')
                     scrolling = false
                     scrollinfo = true
-                    this.innerHTML = '<b>Auto-Scroll</b>'
+                    this.innerHTML = '<i class="fa fa-flash" style="color: white; font-size: 150%;"></i>'
                 } else {
 //                    console.log('scope3')
                     scrolling = true
                     if(this.mobile){
-                        this.innerHTML = '<b style="color: #DFFF40;">Stop</b>'
+                        this.innerHTML = '<i class="fa fa-ban" style="color: white; font-size: 150%; color: #DFFF40;"></i>'
                     } else {
 //                    For Desktop
-                        this.innerHTML = '<b style="color: red;">Stop</b>'
+                        this.innerHTML = '<i class="fa fa-ban" style="color: white; font-size: 150%; color: #DFFF40;"></i>'
                     }
 
                     Scroller(this)
@@ -68,7 +68,7 @@ for (var i=0; i<scrollBtns.length; i++){
 //            console.log('scope6')
             scrolling = false
             scrollinfo = true
-            this.innerHTML = '<b>Auto-Scroll</b>'
+            this.innerHTML = '<i class="fa fa-flash" style="color: white; font-size: 150%;"></i>'
         }
     })
 }

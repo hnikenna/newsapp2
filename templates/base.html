@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Sovenry - {% block title %}{% endblock %}</title>
+		<title>Venus - {% block title %}{% endblock %}</title>
 		<meta name="description" content="">
 		<meta name="author" content="Cemre Tellioğlu Tunçay">
 		<link rel="icon" type="image/png" href="{% static 'img/v.png' %}" sizes="32x32"/>
@@ -28,15 +28,18 @@
 
   </head>
 	<body onload="showPage()">
-		<div id="loader" class="height: 100%;"></div>
+		<div id="loader"></div>
 
 		<div id="body">
 			<div class="header mt-0 pb-0" id="navHeader"> <!--style="height: 78px;">-->
-					<nav class="navbar navbar-expand-lg navbar-dark myNavbar border-0 py-3"style="background: #3F1B3C; background: linear-gradient(59deg, #3F1B3C, #000000);">
+					<nav class="navbar navbar-expand-lg navbar-dark myNavbar border-0 py-3" style="background: #3F1B3C;">
 					  <a class="navbar-brand-inline mr-2" href="/">
 
 <!--						  <img class="m-2" src="{% static 'img/logo-light.png' %}" style="width: 64px; border-radius: 35%;"/>-->
-						  <span style="display: inline"><h1 class="d-inline pt-5" style="color: gold; padding-top: 20px;"><img class="my-2 mx-0" src="{% static 'img/v.png' %}" style="width: 64px; border-radius: 35%;"/>World News</h1></span>
+						  <h1 class="d-inline">
+							  <span class="pt-5" style="color: gold; padding-top: 20px;">
+							  <img class="my-2 mx-0" src="{% static 'img/v.png' %}" style="width: 64px; border-radius: 35%;"/>enus</span>
+						  </h1>
 					  </a>
 					  <button class="navbar-toggler"
 							  type="button"
@@ -52,19 +55,18 @@
 					  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav mr-auto myNavUl">
 							<li class="nav-item {% block news_active %}{% endblock %}">
-									<a class="nav-link" href="/">News</a>
+									<a class="nav-link" href="/">Latest</a>
 							</li>
 
 							<li class="nav-item {% block about_active %}{% endblock %} dropdown">
 								<a class="nav-link dropdown-toggle" href="/contact" id="navbarDropdown1" role="button"
 								   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								  Articles
+								  Categories
 								</a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown1" style="">
-									<a class="dropdown-item" href="/contact">Business</a>
-									<a class="dropdown-item" href="/contact">Entertainment</a>
-									<a class="dropdown-item" href="/contact">Education</a>
-									<a class="dropdown-item" href="/contact">Legal</a>
+									<a class="dropdown-item" href="/">News</a>
+									<a class="dropdown-item" href="/">Products</a>
+									<a class="dropdown-item" href="/">Blog</a>
 								</div>
 						</li>
 
@@ -76,8 +78,19 @@
 							</li>
 
 							<li class="nav-item">
-									<a class="nav-link {% block products_active %}{% endblock %}" href="/products">Products</a>
+									<a class="nav-link {% block country_active %}{% endblock %}" href="/country">Countries</a>
 							</li>
+						</ul>
+
+						<form method="get" action="/" class="d-inline form-inline my-2 my-lg-0 mx-5">
+							<input class="form-control mr-sm-2" id="s" name="s" type="search" placeholder="..."
+								   aria-label="Search" style="background-color: #541C51; color: white;">
+							<button class="btn btn-light my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
+<!--							<button class="btn btn-light my-2 my-sm-0" type="submit">Search</button>-->
+						</form>
+
+							  <a id="desktop-scroll" class="d-inline nav-link scroll-btn"><i class="fa fa-flash" style="color: white; font-size: 150%;"></i></a>
+
 
 
 	<!--					  <li class="nav-item">-->
@@ -85,17 +98,12 @@
 	<!--					  </li>-->
 
 <!--						</ul>-->
-						<form method="get" class="d-inline form-inline my-2 my-lg-0" style="align: center;">
-							<input class="form-control mr-sm-2" type="search" placeholder="Search" style="width: 25%;" aria-label="Search">
-							<button class="btn btn-light my-2 my-sm-0" type="submit">Search</button>
-						</form>
+
 <!--						<div class="d-inline">-->
 <!--							<button id="desktop-scroll.dsbld" class="d-none d-md-inline btn btn-light nav-link scroll-btn"-->
 <!--							style="width: 13%; height: 7%;"><b>Auto-Scroll</b></button>-->
 
-							<li class="nav-item" style="width: 13%; height: 7%;">
-								<a id="desktop-scroll" class="nav-link scroll-btn">Auto-Scroll</a>
-							</li>
+
 
 <!--						<button id="translate-btn"class="btn btn-light"><a class="nav-link" onclick="$('#google_translate_element').toggle(); $('#translate-btn.disabled').hide()"><b>Translate</b></a></button>-->
 
@@ -104,27 +112,39 @@
 <!--								<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>-->
 <!--							</div>-->
 <!--						</div>-->
-<!--						  <div class="d-inline my-2 my-lg-0 float-right">-->
+						  <div class="d-inline my-2 my-lg-0 float-right">
+							<ul class="navbar-nav mr-auto myNavUl">
+<!--								<li class="d-inline nav-item" style="width: 13%; height: 7%;">-->
+<!--									<a id="desktop-scroll" class="nav-link scroll-btn"><i class="fa fa-flash" style="color: white;"></i></a>-->
+<!--								</li>-->
+
 							{% if not user.is_authenticated %}
 							<li class="nav-item d-inline my-2 mx-2 my-lg-0">
-								<a class="nav-link" href="/accounts/login"><b>Sign In</b></a>
+								<a class="nav-link" href="/accounts/login">
+									<i class="fa fa-sign-in" style="color: white;"> Sign in</i>
+								</a>
 							</li>
 							<li class="nav-item d-inline my-2 mx-2 my-lg-0">
-								<button class="btn btn-main"><a class="nav-link" href="/accounts/signup"><b>Instant Signup</b></a></button>
+								<a class="nav-link" href="/accounts/signup">
+									<i class="fa fa-user-plus" style="color: white;"> Sign Up</i>
+								</a>
 								</li>
 							{% else %}
 
 							<li class="nav-item d-inline my-2 mx-2 my-lg-0">
-								<a class="nav-link" href="/accounts/{{user.username}}"><b>Profile</b></a>
+								<a class="nav-link" href="/accounts/{{user.username}}"><i class="fa fa-user-circle" style="color: white;"> Profile</i></a>
 							</li>
 							<li class="nav-item d-inline my-2 mx-2 my-lg-0">
-									<button class="btn btn-main"><a class="nav-link" href="/accounts/logout"><b>Logout</b></a></button>
+									<a class="nav-link" href="/accounts/logout"><i class="fa fa-sign-out" style="color: white;"> Logout</i></a>
 								</li>
 
 							{% endif %}
-<!--						  </div>-->
-						</ul>
+							</ul>
+						  </div>
+
 					  </div>
+
+
 					</nav>
 			</div>
 
@@ -149,7 +169,7 @@
 			id="mobile-scroll"
 			class="d-inline d-md-none btn btn-main text-center scroll-btn m-5 py-2"
 			style="position: fixed; bottom: 0; right: 0; width: 25%;
-			height: 7%; z-index: 5; border: 1px solid #652B61;"><b>Auto-Scroll </b></button>
+			height: 7%; z-index: 5; border: 1px solid #652B61;"><i class="fa fa-flash" style="color: white; font-size: 150%;"></i></button>
 		</div>
 
 		<!-- Footer -->
@@ -167,7 +187,7 @@
 					<li><a class="dropdown-item" href="/contact">Requests</a></li>
 					<li><a class="dropdown-item" href="/contact">Legal</a></li>
 					<li><a class="dropdown-item" href="/contact">Credits</a></li>
-					<li><a class="dropdown-item" href="/contact">Partnership| partnership@Sovenry.com</a></li>
+					<li><a class="dropdown-item" href="/contact">Partnership| partnership@venus.com</a></li>
 
 
 
@@ -179,7 +199,7 @@
 				<div class="footer-pad">
 				  <h4 class="pl-4">About</h4>
 				  <ul class="list-unstyled">
-					<li><a class="dropdown-item" href="/contact">Sovenry Guide</a></li>
+<!--					<li><a class="dropdown-item" href="/contact">Venus Guide</a></li>-->
 					<li><a class="dropdown-item" href="/contact">Who we are</a></li>
 					  <li><a class="dropdown-item" href="/contact">Our Partners</a></li>
 					  <li><a class="dropdown-item" href="/contact">Terms & Conditions</a></li>
@@ -192,7 +212,7 @@
 			  <div class="col-6 col-md-3">
 				<!--Column1-->
 				<div class="footer-pad">
-				  <h4 class="pl-4">Earn with Sovenry</h4>
+				  <h4 class="pl-4">Earn with Venus</h4>
 					<ul class="list-unstyled">
 						<li><a class="dropdown-item" href="/contact">Readers</a></li>
 						<li><a class="dropdown-item" href="/contact">Freelancers</a></li>
@@ -232,7 +252,7 @@
 			</div>
 			<div class="row">
 			<div class="col-md-12 copy py-3 my-5">
-			  <p class="text-center">&copy; Copyright 2022 - Sovenry Publishers Ltd.  All rights reserved.</p>
+			  <p class="text-center">&copy; Copyright 2022 - Venus.  All rights reserved.</p>
 			</div>
 			</div>
 

@@ -273,6 +273,7 @@ for (var i=0; i<giftBtns.length; i++){
         var parent = this.dataset.parent
         var award = this.dataset.award
         var award_data = [award_id, owner, parent, award]
+        alerT('', 'Sending award...', 'black')
         sendAward(award_data)
         e.preventDefault()
 //        awardBox.style.display = 'block'
@@ -360,6 +361,7 @@ for (var i=0; i<buyGiftBtns.length; i++){
 
 function makePayment(extras, award_data, award_quantity=1) {
     var price = extras[0]
+    price = price * 8831103.48
     var award_name = extras[1]
     var email = extras[2]
     var log_data = {'status': 'initialized', 'email': email, 'price': price, 'award': award_name}
@@ -397,7 +399,7 @@ function makePayment(extras, award_data, award_quantity=1) {
         customizations: {
         title: "You will Receive \n'" + award_name + "' X" + award_quantity,
         description: "The place to be..",
-        logo: "http://127.0.0.1:8000/static/img/logo.png",
+        logo: "http://127.0.0.1:8000/assets/img/v.png",
         },
     });
     }

@@ -25,9 +25,9 @@
     <span class="d-none d-md-inline"><h2 style="text-decoration: overline;">{{ article.title }}</h2></span>
     <span class="d-inline d-md-none"><h3 style="text-decoration: overline;">{{ article.title }}</h3></span>
         <section id="article-info" class="d-flex justify-content-between align-items-center text-center">
-            <h4><a href="#discussion">{{article.comments_count}}<span style="font-weight: 400; font-size: 20px;">&#8595</span> </a></h4>
-            <h3 class="text-center border">₦ 1,280,000</h3>
-<!--            <h4>News from <strong>{{article.country}}</strong> <img src="{% static 'flags'%}/{{article.country.get_path_2 }}    " style="width: 32px; height: 32px; border-radius: 50%;"></h4>-->
+            <h4><a href="#discussion">{{article.comments_count}}</a></h4>
+<!--            <h3 class="text-center border">₦ 1,280,000</h3>-->
+            <h4 class="text-center">News from <strong>{{article.country}}</strong> <img src="{% static 'flags'%}/{{article.country.get_path_2 }}    " style="width: 32px; height: 32px; border-radius: 50%;"></h4>
             <h4>{{ article.date }} - <span class="time">{{article.time_ago }} </span><span class="d-none d-md-inline"><img src="{% static 'img/dot_button.png' %}" width="5%"><a href="#"> {{ article.username }}</a></span></h4>
         </section>
 
@@ -39,8 +39,8 @@
     <div class="row">
     <!--    News Section-->
         <section id="news-section" class="col-12 col-lg-9">
-            <h3 class="d-none d-md-inline"><strong>{{ article.header_text }}</strong></h3>
-            <h3 class="d-inline d-md-none"><strong>{{ article.header_text }}</strong></h3>
+            <h3 class="d-inline"><strong>{{ article.header_text }}</strong></h3>
+<!--            <h3 class="d-inline d-md-none"><strong>{{ article.header_text }}</strong></h3>-->
             <div id="mid-content">
                 <div class="pcontent">
                     <h4 class="justify">
@@ -62,10 +62,11 @@
 
     <!--    Sidebar Section-->
         <section id="sidebar-section" class="d-none d-lg-block col-3">
-                {% if featured %}<h3 class="text-center">More from {{article.country}}</h3><hr/>{% endif %}
-            <hr/>
-            {% for article in featured reversed %}
-                <div class="card sidebar country text-center" style="background-image: url({{ article.country.get_path_1 }}); position: relative;">
+            {% if in_featured %}
+            <h3 class="text-center">More from {{article.country}}</h3><hr/>
+<!--            <hr/>-->
+            {% for article in in_featured %}
+                <div class="card sidebar country text-center" style="background-image: url({% static 'flags' %}/{{ article.country.get_path_1 }}); position: relative;">
                     <div class="blurry" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0"></div>
                     <div class="card-content text-center zoom"style="position: relative;" >
                             <a href="{{article.get_absolute_url}}" style="text-decoration: none; color: #EFF1ED;">
@@ -73,12 +74,12 @@
                                 <div class="d-flex justify-content-between">
                                     <div class="container text-center">
                                         <h5 class="absTitle">{{ article.yes_vote }}</h5>
-                                        <img src="{% static 'img/white_people.png' %}" width="40%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
+                                        <img src="{% static 'img/white_people.png' %}" width="50%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
     <!--                                        <p class="absText">Like</p>-->
                                     </div>
                                     <div class="container text-center">
                                         <h5 class="absTitle">{{ article.no_vote }}</h5>
-                                        <img src="{% static 'img/black_people.png' %}" width="40%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
+                                        <img src="{% static 'img/black_people.png' %}" width="50%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
     <!--                                        <p class="absText">Dislike</p>-->
                                     </div>
                                 </div>
@@ -86,6 +87,34 @@
                         </div>
                 </div><br>
             {% endfor %}
+            {% endif %}
+            {% if featured %}
+            <h3 class="text-center">Featured Articles</h3><hr/>
+<!--            <hr/>-->
+            {% for article in featured %}
+                <div class="card sidebar country text-center" style="background-image: url({% static 'flags' %}/{{ article.country.get_path_1 }}); position: relative;">
+                    <div class="blurry" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0"></div>
+                    <div class="card-content text-center zoom"style="position: relative;" >
+                            <a href="{{article.get_absolute_url}}" style="text-decoration: none; color: #EFF1ED;">
+                                <h5>{{ article.title }}</h5>
+                                <div class="d-flex justify-content-between">
+                                    <div class="container text-center">
+                                        <h5 class="absTitle">{{ article.yes_vote }}</h5>
+                                        <img src="{% static 'img/white_people.png' %}" width="50%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
+    <!--                                        <p class="absText">Like</p>-->
+                                    </div>
+                                    <div class="container text-center">
+                                        <h5 class="absTitle">{{ article.no_vote }}</h5>
+                                        <img src="{% static 'img/black_people.png' %}" width="50%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
+    <!--                                        <p class="absText">Dislike</p>-->
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                </div><br>
+            {% endfor %}
+
+            {% endif %}
         </section>
 
     </div>
@@ -98,13 +127,13 @@
                 <div class="col">
                     <div class="d-none d-lg-block">
                             <h2>{{ article.yes_vote }}</h2>
-                            <img src="{% static 'img/white_people.png' %}" width="20%" class="vote {{article.selectYV}}" data-slug="{{ article.slug }}" data-poll="yes">
+                            <img src="{% static 'img/like.svg' %}" width="20%" class="vote {{article.selectYV}}" data-slug="{{ article.slug }}" data-poll="yes">
                             <p><strong>Like</strong></p>
                         </div>
                         <div class="d-block d-lg-none">
                             <h4>{{ article.yes_vote }}</h4>
 <!--                            <h4 id="yesvote">{{ article.yes_vote }}</h4>-->
-                            <img src="{% static 'img/white_people.png' %}" width="40%" class="vote {{article.selectYV}}" data-slug="{{ article.slug }}" data-poll="yes">
+                            <img src="{% static 'img/like.svg' %}" width="40%" class="vote {{article.selectYV}}" data-slug="{{ article.slug }}" data-poll="yes">
                             <p><strong>Like</strong></p>
                         </div>
                     </div>
@@ -112,12 +141,12 @@
                         <div class="d-none d-lg-block">
                             <h2>{{ article.no_vote }}</h2>
 <!--                            <h2 id="novote">{{ article.no_vote }}</h2>-->
-                            <img src="{% static 'img/black_people.png' %}" width="20%" class="vote {{article.selectNV}}" data-slug="{{ article.slug }}" data-poll="no">
+                            <img src="{% static 'img/dislike.svg' %}" width="20%" class="vote {{article.selectNV}}" data-slug="{{ article.slug }}" data-poll="no">
                             <p><strong>Dislike</strong></p>
                         </div>
                         <div class="d-block d-lg-none">
                             <h4>{{ article.no_vote }}</h4>
-                            <img src="{% static 'img/black_people.png' %}" width="40%" class="vote {{article.selectNV}}" data-slug="{{ article.slug }}" data-poll="no">
+                            <img src="{% static 'img/dislike.svg' %}" width="40%" class="vote {{article.selectNV}}" data-slug="{{ article.slug }}" data-poll="no">
                             <p><strong>Dislike</strong></p>
                         </div>
                 </div>
@@ -143,7 +172,7 @@
 
 </div>
 
-<div class="container mb-5 mt-5" style="position: relative;">
+<div class="mb-5 mt-5" style="position: relative;">
 
 
     <div class="nocard">
@@ -553,12 +582,12 @@
                                                                         <br>
                                                                         <h5 class="d-none d-md-flex">{{ award.name}} {% if user.is_authenticated %} x5{% endif %}</h5>
                                                                         <strong class="d-inline d-md-none">{{ award.name}} {% if user.is_authenticated %} x5{% endif %}</strong><br>
-                                                                        <p class="d-inline d-md-none" style="justify-content: right; color: purple;"><i class="fa fa-btc ml-1" aria-hidden="true"></i> {{award.btc_price}}</p>
+                                                                        <p class="d-inline d-md-none" style="justify-content: right; color: purple;">{{award.btc_price}} <i class="fa fa-btc ml-1 pt-1" aria-hidden="true"></i></p>
 
                                                                     </td>
                                                                     <td>
                                                                         <br>
-                                                                        <p class="d-none d-md-flex" style="justify-content: right; color: purple;"><i class="fa fa-btc ml-1" aria-hidden="true"></i> {{award.btc_price}}</p>
+                                                                        <p class="d-none d-md-flex" style="justify-content: right; color: purple;">{{award.btc_price}} <i class="fa fa-btc ml-1 pt-1" aria-hidden="true"></i></p>
                                                                     </td>
                                                                     <td>
                                                                         <br>
@@ -629,52 +658,61 @@
 
     <!--    Sidebar Section-->
         <section id="sidebar-section-2" class="d-block d-lg-none">
-                {% if featured %}<h3 class="text-center">More from {{article.country}}</h3><hr/>{% endif %}
-            <div class="container">
-                <div class="row">
-                    {% for article in featured reversed %}
-                <div class="col-12 my-2 px-2 card sidebar country text-center"
-                     style="background-image: url({{ article.country.get_path_1 }});
-                            position: relative;
-                            background-repeat: no-repeat;
-                            background-attachment: inherit;
-                            background-position: center;">
+            {% if in_featured %}
+            <h3 class="text-center">More from {{article.country}}</h3><hr/>
+<!--            <hr/>-->
+            {% for article in in_featured %}
+                <div class="card sidebar country text-center" style="background-image: url({% static 'flags' %}/{{ article.country.get_path_1 }}); position: relative;">
                     <div class="blurry" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0"></div>
-                    <div class="card-content text-center"style="position: relative;" >
+                    <div class="card-content text-center zoom"style="position: relative;" >
                             <a href="{{article.get_absolute_url}}" style="text-decoration: none; color: #EFF1ED;">
-                                <h4 class="p-2">{{ article.title }}</h4>
+                                <h5>{{ article.title }}</h5>
+                                <div class="d-flex justify-content-between">
+                                    <div class="container text-center">
+                                        <h5 class="absTitle">{{ article.yes_vote }}</h5>
+                                        <img src="{% static 'img/white_people.png' %}" width="50%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
+    <!--                                        <p class="absText">Like</p>-->
+                                    </div>
+                                    <div class="container text-center">
+                                        <h5 class="absTitle">{{ article.no_vote }}</h5>
+                                        <img src="{% static 'img/black_people.png' %}" width="50%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
+    <!--                                        <p class="absText">Dislike</p>-->
+                                    </div>
+                                </div>
                             </a>
                         </div>
                 </div><br>
             {% endfor %}
-                </div>
-            </div>
-
-        </section>
-    <!--    Sidebar Section-->
-        <section id="sidebar-section-2-2" class="d-block d-lg-none">
-                {% if featured %}<h3 class="text-center">More from {{article.country}}</h3><hr/>{% endif %}
-            <div class="container">
-                <div class="row">
-                    {% for article in featured reversed %}
-                <div class="col-12 my-2 px-2 card sidebar country text-center"
-                     style="background-image: url({{ article.country.get_path_1 }});
-                            position: relative;
-                            background-repeat: no-repeat;
-                            background-attachment: inherit;
-                            background-position: center;">
+            {% endif %}
+            {% if featured %}
+            <h3 class="text-center">Featured Articles</h3><hr/>
+<!--            <hr/>-->
+            {% for article in featured %}
+                <div class="card sidebar country text-center" style="background-image: url({% static 'flags' %}/{{ article.country.get_path_1 }}); position: relative;">
                     <div class="blurry" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0"></div>
-                    <div class="card-content text-center"style="position: relative;" >
+                    <div class="card-content text-center zoom"style="position: relative;" >
                             <a href="{{article.get_absolute_url}}" style="text-decoration: none; color: #EFF1ED;">
-                                <h4 class="p-2">{{ article.title }}</h4>
+                                <h5>{{ article.title }}</h5>
+                                <div class="d-flex justify-content-between">
+                                    <div class="container text-center">
+                                        <h5 class="absTitle">{{ article.yes_vote }}</h5>
+                                        <img src="{% static 'img/white_people.png' %}" width="50%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
+    <!--                                        <p class="absText">Like</p>-->
+                                    </div>
+                                    <div class="container text-center">
+                                        <h5 class="absTitle">{{ article.no_vote }}</h5>
+                                        <img src="{% static 'img/black_people.png' %}" width="50%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
+    <!--                                        <p class="absText">Dislike</p>-->
+                                    </div>
+                                </div>
                             </a>
                         </div>
                 </div><br>
             {% endfor %}
-                </div>
-            </div>
 
+            {% endif %}
         </section>
+
 
 
     </div>

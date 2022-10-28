@@ -8,18 +8,24 @@
 {% block title %}
 Country Settings
 {% endblock %}
+{% block country_active %}active{% endblock %}
 {% block content %}
 <h1 class="text-center mb-2">{{count}} Countries</h1>
 
-<h2>Choice - {{choice}}</h2>
+<h2>
+    Random country - {{choice}}
+    <img class="" src="{% static 'flags' %}/{{choice.get_path_1}}" style="width: 5%; border-radius: 50%; border: 2px solid silver">
+</h2>
+<br>
+<div class="card" style="border-radius: 15px; background-color: #f3f3f3;">
 {% for country in countries %}
-    <div class="country-box p-5" style="background: #58B080;">
+    <div class="country-box p-5" >
         <div class="row">
             <div class="col-2" id="flag">
-                <img class="" src="{{country.get_path_1}}"style="width: 40%; border-radius: 50%; border: 2px solid silver">
+                <img class="" src="{% static 'flags' %}/{{country.get_path_1}}" style="width: 40%; border-radius: 50%; border: 2px solid silver">
             </div>
             <div class="col-8" id="name">
-                <h2 style="color: white;">{{country.name}}</h2>
+                <h2>{{country.name}}</h2>
             </div>
             <div class="col-2" id="code">
                 <h4>{{country.code}}</h4>
@@ -31,4 +37,5 @@ Country Settings
 
     </div>
 {% endfor %}
+    </div>
 {% endblock%}
