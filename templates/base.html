@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Venus - {% block title %}{% endblock %}</title>
+		<title>BNN - {% block title %}{% endblock %}</title>
 		<meta name="description" content="">
 		<meta name="author" content="Cemre Tellioğlu Tunçay">
 		<link rel="icon" type="image/png" href="{% static 'img/v.png' %}" sizes="32x32"/>
@@ -32,14 +32,12 @@
 
 		<div id="body">
 			<div class="header mt-0 pb-0" id="navHeader"> <!--style="height: 78px;">-->
-					<nav class="navbar navbar-expand-lg navbar-dark myNavbar border-0 py-3" style="background: #3F1B3C;">
+					<nav class="navbar navbar-expand-lg navbar-dark myNavbar border-0 py-3" style="background: black;">
 					  <a class="navbar-brand-inline mr-2" href="/">
-
 <!--						  <img class="m-2" src="{% static 'img/logo-light.png' %}" style="width: 64px; border-radius: 35%;"/>-->
-						  <h1 class="d-inline">
-							  <span class="pt-5" style="color: gold; padding-top: 20px;">
-							  <img class="my-2 mx-0" src="{% static 'img/v.png' %}" style="width: 64px; border-radius: 35%;"/>enus</span>
-						  </h1>
+						  <h3 class="d-inline px-5">
+							  <span class="p-4 logo-text">BNN</span>
+						  </h3>
 					  </a>
 					  <button class="navbar-toggler"
 							  type="button"
@@ -47,50 +45,58 @@
 							  data-target="#navbarSupportedContent"
 							  aria-controls="navbarSupportedContent"
 							  aria-expanded="false"
-							  aria-label="Toggle navigation"
-							  style="background-color: #3F1B3C; opacity: 90%;">
+							  aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					  </button>
 
 					  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav mr-auto myNavUl">
 							<li class="nav-item {% block news_active %}{% endblock %}">
-									<a class="nav-link" href="/">Latest</a>
+									<a class="nav-link" href="/">Live</a>
 							</li>
 
 							<li class="nav-item {% block about_active %}{% endblock %} dropdown">
 								<a class="nav-link dropdown-toggle" href="/contact" id="navbarDropdown1" role="button"
 								   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								  Categories
+								  News
 								</a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown1" style="">
 									<a class="dropdown-item" href="/">News</a>
 									<a class="dropdown-item" href="/">Products</a>
 									<a class="dropdown-item" href="/">Blog</a>
 								</div>
-						</li>
+							</li>
 
 <!--							<li class="nav-item {% block ent_active %}{% endblock %}">-->
 <!--								<a class="nav-link" href="/contact">Articles</a>-->
 <!--							</li>-->
-							<li class="nav-item {% block earn_active %}{% endblock %}">
-								<a class="nav-link" href="/contact">Earn</a>
-							</li>
-
 							<li class="nav-item">
-									<a class="nav-link {% block country_active %}{% endblock %}" href="/country">Countries</a>
+								<a class="nav-link" href="/contact">Africa</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/contact">Americas</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/contact">Asia</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/contact">Australia</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/contact">Europe</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle {% block country_active %}{% endblock %}" href="/contact" id="navbarDropdown2" role="button"
+								   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								  More
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown2" style="">
+									{% if user.is_authenticated %}
+									<a class="dropdown-item" href="/country">Add Article</a>
+									{% endif %}
+								</div>
 							</li>
 						</ul>
-
-						<form method="get" action="/" class="d-inline form-inline my-2 my-lg-0 mx-5">
-							<input class="form-control mr-sm-2" id="s" name="s" type="search" placeholder="..."
-								   aria-label="Search" style="background-color: #541C51; color: white;">
-							<button class="btn btn-light my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
-<!--							<button class="btn btn-light my-2 my-sm-0" type="submit">Search</button>-->
-						</form>
-
-							  <a id="desktop-scroll" class="d-none d-md-inline nav-link scroll-btn"><i class="fa fa-flash" style="color: white; font-size: 150%;"></i></a>
-
 
 
 	<!--					  <li class="nav-item">-->
@@ -112,7 +118,17 @@
 <!--								<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>-->
 <!--							</div>-->
 <!--						</div>-->
+						  <div class="d-inline text-right">
+							<form method="get" action="/" class="d-inline form-inline my-2 my-lg-0 mx-5" id="search-form">
+								<input class="form-control mr-sm-2" id="s" name="s" type="search"
+									   aria-label="Search" style="background-color: black; outline: 0; color: white; border-width: 0 0 2px; display: none;" value="{{keyword}}" onchange="$('#search-form').submit()">
+	<!--							<button class="btn btn-light my-2 my-sm-0" type="submit">Search</button>-->
+							</form>
+							<button class="btn btn-black my-2 my-sm-0" onclick="$('#s').toggle()"><i class="fa fa-search" style="font-size: 120%;"></i></button>
+							<a id="desktop-scroll" class="d-none d-md-inline nav-link scroll-btn"><i class="fa fa-flash" style="color: white; font-size: 150%;"></i></a>
+						  </div>
 						  <div class="d-inline my-2 my-lg-0 float-right">
+
 							<ul class="navbar-nav mr-auto myNavUl">
 <!--								<li class="d-inline nav-item" style="width: 13%; height: 7%;">-->
 <!--									<a id="desktop-scroll" class="nav-link scroll-btn"><i class="fa fa-flash" style="color: white;"></i></a>-->
@@ -121,14 +137,14 @@
 							{% if not user.is_authenticated %}
 							<li class="nav-item d-inline my-2 mx-2 my-lg-0">
 								<a class="nav-link" href="/accounts/login">
-									<i class="fa fa-sign-in" style="color: white;"> Sign in</i>
+									<i class="fa fa-sign-in" style="color: white;"> Log In</i>
 								</a>
 							</li>
-							<li class="nav-item d-inline my-2 mx-2 my-lg-0">
-								<a class="nav-link" href="/accounts/signup">
-									<i class="fa fa-user-plus" style="color: white;"> Sign Up</i>
-								</a>
-								</li>
+<!--							<li class="nav-item d-inline my-2 mx-2 my-lg-0">-->
+<!--								<a class="nav-link" href="/accounts/signup">-->
+<!--									<i class="fa fa-user-plus" style="color: white;"> Sign Up</i>-->
+<!--								</a>-->
+<!--							</li>-->
 							{% else %}
 
 							<li class="nav-item d-inline my-2 mx-2 my-lg-0">

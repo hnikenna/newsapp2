@@ -23,7 +23,7 @@ function Scroller(scrollBtn) {
                 scrollBtn.innerHTML = '<i class="fa fa-flash" style="color: white; font-size: 150%;"></i>'
             } else {
                 if(window.location.pathname === '/') {
-                    scrolldelay = setTimeout(function(){Scroller(scrollBtn)},3000);
+                    scrolldelay = setTimeout(function(){Scroller(scrollBtn)},2000);
                     } else {
                         scrolldelay = setTimeout(function(){Scroller(scrollBtn)},50);
                     }

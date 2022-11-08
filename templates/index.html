@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block news_active %}active{% endblock %}
-{% block title %}World News{% endblock %}
+{% block title %}Breaking News{% endblock %}
 {% block content %}
 
 <!--			Top News Section-->
@@ -9,7 +9,15 @@
 			<h5 class="d-block d-md-none text-center">Swipe up</h5>
 			<div class="col-md-12 noPadding text-center">
 
-				<h1 class="titleText">Latest Articles</h1>
+
+					{% if all_article_list.count == 0 and keyword is not None %}
+					<h4>Your search for <b>{{keyword}}</b> did not match any results.</h4>
+					{% elif keyword is not None and keyword != '' %}
+					<h3>Displaying result for <b>{{keyword}}</b></h3>
+					{% else %}
+					<h1 class="titleText">Breaking News Network</h1>
+					{% endif %}
+
 				<hr style="height: 2px; border: 0;  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 <!--				<img class="withBottom" src="{% static 'img/shapegreen.png' %}">-->
 			</div>
@@ -53,21 +61,23 @@
 						<div class="container">
 							<div id="country-box" class="d-none d-md-inline pull-right col-1">
 								<div>
-										{%comment%}{% if article.country.code != 'xx' %}
+
+									{% if article.country.code != 'xx' %}
 									<img
 										class="mt-5" src="{% static 'flags'%}/{{article.country.get_path_1}}"
-										style="width: 100%; clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);"
+										style="width: 80%; clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);"
 										title="News from {{article.country}}"
 										alt="{{article.country}} Flag"
 									>
 									<b>{{article.country}}</b>
 									{% else %}
 
-									{% endif %}{% endcomment %}
+									{% endif %}
+
 
 									<img
-										class="mt-5" src="{% static 'categories'%}/{{article.category}}.svg"
-										style="width: 100%; /*border-radius: 20%; background: url({% static 'flags'%}/{{article.country.get_path_1}});*/"
+										class="mt-5 shine" src="{% static 'categories'%}/{{article.category}}.svg"
+										style="width: 80%; /*border-radius: 20%; background: url({% static 'flags'%}/{{article.country.get_path_1}});*/"
 										title="Article in {{article.category}}"
 										alt="{{article.category}} category icon"
 									>
@@ -75,15 +85,15 @@
 
 								</div>
 
-								<div>
-									<img
-									class="mt-5" src="{% static 'img/timetable.png' %}"
-									style="width: 50%;"
-									title="News from {{article.country}}"
-									alt="{{article.country}} Flag"
-									>
-									<p>{{article.date}}</p>
-								</div>
+<!--								<div id="date-block">-->
+<!--									<img-->
+<!--									class="mt-5" src="{% static 'img/timetable.png' %}"-->
+<!--									style="width: 50%;"-->
+<!--									title="News from {{article.country}}"-->
+<!--									alt="{{article.country}} Flag"-->
+<!--									>-->
+<!--									<p>{{article.date}}</p>-->
+<!--								</div>-->
 
 							</div>
 							<h4 class="d-block d-lg-none absTitle"><b>{{ article.get_title }}</b></h4>
@@ -91,12 +101,12 @@
 								<div class="col-3">
 									<div class="d-none d-lg-block">
 										<h2 class="absTitle">{{ article.yes_vote }}</h2>
-										<img src="{% static 'img/like.svg' %}" width="40%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="yes">
+										<img src="{% static 'img/like.svg' %}" width="40%" class="shine /*vote*/" data-slug="{{ article.slug }}" data-poll="yes">
 										<p class="absText">Like</p>
 									</div>
 									<div class="d-block d-lg-none">
 										<h4 class="absTitle">{{ article.yes_vote }}</h4>
-										<img src="{% static 'img/like.svg' %}" width="100%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="yes">
+										<img src="{% static 'img/like.svg' %}" width="100%" class="shine /*vote*/" data-slug="{{ article.slug }}" data-poll="yes">
 										<p class="absText">Like</p>
 									</div>
 
@@ -123,18 +133,19 @@
 <!--										{{ article.get_shorter_content }}-->
 <!--									</small>-->
 
-									<a href="{{ article.get_absolute_url }}"><button class="btn btn-default zoom mt-2">Read More</button></a>
+<!--									<a href="{{ article.get_absolute_url }}"><button class="btn btn-main zoom mt-2">Read More</button></a>-->
+									<p class="d-none d-lg-block m-2"> {{article.date}}</p>
 									<small class="d-block d-lg-none m-2"> {{article.date}}</small>
 								</div>
 								<div class="col-3">
 									<div class="d-none d-lg-block">
 										<h2 class="absTitle">{{ article.no_vote }}</h2>
-										<img src="{% static 'img/dislike.svg' %}" width="40%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
+										<img src="{% static 'img/dislike.svg' %}" width="40%" class="shine /*vote*/" data-slug="{{ article.slug }}" data-poll="no">
 										<p class="absText">Dislike</p>
 									</div>
 									<div class="d-block d-lg-none">
 										<h4 class="absTitle">{{ article.no_vote }}</h4>
-										<img src="{% static 'img/dislike.svg' %}" width="100%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
+										<img src="{% static 'img/dislike.svg' %}" width="100%" class="shine /*vote*/" data-slug="{{ article.slug }}" data-poll="no">
 										<p class="absText">Dislike</p>
 									</div>
 

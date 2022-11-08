@@ -38,7 +38,6 @@ class Award(models.Model):
     ROTATE = 'rotate'
     GLOW = 'glow'
     SHAKE = 'shake'
-    SHAKE = 'shake'
     SPIN = 'spin'
 
     ANIMATION_CHOICES = [
@@ -57,8 +56,10 @@ class Award(models.Model):
 
     @property
     def btc_price(self):
-        btc_price = self.price * (10 ** -8)
-        return btc_price
+        btc = 8831103.48
+        btc_price = float(self.price) / btc
+        # btc_price = self.price * (10 ** -8)
+        return "%.7f" % btc_price
 
 
 class AwardItem(models.Model):
@@ -87,7 +88,7 @@ class AwardItem(models.Model):
 
 class Reply(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    date = models.DateTimeField(editable=True)
+    date = models.DateTimeField(auto_now_add=True, editable=True)
     recipent = models.CharField(max_length=50, null=True)
     content = models.TextField()
     yes_vote = models.IntegerField(default=0)

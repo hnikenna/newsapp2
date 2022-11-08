@@ -34,8 +34,8 @@ body {
     padding-top: 10px !important;
     padding-bottom: 0px;
     padding: 10px 20px;
-    font-size: 12pt;
-    font-weight: bold;
+    font-size: 10pt;
+    font-weight: normal;
     text-transform: uppercase;
     font-family: 'Rubik.disabled', serif;
     color: #00e099;
@@ -1140,6 +1140,18 @@ html {
     background-color: #4D1C4A;
 }
 
+.btn-black {
+    color: #F5F5F5;
+    background-color: black;
+}
+.btn-black:focus {
+    color: #F5F5F5;
+}
+.btn-black:hover {
+    color: white;
+    background-color: #292929;
+}
+
 .btn-extra {
   width: 140px;
   height: 45px;
@@ -1341,3 +1353,13 @@ input[type="file"] {
     font-weight: bold;
 }
 
+.shine {
+    filter: invert(96%) sepia(0%) saturate(7485%) hue-rotate(187deg) brightness(102%) contrast(106%);
+}
+
+.logo-text {
+    color: white;
+    background-color: #3F1B3C;
+    font-weight: bolder;
+    font-family: Georgia, serif;
+}

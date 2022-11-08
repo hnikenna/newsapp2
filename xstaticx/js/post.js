@@ -330,7 +330,7 @@ function logAward(log_data){
 
     .then((data) => {
         console.log('data:', data)
-        alerT('', data, 'green')
+//        alerT('', data, 'green')
 //        location.reload()
     })
 

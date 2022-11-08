@@ -28,7 +28,7 @@
             <h4><a href="#discussion">{{article.comments_count}}</a></h4>
 <!--            <h3 class="text-center border">₦ 1,280,000</h3>-->
             <h4 class="text-center">News from <strong>{{article.country}}</strong> <img src="{% static 'flags'%}/{{article.country.get_path_2 }}    " style="width: 32px; height: 32px; border-radius: 50%;"></h4>
-            <h4>{{ article.date }} - <span class="time">{{article.time_ago }} </span><span class="d-none d-md-inline"><img src="{% static 'img/dot_button.png' %}" width="5%"><a href="#"> {{ article.username }}</a></span></h4>
+            <h4>{{ article.date }} <!-- - <span class="time">{{article.time_ago }} </span>--><span class="d-none d-md-inline"><img src="{% static 'img/dot_button.png' %}" width="5%"><a href="#"> {{ article.username }}</a></span></h4>
         </section>
 
 </div>
@@ -662,7 +662,7 @@
             <h3 class="text-center">More from {{article.country}}</h3><hr/>
 <!--            <hr/>-->
             {% for article in in_featured %}
-                <div class="card sidebar country text-center" style="background-image: url({% static 'flags' %}/{{ article.country.get_path_1 }}); position: relative;">
+                <div class="card sidebar country text-center" style="background-image: url({% static 'flags' %}/{{ article.country.get_path_2 }}); position: relative;">
                     <div class="blurry" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0"></div>
                     <div class="card-content text-center zoom"style="position: relative;" >
                             <a href="{{article.get_absolute_url}}" style="text-decoration: none; color: #EFF1ED;">
@@ -688,7 +688,7 @@
             <h3 class="text-center">Featured Articles</h3><hr/>
 <!--            <hr/>-->
             {% for article in featured %}
-                <div class="card sidebar country text-center" style="background-image: url({% static 'flags' %}/{{ article.country.get_path_1 }}); position: relative;">
+                <div class="card sidebar country text-center" style="background-image: url({% static 'flags' %}/{{ article.country.get_path_2 }}); position: relative;">
                     <div class="blurry" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0"></div>
                     <div class="card-content text-center zoom"style="position: relative;" >
                             <a href="{{article.get_absolute_url}}" style="text-decoration: none; color: #EFF1ED;">

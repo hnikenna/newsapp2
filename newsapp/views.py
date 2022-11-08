@@ -33,7 +33,7 @@ def home(request):
         # countries = Country.objects.filter(name__icontains=keyword)
         # all_articles = Article.objects.filter(country__in=countries)
         all_articles = Article.objects.filter(title__icontains=keyword)
-    context = {'all_article_list': all_articles}
+    context = {'all_article_list': all_articles, 'keyword': keyword}
     return render(request, 'index.html', context)
 
 
