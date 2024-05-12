@@ -15,9 +15,8 @@
 					{% elif keyword is not None and keyword != '' %}
 					<h3>Displaying result for <b>{{keyword}}</b></h3>
 					{% else %}
-					<h1 class="titleText">Breaking News Network</h1>
+					<h1 class="titleText">Breaking News</h1>
 					{% endif %}
-
 				<hr style="height: 2px; border: 0;  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 <!--				<img class="withBottom" src="{% static 'img/shapegreen.png' %}">-->
 			</div>
@@ -101,12 +100,12 @@
 								<div class="col-3">
 									<div class="d-none d-lg-block">
 										<h2 class="absTitle">{{ article.yes_vote }}</h2>
-										<img src="{% static 'img/like.svg' %}" width="40%" class="shine /*vote*/" data-slug="{{ article.slug }}" data-poll="yes">
+										<img src="{% static 'img/like.svg' %}" width="40%" class="shine vote" data-slug="{{ article.slug }}" data-poll="yes">
 										<p class="absText">Like</p>
 									</div>
 									<div class="d-block d-lg-none">
 										<h4 class="absTitle">{{ article.yes_vote }}</h4>
-										<img src="{% static 'img/like.svg' %}" width="100%" class="shine /*vote*/" data-slug="{{ article.slug }}" data-poll="yes">
+										<img src="{% static 'img/like.svg' %}" width="100%" class="shine vote" data-slug="{{ article.slug }}" data-poll="yes">
 										<p class="absText">Like</p>
 									</div>
 
@@ -140,12 +139,12 @@
 								<div class="col-3">
 									<div class="d-none d-lg-block">
 										<h2 class="absTitle">{{ article.no_vote }}</h2>
-										<img src="{% static 'img/dislike.svg' %}" width="40%" class="shine /*vote*/" data-slug="{{ article.slug }}" data-poll="no">
+										<img src="{% static 'img/dislike.svg' %}" width="40%" class="shine vote" data-slug="{{ article.slug }}" data-poll="no">
 										<p class="absText">Dislike</p>
 									</div>
 									<div class="d-block d-lg-none">
 										<h4 class="absTitle">{{ article.no_vote }}</h4>
-										<img src="{% static 'img/dislike.svg' %}" width="100%" class="shine /*vote*/" data-slug="{{ article.slug }}" data-poll="no">
+										<img src="{% static 'img/dislike.svg' %}" width="100%" class="shine vote" data-slug="{{ article.slug }}" data-poll="no">
 										<p class="absText">Dislike</p>
 									</div>
 

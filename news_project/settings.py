@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-f*t#0i-92^a=67ac+7wa*26_8jjk7g^x2dggm_zoo5w39le_k@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', 'news.beans.ng', 'https://news.beans.ng', 'www.news.beans.ng']
 
 
 # Application definition
@@ -130,9 +130,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/assets/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'xstaticx']
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+# STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = BASE_DIR / '../public_html/static'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
@@ -153,13 +154,19 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Email
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# EMAIL_HOST = 'smtp.sendgrid.net'
-# EMAIL_PORT = 587
-# EMAIL_HOST_USER = 'testsite_app'
-# EMAIL_HOST_PASSWORD = 'mys3cr3tp4ssw0rd'
-# EMAIL_USE_TLS = True
-# DEFAULT_FROM_EMAIL = 'TestSite Team <noreply@example.com>'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'mail.beans.ng'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'mailer-0001@beans.ng'
+EMAIL_HOST_PASSWORD = SECRET_KEY
+EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
+# EMAIL_PORT = 26
+# EMAIL_USE_SSL = True
+DEFAULT_FROM_EMAIL = 'BEANS NEWS <no-reply@news.beans.ng>'
+SERVER_EMAIL = 'webmaster@beans.ng'
 
 # API
 REST_FRAMEWORK = {

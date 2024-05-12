@@ -16,7 +16,13 @@ Country Settings
     Random country - <a href="https://www.google.com/search?q={{choice}}+country+news&tbm=nws" target="_blank" rel="noreferrer">{{choice}}</a>
     <img class="" src="{% static 'flags' %}/{{choice.get_path_1}}" style="width: 5%; border-radius: 50%; border: 2px solid silver">
 </h2>
-<h3><a href="/admin/newsapp/article/add/" target="_blank">Add article</a></h3>
+<div id="action-box" cass="m-3">
+    <a href="/admin/newsapp/article/add/" target="_blank" class="btn btn-success">Add article</a>
+
+    <a href="https://www.paraphraser.io/article-rewriter" target="_blank" class="btn btn-info">Paraphraser</a>
+
+</div>
+
 <br>
 <div class="card" style="border-radius: 15px; background-color: #f3f3f3;">
 {% for country in countries %}

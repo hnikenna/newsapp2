@@ -5,11 +5,12 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>BNN - {% block title %}{% endblock %}</title>
+		<title>{% block title %}{% endblock %} - BNN - Better News Network</title>
 		<meta name="description" content="">
 		<meta name="author" content="Cemre Tellioğlu Tunçay">
-		<link rel="icon" type="image/png" href="{% static 'img/v.png' %}" sizes="32x32"/>
-		<link rel="icon" type="image/png" href="{% static 'img/v.png' %}" sizes="16x16" />
+		<link rel="icon" type="image/png" href="{% static 'img/beans-32.png' %}" sizes="32x32"/>
+		<!--<link rel="icon" type="image/png" href="{% static 'img/beans-192.png' %}" sizes="192x192" />-->
+		<!--<link rel="icon" type="image/png" href="{% static 'img/beans.png' %}" sizes="512x512" />-->
 		<link href="https://fonts.googleapis.com/css?family=Garamond&display=swap&subset=latin-ext" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 		<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
@@ -32,11 +33,11 @@
 
 		<div id="body">
 			<div class="header mt-0 pb-0" id="navHeader"> <!--style="height: 78px;">-->
-					<nav class="navbar navbar-expand-lg navbar-dark myNavbar border-0 py-3" style="background: black;">
+					<nav class="navbar navbar-expand-lg navbar-dark myNavbar border-0 py-3" style="background: black; border-radius: 0px;">
 					  <a class="navbar-brand-inline mr-2" href="/">
 <!--						  <img class="m-2" src="{% static 'img/logo-light.png' %}" style="width: 64px; border-radius: 35%;"/>-->
 						  <h3 class="d-inline px-5">
-							  <span class="p-4 logo-text">BNN</span>
+							  <span class="logo-text">Better News</span>
 						  </h3>
 					  </a>
 					  <button class="navbar-toggler"
@@ -136,7 +137,7 @@
 
 							{% if not user.is_authenticated %}
 							<li class="nav-item d-inline my-2 mx-2 my-lg-0">
-								<a class="nav-link" href="/accounts/login">
+								<a class="nav-link" href="/accounts/login?next={{request.path}}">
 									<i class="fa fa-sign-in" style="color: white;"> Log In</i>
 								</a>
 							</li>
@@ -203,7 +204,7 @@
 					<li><a class="dropdown-item" href="/contact">Requests</a></li>
 					<li><a class="dropdown-item" href="/contact">Legal</a></li>
 					<li><a class="dropdown-item" href="/contact">Credits</a></li>
-					<li><a class="dropdown-item" href="/contact">Partnership| partnership@venus.com</a></li>
+					<li><a class="dropdown-item" href="/contact">Partnership| partnership@{{request.META.HTTP_HOST}}</a></li>
 
 
 
@@ -213,7 +214,7 @@
 			  <div class="col-6 col-md-3">
 				<!--Column1-->
 				<div class="footer-pad">
-				  <h4 class="pl-4">About</h4>
+				  <h4 class="pl-4">About BNN</h4>
 				  <ul class="list-unstyled">
 <!--					<li><a class="dropdown-item" href="/contact">Venus Guide</a></li>-->
 					<li><a class="dropdown-item" href="/contact">Who we are</a></li>
@@ -228,7 +229,7 @@
 			  <div class="col-6 col-md-3">
 				<!--Column1-->
 				<div class="footer-pad">
-				  <h4 class="pl-4">Earn with Venus</h4>
+				  <h4 class="pl-4">Earn with Us</h4>
 					<ul class="list-unstyled">
 						<li><a class="dropdown-item" href="/contact">Readers</a></li>
 						<li><a class="dropdown-item" href="/contact">Freelancers</a></li>
@@ -268,7 +269,7 @@
 			</div>
 			<div class="row">
 			<div class="col-md-12 copy py-3 my-5">
-			  <p class="text-center">&copy; Copyright 2022 - Venus.  All rights reserved.</p>
+			  <p class="text-center">&copy; Copyright 2024 - Better News Network.  All rights reserved.</p>
 			</div>
 			</div>
 

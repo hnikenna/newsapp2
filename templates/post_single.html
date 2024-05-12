@@ -74,12 +74,12 @@
                                 <div class="d-flex justify-content-between">
                                     <div class="container text-center">
                                         <h5 class="absTitle">{{ article.yes_vote }}</h5>
-                                        <img src="{% static 'img/white_people.png' %}" width="50%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
+                                        <img src="{% static 'img/like.svg' %}" width="50%" class="shine vote" data-slug="{{ article.slug }}" data-poll="no">
     <!--                                        <p class="absText">Like</p>-->
                                     </div>
                                     <div class="container text-center">
                                         <h5 class="absTitle">{{ article.no_vote }}</h5>
-                                        <img src="{% static 'img/black_people.png' %}" width="50%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
+                                        <img src="{% static 'img/dislike.svg' %}" width="50%" class="shine vote" data-slug="{{ article.slug }}" data-poll="no">
     <!--                                        <p class="absText">Dislike</p>-->
                                     </div>
                                 </div>
@@ -100,12 +100,12 @@
                                 <div class="d-flex justify-content-between">
                                     <div class="container text-center">
                                         <h5 class="absTitle">{{ article.yes_vote }}</h5>
-                                        <img src="{% static 'img/white_people.png' %}" width="50%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
+                                        <img src="{% static 'img/like.svg' %}" width="50%" class="shine vote" data-slug="{{ article.slug }}" data-poll="no">
     <!--                                        <p class="absText">Like</p>-->
                                     </div>
                                     <div class="container text-center">
                                         <h5 class="absTitle">{{ article.no_vote }}</h5>
-                                        <img src="{% static 'img/black_people.png' %}" width="50%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
+                                        <img src="{% static 'img/dislike.svg' %}" width="50%" class="shine vote" data-slug="{{ article.slug }}" data-poll="no">
     <!--                                        <p class="absText">Dislike</p>-->
                                     </div>
                                 </div>
@@ -373,7 +373,7 @@
                                                                         {% if user.is_authenticated %}
                                                                         <button class="btn btn-main ml-4 buyGift" data-auth="" data-id="{{awarditem.get_anon_id}}" data-owner="{{user}}" data-parent="" data-award="{{award.id}}" data-extra="{{award.btc_price}}, {{award.name}}, {{user.email}}">Buy</button>
                                                                         {% else %}
-                                                                        <button class="btn btn-main ml-4 buyGift" data-auth="guest" data-id="{{awarditem.get_anon_id}}" data-owner="{{comment.author}}" data-parent="{{comment.get_anon_id}}" data-award="{{award.id}}" data-extra="{{award.btc_price}}, {{award.name}}, guest@smartmoneyjr.com">Gift</button>
+                                                                        <button class="btn btn-main ml-4 buyGift" data-auth="guest" data-id="{{awarditem.get_anon_id}}" data-owner="{{comment.author}}" data-parent="{{comment.get_anon_id}}" data-award="{{award.id}}" data-extra="{{award.btc_price}}, {{award.name}}, anonymous@{{request.META.HTTP_HOST}}">Gift</button>
                                                                         {% endif %}
                                                                     </td>
                                                                 </tr>
@@ -594,7 +594,7 @@
                                                                         {% if user.is_authenticated %}
                                                                         <button class="btn btn-main ml-4 buyGift" data-auth="" data-id="{{awarditem.get_anon_id}}" data-owner="{{user}}" data-parent="" data-award="{{award.id}}" data-extra="{{award.btc_price}}, {{award.name}}, {{user.email}}">Buy</button>
                                                                         {% else %}
-                                                                        <button class="btn btn-main ml-4 buyGift" data-auth="guest" data-id="{{awarditem.get_anon_id}}" data-owner="{{reply.author}}" data-parent="{{reply.get_anon_id}}" data-award="{{award.id}}" data-extra="{{award.btc_price}}, {{award.name}}, guest@email.com">Gift</button>
+                                                                        <button class="btn btn-main ml-4 buyGift" data-auth="guest" data-id="{{awarditem.get_anon_id}}" data-owner="{{reply.author}}" data-parent="{{reply.get_anon_id}}" data-award="{{award.id}}" data-extra="{{award.btc_price}}, {{award.name}}, anonymous@{{request.META.HTTP_HOST}}">Gift</button>
                                                                         {% endif %}
 
                                                                     </td>
@@ -670,12 +670,12 @@
                                 <div class="d-flex justify-content-between">
                                     <div class="container text-center">
                                         <h5 class="absTitle">{{ article.yes_vote }}</h5>
-                                        <img src="{% static 'img/white_people.png' %}" width="50%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
+                                        <img src="{% static 'img/like.svg' %}" width="50%" class="shine vote" data-slug="{{ article.slug }}" data-poll="no">
     <!--                                        <p class="absText">Like</p>-->
                                     </div>
                                     <div class="container text-center">
                                         <h5 class="absTitle">{{ article.no_vote }}</h5>
-                                        <img src="{% static 'img/black_people.png' %}" width="50%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
+                                        <img src="{% static 'img/dislike.svg' %}" width="50%" class="shine vote" data-slug="{{ article.slug }}" data-poll="no">
     <!--                                        <p class="absText">Dislike</p>-->
                                     </div>
                                 </div>
@@ -696,12 +696,12 @@
                                 <div class="d-flex justify-content-between">
                                     <div class="container text-center">
                                         <h5 class="absTitle">{{ article.yes_vote }}</h5>
-                                        <img src="{% static 'img/white_people.png' %}" width="50%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
+                                        <img src="{% static 'img/like.svg' %}" width="50%" class="shine vote" data-slug="{{ article.slug }}" data-poll="no">
     <!--                                        <p class="absText">Like</p>-->
                                     </div>
                                     <div class="container text-center">
                                         <h5 class="absTitle">{{ article.no_vote }}</h5>
-                                        <img src="{% static 'img/black_people.png' %}" width="50%" class="/*vote*/" data-slug="{{ article.slug }}" data-poll="no">
+                                        <img src="{% static 'img/dislike.svg' %}" width="50%" class="shine vote" data-slug="{{ article.slug }}" data-poll="no">
     <!--                                        <p class="absText">Dislike</p>-->
                                     </div>
                                 </div>

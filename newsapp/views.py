@@ -3,6 +3,7 @@ import random
 
 from html_sanitizer import Sanitizer
 from django.utils.datastructures import MultiValueDictKeyError
+
 sanitizer = Sanitizer()
 
 from django.http import JsonResponse
@@ -42,7 +43,7 @@ def post(request, slug):
     article = get_object_or_404(Article, slug=slug)
     all_awards = Award.objects.all()
     in_featured = Article.objects.filter(country=article.country.id).exclude(slug=article.slug).order_by('-id')[:3]
-    featured = Article.objects.exclude(country=article.country.id).order_by('-id')[:3-len(in_featured)]
+    featured = Article.objects.exclude(country=article.country.id).order_by('-id')[:3 - len(in_featured)]
 
     # Code to display user article choices on page
     articleVoteItems = article.get_votes

@@ -367,42 +367,44 @@ function makePayment(extras, award_data, award_quantity=1) {
     var log_data = {'status': 'initialized', 'email': email, 'price': price, 'award': award_name}
         
     FlutterwaveCheckout({
-        public_key: "FLWPUBK_TEST-SANDBOXDEMOKEY-X",
+        public_key: "FLWPUBK-e0ff1336baf32ef5198a88506a9b7537-X",
         tx_ref: "tr-" + randx(12),
         amount: price,
         currency: "NGN",
-        payment_options: "card, banktransfer, ussd",
+        // payment_options: "card, banktransfer, ussd",
         callback: function(payment){
-        if(payment.status == 'successful' || payment.status == 'completed'){
-            sendAward(award_data, award_quantity);
-            log_data.status = 'processing'
-            logAward(log_data)
-        }else{
-            log_data.status = 'unsuccessful'
-            logAward(log_data)
-        }
+            alerT('', 'Processing...', '#12081a');
         
-    },
-    onclose: function(incomplete) {
-        if (incomplete === true) {
-            // Record event in analytics
-            log_data.status = 'incomplete'
-            logAward(log_data)
-        }},
-        //   redirect_url: "https://glaciers.titanic.com/handle-flutterwave-payment",
-        //   redirect_url: "javascript: window.history.go(0)",
-        // meta: {consumer_id: 23, consumer_mac: "92a3-912ba-1192a",},
-        customer: {
-        email: email,
-        // name: "Rose DeWitt Bukater",
+            if(payment.status == 'successful' || payment.status == 'completed'){
+                sendAward(award_data, award_quantity);
+                log_data.status = 'processing'
+                logAward(log_data)
+            }else{
+                log_data.status = 'unsuccessful'
+                logAward(log_data)
+            }
+            
         },
-        customizations: {
-        title: "You will Receive \n'" + award_name + "' X" + award_quantity,
-        description: "The place to be..",
-        logo: "http://127.0.0.1:8000/assets/img/v.png",
-        },
-    });
-    }
+        onclose: function(incomplete) {
+            if (incomplete === true) {
+                // Record event in analytics
+                log_data.status = 'incomplete'
+                logAward(log_data)
+            }},
+            //   redirect_url: "https://glaciers.titanic.com/handle-flutterwave-payment",
+            //   redirect_url: "javascript: window.history.go(0)",
+            // meta: {consumer_id: 23, consumer_mac: "92a3-912ba-1192a",},
+            customer: {
+            email: email,
+            // name: "Rose DeWitt Bukater",
+            },
+            customizations: {
+            title: "EducationAI FLW",
+            description: "You will Receive \n'" + award_name + "' X" + award_quantity,
+            logo: "http://beans.ng/assets/images/icon.png",
+            },
+        });
+        }
 
       
 // Delete Buttons
